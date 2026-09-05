@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" role="img" aria-label="Herbal Medicines">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#517f65"/>
+      <stop offset="1" stop-color="#012f15"/>
+    </linearGradient>
+  </defs>
+  <rect width="400" height="300" fill="url(#g)"/>
+  <g transform="translate(384.28256529582785 145.64037329779956) rotate(243.33549510842911) scale(0.8403251649999643)" opacity="0.14547626498410304">
+    <path d="M0 0 C 18 -30 18 -70 0 -96 C -18 -70 -18 -30 0 0 Z" fill="#ffffff"/>
+    <path d="M0 -6 L0 -90" stroke="#e6e6e6" stroke-width="2.5" fill="none"/>
+    <path d="M0 -28 C 7 -34 12 -40 14 -48 M0 -44 C 7 -50 12 -56 14 -64 M0 -60 C 7 -66 12 -72 14 -80" stroke="#e6e6e6" stroke-width="1.6" fill="none"/>
+    <path d="M0 -28 C -7 -34 -12 -40 -14 -48 M0 -44 C -7 -50 -12 -56 -14 -64 M0 -60 C -7 -66 -12 -72 -14 -80" stroke="#e6e6e6" stroke-width="1.6" fill="none"/>
+  </g><g transform="translate(11.267852788450128 93.51197075727953) rotate(187.30213174005138) scale(1.2178042415612398)" opacity="0.1227581882675915">
+    <path d="M0 0 C 18 -30 18 -70 0 -96 C -18 -70 -18 -30 0 0 Z" fill="#ffffff"/>
+    <path d="M0 -6 L0 -90" stroke="#e6e6e6" stroke-width="2.5" fill="none"/>
+    <path d="M0 -28 C 7 -34 12 -40 14 -48 M0 -44 C 7 -50 12 -56 14 -64 M0 -60 C 7 -66 12 -72 14 -80" stroke="#e6e6e6" stroke-width="1.6" fill="none"/>
+    <path d="M0 -28 C -7 -34 -12 -40 -14 -48 M0 -44 C -7 -50 -12 -56 -14 -64 M0 -60 C -7 -66 -12 -72 -14 -80" stroke="#e6e6e6" stroke-width="1.6" fill="none"/>
+  </g><g transform="translate(113.69056706954285 236.63721095614005) rotate(305.1284409990201) scale(1.0083516123743503)" opacity="0.11280455590822015">
+    <path d="M0 0 C 18 -30 18 -70 0 -96 C -18 -70 -18 -30 0 0 Z" fill="#ffffff"/>
+    <path d="M0 -6 L0 -90" stroke="#e6e6e6" stroke-width="2.5" fill="none"/>
+    <path d="M0 -28 C 7 -34 12 -40 14 -48 M0 -44 C 7 -50 12 -56 14 -64 M0 -60 C 7 -66 12 -72 14 -80" stroke="#e6e6e6" stroke-width="1.6" fill="none"/>
+    <path d="M0 -28 C -7 -34 -12 -40 -14 -48 M0 -44 C -7 -50 -12 -56 -14 -64 M0 -60 C -7 -66 -12 -72 -14 -80" stroke="#e6e6e6" stroke-width="1.6" fill="none"/>
+  </g><g transform="translate(76.10893253055818 66.78000393639319) rotate(125.8290768255615) scale(1.2119672719444927)" opacity="0.1026773381338815">
+    <path d="M0 0 C 18 -30 18 -70 0 -96 C -18 -70 -18 -30 0 0 Z" fill="#ffffff"/>
+    <path d="M0 -6 L0 -90" stroke="#e6e6e6" stroke-width="2.5" fill="none"/>
+    <path d="M0 -28 C 7 -34 12 -40 14 -48 M0 -44 C 7 -50 12 -56 14 -64 M0 -60 C 7 -66 12 -72 14 -80" stroke="#e6e6e6" stroke-width="1.6" fill="none"/>
+    <path d="M0 -28 C -7 -34 -12 -40 -14 -48 M0 -44 C -7 -50 -12 -56 -14 -64 M0 -60 C -7 -66 -12 -72 -14 -80" stroke="#e6e6e6" stroke-width="1.6" fill="none"/>
+  </g><g transform="translate(86.31658558096578 30.44265212046106) rotate(319.5639611778613) scale(1.2925560657365975)" opacity="0.1476953745203537">
+    <path d="M0 0 C 18 -30 18 -70 0 -96 C -18 -70 -18 -30 0 0 Z" fill="#ffffff"/>
+    <path d="M0 -6 L0 -90" stroke="#e6e6e6" stroke-width="2.5" fill="none"/>
+    <path d="M0 -28 C 7 -34 12 -40 14 -48 M0 -44 C 7 -50 12 -56 14 -64 M0 -60 C 7 -66 12 -72 14 -80" stroke="#e6e6e6" stroke-width="1.6" fill="none"/>
+    <path d="M0 -28 C -7 -34 -12 -40 -14 -48 M0 -44 C -7 -50 -12 -56 -14 -64 M0 -60 C -7 -66 -12 -72 -14 -80" stroke="#e6e6e6" stroke-width="1.6" fill="none"/>
+  </g><g transform="translate(25.19435883741563 189.10833307966047) rotate(9.285292629751048) scale(1.0383064153782589)" opacity="0.10458693807226929">
+    <path d="M0 0 C 18 -30 18 -70 0 -96 C -18 -70 -18 -30 0 0 Z" fill="#ffffff"/>
+    <path d="M0 -6 L0 -90" stroke="#e6e6e6" stroke-width="2.5" fill="none"/>
+    <path d="M0 -28 C 7 -34 12 -40 14 -48 M0 -44 C 7 -50 12 -56 14 -64 M0 -60 C 7 -66 12 -72 14 -80" stroke="#e6e6e6" stroke-width="1.6" fill="none"/>
+    <path d="M0 -28 C -7 -34 -12 -40 -14 -48 M0 -44 C -7 -50 -12 -56 -14 -64 M0 -60 C -7 -66 -12 -72 -14 -80" stroke="#e6e6e6" stroke-width="1.6" fill="none"/>
+  </g>
+  <g transform="translate(200 190) rotate(-18) scale(1)" opacity="0.92">
+    <path d="M0 0 C 18 -30 18 -70 0 -96 C -18 -70 -18 -30 0 0 Z" fill="#faf6ec"/>
+    <path d="M0 -6 L0 -90" stroke="#e1ddd3" stroke-width="2.5" fill="none"/>
+    <path d="M0 -28 C 7 -34 12 -40 14 -48 M0 -44 C 7 -50 12 -56 14 -64 M0 -60 C 7 -66 12 -72 14 -80" stroke="#e1ddd3" stroke-width="1.6" fill="none"/>
+    <path d="M0 -28 C -7 -34 -12 -40 -14 -48 M0 -44 C -7 -50 -12 -56 -14 -64 M0 -60 C -7 -66 -12 -72 -14 -80" stroke="#e1ddd3" stroke-width="1.6" fill="none"/>
+  </g>
+  <g transform="translate(238 176) rotate(26) scale(0.7)" opacity="0.85">
+    <path d="M0 0 C 18 -30 18 -70 0 -96 C -18 -70 -18 -30 0 0 Z" fill="#6a987e"/>
+    <path d="M0 -6 L0 -90" stroke="#517f65" stroke-width="2.5" fill="none"/>
+    <path d="M0 -28 C 7 -34 12 -40 14 -48 M0 -44 C 7 -50 12 -56 14 -64 M0 -60 C 7 -66 12 -72 14 -80" stroke="#517f65" stroke-width="1.6" fill="none"/>
+    <path d="M0 -28 C -7 -34 -12 -40 -14 -48 M0 -44 C -7 -50 -12 -56 -14 -64 M0 -60 C -7 -66 -12 -72 -14 -80" stroke="#517f65" stroke-width="1.6" fill="none"/>
+  </g>
+</svg>

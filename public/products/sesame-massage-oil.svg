@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" role="img" aria-label="Sesame Oil product">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#c6a33b"/>
+      <stop offset="1" stop-color="#6c4900"/>
+    </linearGradient>
+    <linearGradient id="body" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#d0ad45"/>
+      <stop offset="1" stop-color="#8f6c04"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.5" cy="0.42" r="0.6">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.20"/>
+      <stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="600" height="600" fill="url(#bg)"/>
+  <rect width="600" height="600" fill="url(#glow)"/>
+  <g transform="translate(226.79972659181792 339.3620969445268) rotate(139.2037296943384) scale(1.268605924057125)" opacity="0.1435895228682037">
+    <path d="M0 0 C 18 -30 18 -70 0 -96 C -18 -70 -18 -30 0 0 Z" fill="#ffffff"/>
+    <path d="M0 -6 L0 -90" stroke="#e6e6e6" stroke-width="2.5" fill="none"/>
+    <path d="M0 -28 C 7 -34 12 -40 14 -48 M0 -44 C 7 -50 12 -56 14 -64 M0 -60 C 7 -66 12 -72 14 -80" stroke="#e6e6e6" stroke-width="1.6" fill="none"/>
+    <path d="M0 -28 C -7 -34 -12 -40 -14 -48 M0 -44 C -7 -50 -12 -56 -14 -64 M0 -60 C -7 -66 -12 -72 -14 -80" stroke="#e6e6e6" stroke-width="1.6" fill="none"/>
+  </g><g transform="translate(211.39655123064134 314.8105145966683) rotate(184.50482377060914) scale(0.6729280711491258)" opacity="0.09401889563259617">
+    <path d="M0 0 C 18 -30 18 -70 0 -96 C -18 -70 -18 -30 0 0 Z" fill="#ffffff"/>
+    <path d="M0 -6 L0 -90" stroke="#e6e6e6" stroke-width="2.5" fill="none"/>
+    <path d="M0 -28 C 7 -34 12 -40 14 -48 M0 -44 C 7 -50 12 -56 14 -64 M0 -60 C 7 -66 12 -72 14 -80" stroke="#e6e6e6" stroke-width="1.6" fill="none"/>
+    <path d="M0 -28 C -7 -34 -12 -40 -14 -48 M0 -44 C -7 -50 -12 -56 -14 -64 M0 -60 C -7 -66 -12 -72 -14 -80" stroke="#e6e6e6" stroke-width="1.6" fill="none"/>
+  </g><g transform="translate(97.97474746498035 2.2886395465064044) rotate(272.38132966327544) scale(1.0430606543286987)" opacity="0.08716142058705978">
+    <path d="M0 0 C 18 -30 18 -70 0 -96 C -18 -70 -18 -30 0 0 Z" fill="#ffffff"/>
+    <path d="M0 -6 L0 -90" stroke="#e6e6e6" stroke-width="2.5" fill="none"/>
+    <path d="M0 -28 C 7 -34 12 -40 14 -48 M0 -44 C 7 -50 12 -56 14 -64 M0 -60 C 7 -66 12 -72 14 -80" stroke="#e6e6e6" stroke-width="1.6" fill="none"/>
+    <path d="M0 -28 C -7 -34 -12 -40 -14 -48 M0 -44 C -7 -50 -12 -56 -14 -64 M0 -60 C -7 -66 -12 -72 -14 -80" stroke="#e6e6e6" stroke-width="1.6" fill="none"/>
+  </g><g transform="translate(514.2661037455621 5.7197570827415944) rotate(168.6308670829194) scale(1.2033495187774998)" opacity="0.102734231959439">
+    <path d="M0 0 C 18 -30 18 -70 0 -96 C -18 -70 -18 -30 0 0 Z" fill="#ffffff"/>
+    <path d="M0 -6 L0 -90" stroke="#e6e6e6" stroke-width="2.5" fill="none"/>
+    <path d="M0 -28 C 7 -34 12 -40 14 -48 M0 -44 C 7 -50 12 -56 14 -64 M0 -60 C 7 -66 12 -72 14 -80" stroke="#e6e6e6" stroke-width="1.6" fill="none"/>
+    <path d="M0 -28 C -7 -34 -12 -40 -14 -48 M0 -44 C -7 -50 -12 -56 -14 -64 M0 -60 C -7 -66 -12 -72 -14 -80" stroke="#e6e6e6" stroke-width="1.6" fill="none"/>
+  </g><g transform="translate(76.50203708396388 156.40127070080547) rotate(52.327494645643746) scale(0.8130175950066268)" opacity="0.10474044651945143">
+    <path d="M0 0 C 18 -30 18 -70 0 -96 C -18 -70 -18 -30 0 0 Z" fill="#ffffff"/>
+    <path d="M0 -6 L0 -90" stroke="#e6e6e6" stroke-width="2.5" fill="none"/>
+    <path d="M0 -28 C 7 -34 12 -40 14 -48 M0 -44 C 7 -50 12 -56 14 -64 M0 -60 C 7 -66 12 -72 14 -80" stroke="#e6e6e6" stroke-width="1.6" fill="none"/>
+    <path d="M0 -28 C -7 -34 -12 -40 -14 -48 M0 -44 C -7 -50 -12 -56 -14 -64 M0 -60 C -7 -66 -12 -72 -14 -80" stroke="#e6e6e6" stroke-width="1.6" fill="none"/>
+  </g><g transform="translate(339.5057202966445 537.5966551423057) rotate(147.5121510715746) scale(0.6014405489905926)" opacity="0.0905829274703669">
+    <path d="M0 0 C 18 -30 18 -70 0 -96 C -18 -70 -18 -30 0 0 Z" fill="#ffffff"/>
+    <path d="M0 -6 L0 -90" stroke="#e6e6e6" stroke-width="2.5" fill="none"/>
+    <path d="M0 -28 C 7 -34 12 -40 14 -48 M0 -44 C 7 -50 12 -56 14 -64 M0 -60 C 7 -66 12 -72 14 -80" stroke="#e6e6e6" stroke-width="1.6" fill="none"/>
+    <path d="M0 -28 C -7 -34 -12 -40 -14 -48 M0 -44 C -7 -50 -12 -56 -14 -64 M0 -60 C -7 -66 -12 -72 -14 -80" stroke="#e6e6e6" stroke-width="1.6" fill="none"/>
+  </g><g transform="translate(41.497510690939386 455.68145534753864) rotate(144.64763633191941) scale(0.4084609746972383)" opacity="0.11328145267129013">
+    <path d="M0 0 C 18 -30 18 -70 0 -96 C -18 -70 -18 -30 0 0 Z" fill="#ffffff"/>
+    <path d="M0 -6 L0 -90" stroke="#e6e6e6" stroke-width="2.5" fill="none"/>
+    <path d="M0 -28 C 7 -34 12 -40 14 -48 M0 -44 C 7 -50 12 -56 14 -64 M0 -60 C 7 -66 12 -72 14 -80" stroke="#e6e6e6" stroke-width="1.6" fill="none"/>
+    <path d="M0 -28 C -7 -34 -12 -40 -14 -48 M0 -44 C -7 -50 -12 -56 -14 -64 M0 -60 C -7 -66 -12 -72 -14 -80" stroke="#e6e6e6" stroke-width="1.6" fill="none"/>
+  </g><g transform="translate(526.3960363931935 596.971178332796) rotate(239.32780276952676) scale(1.0136428597446732)" opacity="0.1471895051315378">
+    <path d="M0 0 C 18 -30 18 -70 0 -96 C -18 -70 -18 -30 0 0 Z" fill="#ffffff"/>
+    <path d="M0 -6 L0 -90" stroke="#e6e6e6" stroke-width="2.5" fill="none"/>
+    <path d="M0 -28 C 7 -34 12 -40 14 -48 M0 -44 C 7 -50 12 -56 14 -64 M0 -60 C 7 -66 12 -72 14 -80" stroke="#e6e6e6" stroke-width="1.6" fill="none"/>
+    <path d="M0 -28 C -7 -34 -12 -40 -14 -48 M0 -44 C -7 -50 -12 -56 -14 -64 M0 -60 C -7 -66 -12 -72 -14 -80" stroke="#e6e6e6" stroke-width="1.6" fill="none"/>
+  </g>
+  <ellipse cx="300" cy="470" rx="150" ry="26" fill="#000000" opacity="0.18"/>
+  <g transform="rotate(0 300 320)">
+    
+        <rect x="270" y="150" width="60" height="30" rx="6" fill="#714e00"/>
+        <rect x="285" y="176" width="30" height="26" fill="#856200"/>
+        <rect x="240" y="198" width="120" height="250" rx="26" fill="url(#body)"/>
+        <rect x="240" y="198" width="40" height="250" rx="26" fill="#dfbc54" opacity="0.35"/>
+        <rect x="258" y="250" width="84" height="150" rx="10" fill="#faf6ec"/>
+        <rect x="258" y="250" width="84" height="150" rx="10" fill="none" stroke="#c6a33b" stroke-width="2"/>
+    <g transform="translate(300 340) rotate(-12) scale(0.55)" opacity="0.9">
+    <path d="M0 0 C 18 -30 18 -70 0 -96 C -18 -70 -18 -30 0 0 Z" fill="#9e7b13"/>
+    <path d="M0 -6 L0 -90" stroke="#856200" stroke-width="2.5" fill="none"/>
+    <path d="M0 -28 C 7 -34 12 -40 14 -48 M0 -44 C 7 -50 12 -56 14 -64 M0 -60 C 7 -66 12 -72 14 -80" stroke="#856200" stroke-width="1.6" fill="none"/>
+    <path d="M0 -28 C -7 -34 -12 -40 -14 -48 M0 -44 C -7 -50 -12 -56 -14 -64 M0 -60 C -7 -66 -12 -72 -14 -80" stroke="#856200" stroke-width="1.6" fill="none"/>
+  </g>
+  </g>
+  <text x="300" y="536" text-anchor="middle" font-family="Georgia, serif" font-size="34" fill="#faf6ec" font-weight="700">Sesame Oil</text>
+  <text x="300" y="566" text-anchor="middle" font-family="Arial, sans-serif" font-size="17" letter-spacing="3" fill="#faf6ec" opacity="0.75">AYURVEDA</text>
+</svg>

@@ -1,0 +1,446 @@
+{
+    "products": {
+        "heart": {
+            "HRT001": {
+                "product_id": "HRT001",
+                "product_name": "Omega-3",
+                "product_price": "",
+                "product_category": "heart",
+                "product_image_path_list": [
+                    "/product_images/Heart/Heart_omega-3.jpeg"
+                ],
+                "size_available": [],
+                "product_description": "",
+                "discount": "",
+                "sceme": ""
+            },
+            "HRT002": {
+                "product_id": "HRT002",
+                "product_name": "Heart Block",
+                "product_price": "",
+                "product_category": "heart",
+                "product_image_path_list": [
+                    "/product_images/Heart/Heartcare_HeartBlock.jpeg"
+                ],
+                "size_available": [],
+                "product_description": "",
+                "discount": "",
+                "sceme": ""
+            }
+        },
+        "kneePain": {
+            "KNP001": {
+                "product_id": "KNP001",
+                "product_name": "Kneepain Yog",
+                "product_price": "",
+                "product_category": "kneePain",
+                "product_image_path_list": [
+                    "/product_images/Kneepain/Kneepain_KneepainYog.jpeg"
+                ],
+                "size_available": [],
+                "product_description": "",
+                "discount": "",
+                "sceme": ""
+            },
+            "KNP002": {
+                "product_id": "KNP002",
+                "product_name": "Sudhasaptak Tablet",
+                "product_price": "",
+                "product_category": "kneePain",
+                "product_image_path_list": [
+                    "/product_images/Kneepain/Kneepain_SudhasaptakTablet.jpeg"
+                ],
+                "size_available": [],
+                "product_description": "",
+                "discount": "",
+                "sceme": ""
+            },
+            "KNP003": {
+                "product_id": "KNP003",
+                "product_name": "Trayodasang",
+                "product_price": "",
+                "product_category": "kneePain",
+                "product_image_path_list": [
+                    "/product_images/Kneepain/Kneepain_Trayodasang.jpeg"
+                ],
+                "size_available": [],
+                "product_description": "",
+                "discount": "",
+                "sceme": ""
+            },
+            "KNP004": {
+                "product_id": "KNP004",
+                "product_name": "Rhemaratna",
+                "product_price": "",
+                "product_category": "kneePain",
+                "product_image_path_list": [
+                    "/product_images/Kneepain/kneePain_Rhemaratna.jpeg"
+                ],
+                "size_available": [],
+                "product_description": "",
+                "discount": "",
+                "sceme": ""
+            },
+            "KNP005": {
+                "product_id": "KNP005",
+                "product_name": "Flaxseed",
+                "product_price": "",
+                "product_category": "kneePain",
+                "product_image_path_list": [
+                    "/product_images/Kneepain/kneepain_Flaxseed.jpeg"
+                ],
+                "size_available": [],
+                "product_description": "",
+                "discount": "",
+                "sceme": ""
+            }
+        },
+        "blood": {
+            "BLD001": {
+                "product_id": "BLD001",
+                "product_name": "Hemossom Syrup",
+                "product_price": "",
+                "product_category": "blood",
+                "product_image_path_list": [
+                    "/product_images/Blood/BloodCare_HemossomSyrup.jpeg"
+                ],
+                "size_available": [],
+                "product_description": "",
+                "discount": "",
+                "sceme": ""
+            }
+        },
+        "conspitation": {
+            "CNS001": {
+                "product_id": "CNS001",
+                "product_name": "Aerand Bhrust Harde Tablets",
+                "product_price": "",
+                "product_category": "conspitation",
+                "product_image_path_list": [
+                    "/product_images/Conspitation/Conspitation_AerandBhrustHardeTablets.jpeg"
+                ],
+                "size_available": [],
+                "product_description": "",
+                "discount": "",
+                "sceme": ""
+            },
+            "CNS002": {
+                "product_id": "CNS002",
+                "product_name": "Detozayu",
+                "product_price": "",
+                "product_category": "conspitation",
+                "product_image_path_list": [
+                    "/product_images/Conspitation/constipation_Detozayu.jpeg"
+                ],
+                "size_available": [],
+                "product_description": "",
+                "discount": "",
+                "sceme": ""
+            }
+        },
+        "health": {
+            "HLT001": {
+                "product_id": "HLT001",
+                "product_name": "J9G Capsule",
+                "product_price": "",
+                "product_category": "health",
+                "product_image_path_list": [
+                    "/product_images/Health/Health_J9GCapsule.jpeg"
+                ],
+                "size_available": [],
+                "product_description": "",
+                "discount": "",
+                "sceme": ""
+            },
+            "HLT002": {
+                "product_id": "HLT002",
+                "product_name": "Moringa",
+                "product_price": "",
+                "product_category": "health",
+                "product_image_path_list": [
+                    "/product_images/Health/Health_moringa.jpeg"
+                ],
+                "size_available": [],
+                "product_description": "",
+                "discount": "",
+                "sceme": ""
+            }
+        },
+        "kidney": {
+            "KDN001": {
+                "product_id": "KDN001",
+                "product_name": "Punnarva Churan",
+                "product_price": "",
+                "product_category": "kidney",
+                "product_image_path_list": [
+                    "/product_images/Kidney/Kidney_PunnarvaChuran.jpeg"
+                ],
+                "size_available": [],
+                "product_description": "",
+                "discount": "",
+                "sceme": ""
+            }
+        },
+        "liverDisorder": {
+            "LVR001": {
+                "product_id": "LVR001",
+                "product_name": "GastoLiv 100",
+                "product_price": "",
+                "product_category": "liverDisorder",
+                "product_image_path_list": [
+                    "/product_images/LiverDisorder/LiverDisorder_GastoLiv100.jpeg"
+                ],
+                "size_available": [],
+                "product_description": "",
+                "discount": "",
+                "sceme": ""
+            },
+            "LVR002": {
+                "product_id": "LVR002",
+                "product_name": "Livbond SF",
+                "product_price": "",
+                "product_category": "liverDisorder",
+                "product_image_path_list": [
+                    "/product_images/LiverDisorder/LiverDisorder_LivbondSF.jpeg"
+                ],
+                "size_available": [],
+                "product_description": "",
+                "discount": "",
+                "sceme": ""
+            },
+            "LVR003": {
+                "product_id": "LVR003",
+                "product_name": "Livozid",
+                "product_price": "",
+                "product_category": "liverDisorder",
+                "product_image_path_list": [
+                    "/product_images/LiverDisorder/LiverDisorder_Livozid.jpeg"
+                ],
+                "size_available": [],
+                "product_description": "",
+                "discount": "",
+                "sceme": ""
+            },
+            "LVR004": {
+                "product_id": "LVR004",
+                "product_name": "Amalaki Rasyan",
+                "product_price": "",
+                "product_category": "liverDisorder",
+                "product_image_path_list": [
+                    "/product_images/LiverDisorder/Liverdisorder_amalakiRasyan.jpeg"
+                ],
+                "size_available": [],
+                "product_description": "",
+                "discount": "",
+                "sceme": ""
+            },
+            "LVR005": {
+                "product_id": "LVR005",
+                "product_name": "Ampachan Vati",
+                "product_price": "",
+                "product_category": "liverDisorder",
+                "product_image_path_list": [
+                    "/product_images/LiverDisorder/Liverdisorder_ampachanVati.jpeg"
+                ],
+                "size_available": [],
+                "product_description": "",
+                "discount": "",
+                "sceme": ""
+            },
+            "LVR006": {
+                "product_id": "LVR006",
+                "product_name": "Arogyavardhini",
+                "product_price": "",
+                "product_category": "liverDisorder",
+                "product_image_path_list": [
+                    "/product_images/LiverDisorder/Liverdisorder_arogyavardhnin.jpeg"
+                ],
+                "size_available": [],
+                "product_description": "",
+                "discount": "",
+                "sceme": ""
+            },
+            "LVR007": {
+                "product_id": "LVR007",
+                "product_name": "Livbond Drops",
+                "product_price": "",
+                "product_category": "liverDisorder",
+                "product_image_path_list": [
+                    "/product_images/LiverDisorder/Liverrdisorder_LivbondDrops.jpeg"
+                ],
+                "size_available": [],
+                "product_description": "",
+                "discount": "",
+                "sceme": ""
+            },
+            "LVR008": {
+                "product_id": "LVR008",
+                "product_name": "Castor Oil",
+                "product_price": "",
+                "product_category": "liverDisorder",
+                "product_image_path_list": [
+                    "/product_images/LiverDisorder/lLiverdisorder_castorOil.jpeg"
+                ],
+                "size_available": [],
+                "product_description": "",
+                "discount": "",
+                "sceme": ""
+            }
+        },
+        "memory": {
+            "MEM001": {
+                "product_id": "MEM001",
+                "product_name": "Yaad Granules",
+                "product_price": "",
+                "product_category": "memory",
+                "product_image_path_list": [
+                    "/product_images/Memory/Memory_YaadGranules.jpeg"
+                ],
+                "size_available": [],
+                "product_description": "",
+                "discount": "",
+                "sceme": ""
+            }
+        },
+        "pcodPcos": {
+            "PCD001": {
+                "product_id": "PCD001",
+                "product_name": "Ashoka Cordial",
+                "product_price": "",
+                "product_category": "pcodPcos",
+                "product_image_path_list": [
+                    "/product_images/PcodPcos/PcodPcos_AshokaCordial.jpeg"
+                ],
+                "size_available": [],
+                "product_description": "",
+                "discount": "",
+                "sceme": ""
+            }
+        },
+        "piles": {
+            "PLS001": {
+                "product_id": "PLS001",
+                "product_name": "Pylofyn",
+                "product_price": "",
+                "product_category": "piles",
+                "product_image_path_list": [
+                    "/product_images/Piles/Piles_Pylofyn.jpeg"
+                ],
+                "size_available": [],
+                "product_description": "",
+                "discount": "",
+                "sceme": ""
+            }
+        },
+        "sexual": {
+            "SXL001": {
+                "product_id": "SXL001",
+                "product_name": "Makardhwaj Vati",
+                "product_price": "",
+                "product_category": "sexual",
+                "product_image_path_list": [
+                    "/product_images/Sexual/Sexaul_MakardhwajVati.jpeg"
+                ],
+                "size_available": [],
+                "product_description": "",
+                "discount": "",
+                "sceme": ""
+            },
+            "SXL002": {
+                "product_id": "SXL002",
+                "product_name": "Musli Pak",
+                "product_price": "",
+                "product_category": "sexual",
+                "product_image_path_list": [
+                    "/product_images/Sexual/Sexual_MusliPak.jpeg"
+                ],
+                "size_available": [],
+                "product_description": "",
+                "discount": "",
+                "sceme": ""
+            },
+            "SXL003": {
+                "product_id": "SXL003",
+                "product_name": "Safed Musli Churna",
+                "product_price": "",
+                "product_category": "sexual",
+                "product_image_path_list": [
+                    "/product_images/Sexual/Sexual_SafedMusliChurna.jpeg"
+                ],
+                "size_available": [],
+                "product_description": "",
+                "discount": "",
+                "sceme": ""
+            },
+            "SXL004": {
+                "product_id": "SXL004",
+                "product_name": "Vanari Gutika",
+                "product_price": "",
+                "product_category": "sexual",
+                "product_image_path_list": [
+                    "/product_images/Sexual/Sexual_vanarigutika.jpeg"
+                ],
+                "size_available": [],
+                "product_description": "",
+                "discount": "",
+                "sceme": ""
+            },
+            "SXL005": {
+                "product_id": "SXL005",
+                "product_name": "Shilajit",
+                "product_price": "",
+                "product_category": "sexual",
+                "product_image_path_list": [
+                    "/product_images/Sexual/sexualwellnes_shilajit.jpeg"
+                ],
+                "size_available": [],
+                "product_description": "",
+                "discount": "",
+                "sceme": ""
+            }
+        },
+        "thyroid": {
+            "THY001": {
+                "product_id": "THY001",
+                "product_name": "ThyroKyoor Capsule",
+                "product_price": "",
+                "product_category": "thyroid",
+                "product_image_path_list": [
+                    "/product_images/Thyroid/Thyroid_ThryroKyoorCapsule.jpeg"
+                ],
+                "size_available": [],
+                "product_description": "",
+                "discount": "",
+                "sceme": ""
+            }
+        },
+        "urine": {
+            "URN001": {
+                "product_id": "URN001",
+                "product_name": "Bahumutranatak",
+                "product_price": "",
+                "product_category": "urine",
+                "product_image_path_list": [
+                    "/product_images/Urine/Urine_Bahumutranatak.jpeg"
+                ],
+                "size_available": [],
+                "product_description": "",
+                "discount": "",
+                "sceme": ""
+            },
+            "URN002": {
+                "product_id": "URN002",
+                "product_name": "Proston Tablet",
+                "product_price": "",
+                "product_category": "urine",
+                "product_image_path_list": [
+                    "/product_images/Urine/Urine_ProstonTablet.jpeg"
+                ],
+                "size_available": [],
+                "product_description": "",
+                "discount": "",
+                "sceme": ""
+            }
+        }
+    }
+}
