@@ -1,4 +1,4 @@
-# Vanaushadhi Ayurveda — Ayurvedic Medical Shop
+# HerbKyoor Ayurveda — Ayurvedic Medical Shop
 
 A production-quality, fully responsive storefront for an Ayurvedic medical shop,
 built with **Next.js (App Router) + TypeScript + Tailwind CSS**.
@@ -93,3 +93,15 @@ in `public/`. Replace them with real photography and add
   payment/order flows to real backends/API routes for production.
 - Do not trust client-computed prices for real charges — recompute and verify on
   the server before capturing payment.
+
+
+
+
+
+netlify env:import .env.local
+
+lsof -ti :3000 | xargs kill -9
+
+rm -rf .next
+
+netlify deploy --build --prod

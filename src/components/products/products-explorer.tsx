@@ -101,7 +101,10 @@ export function ProductsExplorer() {
     const list = allProducts.filter((p) => {
       if (urlCategory !== "all" && p.category !== urlCategory) return false;
       if (inStockOnly && !p.inStock) return false;
-      if (!range.test(p)) return false;
+      // Only constrain by price when a product actually has a price set.
+      // Products awaiting pricing (price <= 0) stay visible so the price
+      // filter never empties the catalogue and hides pagination.
+      if (p.price > 0 && !range.test(p)) return false;
       if (q) {
         const haystack =
           `${p.name} ${p.categoryName} ${p.shortDescription}`.toLowerCase();

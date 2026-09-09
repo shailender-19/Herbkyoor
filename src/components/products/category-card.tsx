@@ -1,13 +1,21 @@
 import Image from "next/image";
 import Link from "next/link";
 import {
+  Activity,
+  Bone,
+  Brain,
   Droplet,
+  Droplets,
   Flame,
+  Flower2,
   HeartHandshake,
+  HeartPulse,
   Leaf,
   Pill,
   ShieldPlus,
   Sparkles,
+  Stethoscope,
+  Waves,
   Wind,
   type LucideIcon,
 } from "lucide-react";
@@ -17,12 +25,20 @@ import type { Category } from "@/types";
 const iconMap: Record<string, LucideIcon> = {
   Leaf,
   Droplet,
+  Droplets,
   Sparkles,
   Wind,
   ShieldPlus,
   Flame,
   HeartHandshake,
+  HeartPulse,
   Pill,
+  Activity,
+  Bone,
+  Brain,
+  Flower2,
+  Stethoscope,
+  Waves,
 };
 
 export function CategoryCard({ category }: { category: Category }) {

@@ -1,13 +1,11 @@
-/** A product category slug used across data and routing. */
-export type CategorySlug =
-  | "herbal-medicines"
-  | "ayurvedic-oils"
-  | "skin-care"
-  | "hair-care"
-  | "immunity-wellness"
-  | "digestive-health"
-  | "personal-care"
-  | "herbal-supplements";
+/**
+ * A product category slug used across data and routing.
+ *
+ * Categories are now data-driven — derived from the keys of
+ * `public/ProductDetails/Product_list.json` — so this is a plain string
+ * rather than a fixed union. Known slugs are documented in `data/categories.ts`.
+ */
+export type CategorySlug = string;
 
 export interface Category {
   slug: CategorySlug;
@@ -34,6 +32,10 @@ export interface Product {
   reviewCount: number;
   image: string;
   images?: string[];
+  /** Pack sizes / variants available for this product. */
+  sizes?: string[];
+  /** Promotional scheme, e.g. "Buy 1 Get 1", "10% cashback". */
+  scheme?: string;
   ingredients?: string[];
   benefits?: string[];
   usage?: string;

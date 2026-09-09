@@ -17,12 +17,12 @@
             "HRT002": {
                 "product_id": "HRT002",
                 "product_name": "Heart Block",
-                "product_price": "",
+                "product_price": "350",
                 "product_category": "heart",
                 "product_image_path_list": [
                     "/product_images/Heart/Heartcare_HeartBlock.jpeg"
                 ],
-                "size_available": [],
+                "size_available": ["30 Capsule"],
                 "product_description": "",
                 "discount": "",
                 "sceme": ""
@@ -32,12 +32,12 @@
             "KNP001": {
                 "product_id": "KNP001",
                 "product_name": "Kneepain Yog",
-                "product_price": "",
+                "product_price": "350",
                 "product_category": "kneePain",
                 "product_image_path_list": [
                     "/product_images/Kneepain/Kneepain_KneepainYog.jpeg"
                 ],
-                "size_available": [],
+                "size_available": ["30 Capsule"],
                 "product_description": "",
                 "discount": "",
                 "sceme": ""
@@ -45,12 +45,12 @@
             "KNP002": {
                 "product_id": "KNP002",
                 "product_name": "Sudhasaptak Tablet",
-                "product_price": "",
+                "product_price": "166",
                 "product_category": "kneePain",
                 "product_image_path_list": [
                     "/product_images/Kneepain/Kneepain_SudhasaptakTablet.jpeg"
                 ],
-                "size_available": [],
+                "size_available": ["30 Tablets"],
                 "product_description": "",
                 "discount": "",
                 "sceme": ""
@@ -58,7 +58,7 @@
             "KNP003": {
                 "product_id": "KNP003",
                 "product_name": "Trayodasang",
-                "product_price": "",
+                "product_price": "180",
                 "product_category": "kneePain",
                 "product_image_path_list": [
                     "/product_images/Kneepain/Kneepain_Trayodasang.jpeg"
@@ -71,12 +71,12 @@
             "KNP004": {
                 "product_id": "KNP004",
                 "product_name": "Rhemaratna",
-                "product_price": "",
+                "product_price": "690",
                 "product_category": "kneePain",
                 "product_image_path_list": [
                     "/product_images/Kneepain/kneePain_Rhemaratna.jpeg"
                 ],
-                "size_available": [],
+                "size_available": ["30 Capsule"],
                 "product_description": "",
                 "discount": "",
                 "sceme": ""
@@ -84,12 +84,12 @@
             "KNP005": {
                 "product_id": "KNP005",
                 "product_name": "Flaxseed",
-                "product_price": "",
+                "product_price": "395",
                 "product_category": "kneePain",
                 "product_image_path_list": [
                     "/product_images/Kneepain/kneepain_Flaxseed.jpeg"
                 ],
-                "size_available": [],
+                "size_available": ["60 Capsule"],
                 "product_description": "",
                 "discount": "",
                 "sceme": ""
@@ -114,12 +114,12 @@
             "CNS001": {
                 "product_id": "CNS001",
                 "product_name": "Aerand Bhrust Harde Tablets",
-                "product_price": "",
+                "product_price": "130",
                 "product_category": "conspitation",
                 "product_image_path_list": [
                     "/product_images/Conspitation/Conspitation_AerandBhrustHardeTablets.jpeg"
                 ],
-                "size_available": [],
+                "size_available": ["60 Tablets"],
                 "product_description": "",
                 "discount": "",
                 "sceme": ""
@@ -227,7 +227,10 @@
                 "product_price": "",
                 "product_category": "liverDisorder",
                 "product_image_path_list": [
-                    "/product_images/LiverDisorder/Liverdisorder_amalakiRasyan.jpeg"
+                    "/product_images/LiverDisorder/Liverdisorder_amalakiRasyan.jpeg",
+                    "/product_images/aamalikaRasayan.jpeg",
+                    "/product_images/amalakiRashyan.jpeg"
+
                 ],
                 "size_available": [],
                 "product_description": "",

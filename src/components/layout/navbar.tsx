@@ -197,12 +197,6 @@ export function Navbar() {
                 {item.label}
               </Link>
             ))}
-            <Link
-              href="/dashboard"
-              className="rounded-xl px-4 py-3 text-base font-medium text-forest-700 hover:bg-cream-200"
-            >
-              Dashboard
-            </Link>
             <div className="mt-2">
               <WhatsAppButton
                 href={whatsAppEnquiryUrl()}

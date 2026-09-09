@@ -1,468 +1,120 @@
 import type { CategorySlug, Product } from "@/types";
 import { categoryName } from "./categories";
+import rawCatalog from "../../public/ProductDetails/Product_list.json";
 
-/** Internal shape without the denormalized category label. */
-type ProductSeed = Omit<Product, "categoryName" | "image" | "images"> & {
-  category: CategorySlug;
-};
+/** Raw product entry shape as authored in `Product_list.json`. */
+interface RawProduct {
+  product_id: string;
+  product_name: string;
+  product_price: string | number;
+  product_category: string;
+  product_image_path_list: string[];
+  size_available: string[];
+  product_description: string;
+  discount: string | number;
+  sceme: string;
+}
 
-const seeds: ProductSeed[] = [
-  {
-    id: "p-ashwagandha-capsules",
-    slug: "ashwagandha-capsules",
-    name: "Ashwagandha Capsules",
-    category: "herbal-supplements",
-    shortDescription: "Adaptogenic root to ease stress and boost stamina.",
-    description:
-      "Pure Ashwagandha (Withania somnifera) root extract in easy-to-take veg capsules. A classical Ayurvedic rasayana traditionally used to help the body adapt to stress, support restful sleep and build strength and stamina.",
-    price: 499,
-    originalPrice: 649,
-    rating: 4.7,
-    reviewCount: 218,
-    ingredients: ["Ashwagandha root extract (500mg)", "Vegetable cellulose capsule"],
-    benefits: [
-      "Supports the body's response to stress",
-      "Promotes stamina and vitality",
-      "Encourages restful sleep",
-    ],
-    usage: "Take 1 capsule twice daily after meals with warm water, or as directed by your physician.",
-    info: { "Net Quantity": "60 capsules", Form: "Veg Capsule", "Shelf Life": "24 months" },
-    inStock: true,
-    featured: true,
-    tag: "Bestseller",
-  },
-  {
-    id: "p-chyawanprash",
-    slug: "chyawanprash-immunity",
-    name: "Chyawanprash Immunity Jam",
-    category: "immunity-wellness",
-    shortDescription: "Amla-rich herbal jam with 40+ herbs for daily immunity.",
-    description:
-      "A time-honoured rasayana made from Amla and over forty herbs simmered in ghee and honey. Rich in natural Vitamin C, it nourishes the body and supports year-round immunity for the whole family.",
-    price: 385,
-    originalPrice: 450,
-    rating: 4.8,
-    reviewCount: 412,
-    ingredients: ["Amla (Emblica officinalis)", "Ghee", "Honey", "Ashwagandha", "Pippali", "Cardamom"],
-    benefits: [
-      "Strengthens natural immunity",
-      "Rich source of natural Vitamin C",
-      "Supports respiratory wellness",
-    ],
-    usage: "Take 1–2 teaspoons daily, preferably in the morning, followed by warm milk.",
-    info: { "Net Quantity": "500 g", Form: "Herbal Jam", "Shelf Life": "18 months" },
-    inStock: true,
-    featured: true,
-  },
-  {
-    id: "p-triphala-churna",
-    slug: "triphala-churna",
-    name: "Triphala Churna",
-    category: "digestive-health",
-    shortDescription: "Three-fruit blend for gentle detox and digestion.",
-    description:
-      "The classic combination of Amalaki, Bibhitaki and Haritaki. Triphala gently supports digestion, natural detoxification and regular bowel movement while nourishing the eyes and skin.",
-    price: 245,
-    originalPrice: 299,
-    rating: 4.6,
-    reviewCount: 176,
-    ingredients: ["Amalaki", "Bibhitaki", "Haritaki"],
-    benefits: [
-      "Supports healthy digestion",
-      "Aids gentle natural detox",
-      "Promotes regularity",
-    ],
-    usage: "Mix ½–1 teaspoon in warm water and take at bedtime.",
-    info: { "Net Quantity": "200 g", Form: "Powder (Churna)", "Shelf Life": "24 months" },
-    inStock: true,
-    featured: true,
-  },
-  {
-    id: "p-brahmi-hair-oil",
-    slug: "brahmi-hair-oil",
-    name: "Brahmi Hair Oil",
-    category: "hair-care",
-    shortDescription: "Cooling herbal oil for calm mind and strong roots.",
-    description:
-      "A soothing hair oil infused with Brahmi, Amla and Bhringraj in a coconut–sesame base. Regular massage helps nourish the scalp, reduce hair fall and bring a cooling calm to the mind.",
-    price: 320,
-    originalPrice: 399,
-    rating: 4.5,
-    reviewCount: 134,
-    ingredients: ["Brahmi", "Amla", "Bhringraj", "Coconut oil", "Sesame oil"],
-    benefits: ["Nourishes scalp and roots", "Helps reduce hair fall", "Calms the mind"],
-    usage: "Massage gently into the scalp, leave for 30 minutes or overnight, then wash off.",
-    info: { "Net Quantity": "200 ml", Form: "Herbal Oil", "Shelf Life": "24 months" },
-    inStock: true,
-    featured: true,
-  },
-  {
-    id: "p-kumkumadi-face-oil",
-    slug: "kumkumadi-face-oil",
-    name: "Kumkumadi Radiance Face Oil",
-    category: "skin-care",
-    shortDescription: "Saffron-infused elixir for a natural glow.",
-    description:
-      "A luxurious facial oil crafted from saffron and precious herbs in a nourishing base. Traditionally used to brighten complexion, even skin tone and reveal a healthy, natural radiance.",
-    price: 749,
-    originalPrice: 999,
-    rating: 4.9,
-    reviewCount: 98,
-    ingredients: ["Saffron (Kesar)", "Manjistha", "Sandalwood", "Almond oil"],
-    benefits: ["Brightens complexion", "Evens skin tone", "Deeply nourishes skin"],
-    usage: "Apply 3–4 drops to cleansed face at night and massage gently in upward strokes.",
-    info: { "Net Quantity": "30 ml", Form: "Facial Oil", "Shelf Life": "24 months" },
-    inStock: true,
-    featured: true,
-    tag: "New",
-  },
-  {
-    id: "p-neem-tulsi-face-wash",
-    slug: "neem-tulsi-face-wash",
-    name: "Neem & Tulsi Face Wash",
-    category: "skin-care",
-    shortDescription: "Purifying daily cleanser for clear, fresh skin.",
-    description:
-      "A gentle, soap-free face wash with Neem and Tulsi that cleanses away impurities and excess oil while helping keep breakouts at bay — leaving skin fresh and balanced.",
-    price: 199,
-    originalPrice: 249,
-    rating: 4.4,
-    reviewCount: 205,
-    ingredients: ["Neem", "Tulsi", "Aloe vera", "Mild plant surfactants"],
-    benefits: ["Purifies and cleanses", "Controls excess oil", "Keeps skin fresh"],
-    usage: "Apply to wet face, massage gently and rinse. Use twice daily.",
-    info: { "Net Quantity": "100 ml", Form: "Gel Cleanser", "Shelf Life": "24 months" },
-    inStock: true,
-  },
-  {
-    id: "p-bhringraj-hair-oil",
-    slug: "bhringraj-hair-oil",
-    name: "Bhringraj Hair Oil",
-    category: "hair-care",
-    shortDescription: "The 'king of herbs' for lush, healthy hair.",
-    description:
-      "Bhringraj-rich hair oil traditionally prized for promoting hair growth, reducing premature greying and adding natural shine. A nightly ritual for stronger, healthier-looking hair.",
-    price: 349,
-    originalPrice: 429,
-    rating: 4.6,
-    reviewCount: 152,
-    ingredients: ["Bhringraj", "Amla", "Brahmi", "Sesame oil"],
-    benefits: ["Promotes hair growth", "Reduces premature greying", "Adds natural shine"],
-    usage: "Warm slightly and massage into scalp. Leave overnight for best results.",
-    info: { "Net Quantity": "200 ml", Form: "Herbal Oil", "Shelf Life": "24 months" },
-    inStock: true,
-  },
-  {
-    id: "p-giloy-tablets",
-    slug: "giloy-guduchi-tablets",
-    name: "Giloy (Guduchi) Tablets",
-    category: "immunity-wellness",
-    shortDescription: "Amrita herb tablets for immunity and vitality.",
-    description:
-      "Known as Amrita, the root of immortality, Giloy is a powerful immunomodulator. These tablets support natural immunity, healthy metabolism and overall vitality.",
-    price: 279,
-    originalPrice: 340,
-    rating: 4.5,
-    reviewCount: 143,
-    ingredients: ["Giloy stem extract (Tinospora cordifolia)"],
-    benefits: ["Boosts natural immunity", "Supports healthy metabolism", "Promotes vitality"],
-    usage: "Take 1–2 tablets twice daily after meals with water.",
-    info: { "Net Quantity": "60 tablets", Form: "Tablet", "Shelf Life": "24 months" },
-    inStock: true,
-    tag: "Bestseller",
-  },
-  {
-    id: "p-aloe-vera-gel",
-    slug: "aloe-vera-gel",
-    name: "Pure Aloe Vera Gel",
-    category: "skin-care",
-    shortDescription: "Multi-use soothing gel for skin and hair.",
-    description:
-      "Cold-processed aloe vera gel that hydrates, soothes and cools. A versatile everyday essential for face, body and hair — light, non-sticky and quickly absorbed.",
-    price: 189,
-    originalPrice: 229,
-    rating: 4.3,
-    reviewCount: 267,
-    ingredients: ["Aloe vera (98%)", "Vitamin E", "Natural preservatives"],
-    benefits: ["Hydrates and soothes", "Cools irritated skin", "Multi-purpose use"],
-    usage: "Apply a thin layer to skin or hair as needed.",
-    info: { "Net Quantity": "150 ml", Form: "Gel", "Shelf Life": "18 months" },
-    inStock: true,
-  },
-  {
-    id: "p-shatavari-powder",
-    slug: "shatavari-powder",
-    name: "Shatavari Powder",
-    category: "herbal-supplements",
-    shortDescription: "Nourishing rasayana for women's wellness.",
-    description:
-      "Shatavari (Asparagus racemosus) is a revered women's tonic. This pure root powder supports hormonal balance, vitality and overall nourishment through every stage of life.",
-    price: 359,
-    originalPrice: 425,
-    rating: 4.6,
-    reviewCount: 89,
-    ingredients: ["Shatavari root powder"],
-    benefits: ["Supports women's wellness", "Nourishes and rejuvenates", "Promotes vitality"],
-    usage: "Mix 1 teaspoon in warm milk once daily, or as directed.",
-    info: { "Net Quantity": "200 g", Form: "Powder", "Shelf Life": "24 months" },
-    inStock: true,
-  },
-  {
-    id: "p-mahanarayan-oil",
-    slug: "mahanarayan-oil",
-    name: "Mahanarayan Oil",
-    category: "ayurvedic-oils",
-    shortDescription: "Classical medicated oil for joints and muscles.",
-    description:
-      "A classical formulation of over 30 herbs in a sesame oil base. Warm and grounding, Mahanarayan oil is traditionally massaged to soothe stiff joints, tired muscles and support flexibility.",
-    price: 429,
-    originalPrice: 520,
-    rating: 4.7,
-    reviewCount: 121,
-    ingredients: ["Bala", "Ashwagandha", "Shatavari", "Dashamula", "Sesame oil"],
-    benefits: ["Soothes joints and muscles", "Supports flexibility", "Warming and grounding"],
-    usage: "Warm slightly and massage over joints or muscles. Follow with a warm compress.",
-    info: { "Net Quantity": "200 ml", Form: "Medicated Oil", "Shelf Life": "36 months" },
-    inStock: true,
-    featured: true,
-  },
-  {
-    id: "p-sesame-massage-oil",
-    slug: "sesame-massage-oil",
-    name: "Sesame Abhyanga Massage Oil",
-    category: "ayurvedic-oils",
-    shortDescription: "Warm, grounding oil for daily self-massage.",
-    description:
-      "Traditional cold-pressed sesame oil ideal for daily Abhyanga (self-massage). Deeply warming and nourishing, it helps relax the body, calm Vata and keep skin supple.",
-    price: 265,
-    originalPrice: 310,
-    rating: 4.4,
-    reviewCount: 76,
-    ingredients: ["Cold-pressed sesame oil", "Vetiver", "Rose"],
-    benefits: ["Relaxes body and mind", "Nourishes skin", "Balances Vata"],
-    usage: "Warm and massage over the body before a bath.",
-    info: { "Net Quantity": "200 ml", Form: "Massage Oil", "Shelf Life": "24 months" },
-    inStock: false,
-  },
-  {
-    id: "p-amla-juice",
-    slug: "amla-juice",
-    name: "Amla Wellness Juice",
-    category: "immunity-wellness",
-    shortDescription: "Cold-pressed amla for immunity and digestion.",
-    description:
-      "Cold-pressed Indian gooseberry juice, naturally abundant in Vitamin C and antioxidants. A refreshing daily tonic for immunity, digestion, hair and skin.",
-    price: 245,
-    originalPrice: 299,
-    rating: 4.2,
-    reviewCount: 158,
-    ingredients: ["Amla juice", "Natural preservative"],
-    benefits: ["Rich in Vitamin C", "Supports digestion", "Good for hair and skin"],
-    usage: "Mix 30 ml in a glass of water and take on an empty stomach.",
-    info: { "Net Quantity": "1 litre", Form: "Juice", "Shelf Life": "12 months" },
-    inStock: true,
-  },
-  {
-    id: "p-turmeric-capsules",
-    slug: "turmeric-curcumin-capsules",
-    name: "Turmeric Curcumin Capsules",
-    category: "herbal-supplements",
-    shortDescription: "High-curcumin turmeric with black pepper.",
-    description:
-      "Standardized turmeric extract paired with black pepper for enhanced absorption. Supports the body's natural response to everyday inflammation and promotes joint and skin health.",
-    price: 449,
-    originalPrice: 549,
-    rating: 4.6,
-    reviewCount: 187,
-    ingredients: ["Turmeric extract (95% curcuminoids)", "Black pepper extract"],
-    benefits: ["Antioxidant support", "Supports joint comfort", "Promotes healthy skin"],
-    usage: "Take 1 capsule twice daily with meals.",
-    info: { "Net Quantity": "60 capsules", Form: "Veg Capsule", "Shelf Life": "24 months" },
-    inStock: true,
-  },
-  {
-    id: "p-hingvastak-churna",
-    slug: "hingvastak-digestive-churna",
-    name: "Hingvastak Digestive Churna",
-    category: "digestive-health",
-    shortDescription: "Spice blend to kindle appetite and ease bloating.",
-    description:
-      "A warming eight-spice churna with asafoetida, ginger and cumin that kindles digestive fire (agni), eases bloating and supports comfortable digestion after meals.",
-    price: 210,
-    originalPrice: 260,
-    rating: 4.5,
-    reviewCount: 94,
-    ingredients: ["Hing (Asafoetida)", "Ginger", "Cumin", "Black pepper", "Long pepper"],
-    benefits: ["Kindles appetite", "Eases bloating", "Supports digestion"],
-    usage: "Take ¼ teaspoon with the first bite of food, mixed with ghee.",
-    info: { "Net Quantity": "100 g", Form: "Powder", "Shelf Life": "24 months" },
-    inStock: true,
-  },
-  {
-    id: "p-tulsi-drops",
-    slug: "tulsi-drops",
-    name: "Concentrated Tulsi Drops",
-    category: "immunity-wellness",
-    shortDescription: "Five-tulsi extract for respiratory wellness.",
-    description:
-      "A potent blend of five types of holy basil in a convenient drop form. Supports respiratory health and natural immunity — a few drops in water, tea or honey each day.",
-    price: 175,
-    originalPrice: 220,
-    rating: 4.4,
-    reviewCount: 132,
-    ingredients: ["Rama Tulsi", "Shyama Tulsi", "Vana Tulsi", "Extracts blend"],
-    benefits: ["Supports respiratory health", "Boosts immunity", "Convenient daily use"],
-    usage: "Add 2–3 drops to a glass of water, tea or honey twice daily.",
-    info: { "Net Quantity": "30 ml", Form: "Drops", "Shelf Life": "24 months" },
-    inStock: true,
-  },
-  {
-    id: "p-anti-dandruff-shampoo",
-    slug: "herbal-anti-dandruff-shampoo",
-    name: "Herbal Anti-Dandruff Shampoo",
-    category: "hair-care",
-    shortDescription: "Neem & tea tree cleanser for a flake-free scalp.",
-    description:
-      "A gentle sulphate-free shampoo with Neem, Tea Tree and Rosemary that cleanses the scalp, helps control dandruff and leaves hair soft, fresh and manageable.",
-    price: 289,
-    originalPrice: 349,
-    rating: 4.3,
-    reviewCount: 111,
-    ingredients: ["Neem", "Tea tree", "Rosemary", "Aloe vera"],
-    benefits: ["Controls dandruff", "Soothes the scalp", "Gentle daily cleanse"],
-    usage: "Massage into wet hair, lather and rinse. Repeat if needed.",
-    info: { "Net Quantity": "200 ml", Form: "Shampoo", "Shelf Life": "24 months" },
-    inStock: true,
-  },
-  {
-    id: "p-herbal-toothpaste",
-    slug: "ayurvedic-herbal-toothpaste",
-    name: "Ayurvedic Herbal Toothpaste",
-    category: "personal-care",
-    shortDescription: "Clove & neem paste for healthy gums.",
-    description:
-      "A fluoride-free herbal toothpaste with Clove, Neem and Babool that cleans teeth, freshens breath and supports healthy gums — the natural way to care for your smile.",
-    price: 145,
-    originalPrice: 175,
-    rating: 4.2,
-    reviewCount: 203,
-    ingredients: ["Clove", "Neem", "Babool", "Mint"],
-    benefits: ["Supports healthy gums", "Freshens breath", "Fluoride-free"],
-    usage: "Brush twice daily for two minutes.",
-    info: { "Net Quantity": "100 g", Form: "Toothpaste", "Shelf Life": "24 months" },
-    inStock: true,
-  },
-  {
-    id: "p-rose-sandalwood-ubtan",
-    slug: "rose-sandalwood-ubtan",
-    name: "Rose & Sandalwood Ubtan",
-    category: "skin-care",
-    shortDescription: "Classic herbal face pack for a glowing look.",
-    description:
-      "A traditional ubtan of Sandalwood, Rose and Turmeric that gently exfoliates, brightens and revives dull skin — a timeless ritual for a soft, glowing complexion.",
-    price: 259,
-    originalPrice: 319,
-    rating: 4.5,
-    reviewCount: 87,
-    ingredients: ["Sandalwood", "Rose petals", "Turmeric", "Gram flour"],
-    benefits: ["Gently exfoliates", "Brightens dull skin", "Revives glow"],
-    usage: "Mix with rose water or milk, apply for 15 minutes and rinse.",
-    info: { "Net Quantity": "100 g", Form: "Face Pack Powder", "Shelf Life": "18 months" },
-    inStock: true,
-  },
-  {
-    id: "p-joint-care-balm",
-    slug: "joint-care-balm",
-    name: "Ayurvedic Joint Care Balm",
-    category: "herbal-medicines",
-    shortDescription: "Warming balm for everyday joint comfort.",
-    description:
-      "A fast-absorbing herbal balm with Wintergreen, Camphor and Mahanarayan oil that provides a warming, soothing sensation for tired joints and muscles after a long day.",
-    price: 199,
-    originalPrice: 249,
-    rating: 4.6,
-    reviewCount: 164,
-    ingredients: ["Wintergreen oil", "Camphor", "Menthol", "Mahanarayan oil"],
-    benefits: ["Soothes tired joints", "Warming relief", "Non-greasy formula"],
-    usage: "Apply to the affected area and massage until absorbed, up to 3 times daily.",
-    info: { "Net Quantity": "50 g", Form: "Balm", "Shelf Life": "36 months" },
-    inStock: true,
-    featured: true,
-  },
-  {
-    id: "p-sitopaladi-churna",
-    slug: "sitopaladi-churna",
-    name: "Sitopaladi Churna",
-    category: "herbal-medicines",
-    shortDescription: "Classical churna for seasonal respiratory comfort.",
-    description:
-      "A gentle classical formulation with Mishri, Vanshlochan and Pippali, traditionally taken with honey to support the throat and respiratory system during changing seasons.",
-    price: 165,
-    originalPrice: 199,
-    rating: 4.4,
-    reviewCount: 72,
-    ingredients: ["Mishri", "Vanshlochan", "Pippali", "Cardamom", "Cinnamon"],
-    benefits: ["Soothes the throat", "Supports respiration", "Gentle for all ages"],
-    usage: "Take ½ teaspoon with honey twice daily.",
-    info: { "Net Quantity": "100 g", Form: "Powder", "Shelf Life": "24 months" },
-    inStock: true,
-  },
-  {
-    id: "p-ashokarishta-tonic",
-    slug: "ashokarishta-tonic",
-    name: "Ashokarishta Tonic",
-    category: "herbal-medicines",
-    shortDescription: "Fermented herbal tonic for women's health.",
-    description:
-      "A traditional self-fermented (arishta) tonic centred on Ashoka bark, used in Ayurveda to support women's reproductive health and overall wellbeing.",
-    price: 235,
-    originalPrice: 285,
-    rating: 4.3,
-    reviewCount: 65,
-    ingredients: ["Ashoka bark", "Dhataki", "Amla", "Jaggery base"],
-    benefits: ["Supports women's health", "Traditional tonic", "Naturally fermented"],
-    usage: "Take 15–20 ml with an equal quantity of water after meals, twice daily.",
-    info: { "Net Quantity": "450 ml", Form: "Arishta (Tonic)", "Shelf Life": "36 months" },
-    inStock: true,
-  },
-  {
-    id: "p-karela-jamun-juice",
-    slug: "karela-jamun-juice",
-    name: "Karela Jamun Juice",
-    category: "digestive-health",
-    shortDescription: "Bitter-melon & jamun blend for metabolic balance.",
-    description:
-      "A cold-pressed blend of Karela (bitter gourd) and Jamun that supports healthy metabolism and digestion. A daily bitter tonic in the classic Ayurvedic tradition.",
-    price: 265,
-    originalPrice: 320,
-    rating: 4.1,
-    reviewCount: 98,
-    ingredients: ["Karela juice", "Jamun juice", "Natural preservative"],
-    benefits: ["Supports metabolism", "Aids digestion", "Traditional bitter tonic"],
-    usage: "Mix 30 ml in water and take on an empty stomach each morning.",
-    info: { "Net Quantity": "1 litre", Form: "Juice", "Shelf Life": "12 months" },
-    inStock: true,
-  },
-];
+interface RawCatalog {
+  products: Record<string, Record<string, RawProduct>>;
+}
 
-/** Public catalogue with denormalized category names and image paths. */
-export const products: Product[] = seeds.map((seed) => ({
-  ...seed,
-  categoryName: categoryName(seed.category),
-  image: `/products/${seed.slug}.svg`,
-  images: [
-    `/products/${seed.slug}.svg`,
-    `/products/${seed.slug}-alt.svg`,
-    `/products/${seed.slug}-alt2.svg`,
-  ],
-}));
+const FALLBACK_IMAGE = "/categories/herbal-medicines.svg";
+
+/** Parse a possibly-empty / formatted price string into a number. */
+function parseNumber(value: string | number | undefined): number {
+  if (typeof value === "number") return Number.isFinite(value) ? value : 0;
+  if (!value) return 0;
+  const n = parseFloat(String(value).replace(/[^0-9.]/g, ""));
+  return Number.isFinite(n) ? n : 0;
+}
+
+/** Turn a product name into a URL-safe slug. */
+function slugify(value: string): string {
+  return value
+    .toLowerCase()
+    .trim()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "");
+}
+
+/**
+ * Derive the original (MRP) price from a percentage discount so the UI can
+ * show a strike-through price and an "X% OFF" badge. Returns undefined when
+ * there is no usable discount or price yet.
+ */
+function originalPriceFrom(price: number, discount: number): number | undefined {
+  if (price <= 0 || discount <= 0 || discount >= 100) return undefined;
+  return Math.round(price / (1 - discount / 100));
+}
+
+const rawProducts = (rawCatalog as RawCatalog).products;
+
+const usedSlugs = new Set<string>();
+
+/** Public catalogue, flattened and normalized from the category-keyed JSON. */
+export const products: Product[] = Object.entries(rawProducts).flatMap(
+  ([category, entries]) =>
+    Object.values(entries).map((raw): Product => {
+      // Ensure a unique, stable slug even if two products share a name.
+      let slug = slugify(raw.product_name) || slugify(raw.product_id);
+      if (usedSlugs.has(slug)) slug = `${slug}-${raw.product_id.toLowerCase()}`;
+      usedSlugs.add(slug);
+
+      const label = categoryName(category);
+      const price = parseNumber(raw.product_price);
+      const originalPrice = originalPriceFrom(price, parseNumber(raw.discount));
+      const images =
+        raw.product_image_path_list?.length > 0
+          ? raw.product_image_path_list
+          : [FALLBACK_IMAGE];
+      const sizes = raw.size_available ?? [];
+      const scheme = raw.sceme?.trim() || undefined;
+      const description = raw.product_description?.trim();
+
+      const info: Record<string, string> = {};
+      if (sizes.length > 0) info["Available Sizes"] = sizes.join(", ");
+      if (scheme) info["Offer"] = scheme;
+
+      return {
+        id: raw.product_id,
+        slug,
+        name: raw.product_name,
+        category,
+        categoryName: label,
+        shortDescription:
+          description || `Authentic Ayurvedic ${label.toLowerCase()} remedy.`,
+        description:
+          description ||
+          `${raw.product_name} from our ${label} range. Full product details are coming soon — enquire on WhatsApp for ingredients, dosage and pricing.`,
+        price,
+        originalPrice,
+        rating: 0,
+        reviewCount: 0,
+        image: images[0],
+        images,
+        sizes: sizes.length > 0 ? sizes : undefined,
+        scheme,
+        usage:
+          "Use as directed by your Ayurvedic physician. Contact us on WhatsApp for detailed usage and dosage guidance.",
+        info: Object.keys(info).length > 0 ? info : undefined,
+        inStock: true,
+        tag: scheme,
+      };
+    }),
+);
 
 export function getProductBySlug(slug: string): Product | undefined {
   return products.find((p) => p.slug === slug);
 }
 
+/**
+ * Products surfaced in the home "Featured" section. Falls back to the first
+ * few products when nothing is explicitly flagged, so the section is never empty.
+ */
 export function getFeaturedProducts(): Product[] {
-  return products.filter((p) => p.featured);
+  const featured = products.filter((p) => p.featured);
+  return featured.length > 0 ? featured : products.slice(0, 8);
 }
 
 export function getRelatedProducts(product: Product, limit = 4): Product[] {

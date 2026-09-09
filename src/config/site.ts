@@ -9,16 +9,16 @@
 const env = process.env;
 
 export const siteConfig = {
-  name: env.NEXT_PUBLIC_SITE_NAME ?? "Vanaushadhi Ayurveda",
-  shortName: "Vanaushadhi",
+  name: env.NEXT_PUBLIC_SITE_NAME ?? "HerbKyoor Ayurveda",
+  shortName: "HerbKyoor",
   tagline: "Natural Wellness, Trusted Ayurveda",
   description:
     "Discover authentic Ayurvedic products carefully selected to support your everyday health and wellness. Herbal medicines, oils, skincare and more.",
-  url: env.NEXT_PUBLIC_SITE_URL ?? "https://vanaushadhi.example.com",
+  url: env.NEXT_PUBLIC_SITE_URL ?? "https://herbkyoor.example.com",
 
   /** Contact details */
   contact: {
-    email: env.NEXT_PUBLIC_CONTACT_EMAIL ?? "care@vanaushadhi.in",
+    email: env.NEXT_PUBLIC_CONTACT_EMAIL ?? "care@herbkyoor.in",
     phone: env.NEXT_PUBLIC_CONTACT_PHONE ?? "+91 98765 43210",
     address:
       env.NEXT_PUBLIC_SHOP_ADDRESS ??

@@ -15,7 +15,6 @@ import { whatsAppEnquiryUrl } from "@/lib/whatsapp";
 const legalLinks = [
   { label: "Privacy Policy", href: "/privacy-policy" },
   { label: "Terms & Conditions", href: "/terms" },
-  { label: "Dashboard", href: "/dashboard" },
 ];
 
 export function Footer() {
