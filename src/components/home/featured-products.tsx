@@ -5,8 +5,8 @@ import { buttonClasses } from "@/components/ui/button";
 import { ProductSlider } from "@/components/products/product-slider";
 import { getFeaturedProducts } from "@/data/products";
 
-export function FeaturedProducts() {
-  const products = getFeaturedProducts();
+export async function FeaturedProducts() {
+  const products = await getFeaturedProducts();
   return (
     <section className="bg-forest-50/40 py-16 sm:py-20">
       <Container>

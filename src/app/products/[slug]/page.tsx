@@ -19,15 +19,15 @@ import { ProductGallery } from "@/components/products/product-gallery";
 import { ProductActions } from "@/components/products/product-actions";
 import { ProductSlider } from "@/components/products/product-slider";
 import {
+  getAllProducts,
   getProductBySlug,
   getRelatedProducts,
-  products,
 } from "@/data/products";
 import { discountPercent } from "@/lib/format";
 import { siteConfig } from "@/config/site";
 
-export function generateStaticParams() {
-  return products.map((p) => ({ slug: p.slug }));
+export async function generateStaticParams() {
+  return (await getAllProducts()).map((p) => ({ slug: p.slug }));
 }
 
 export async function generateMetadata({
@@ -36,7 +36,7 @@ export async function generateMetadata({
   params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
   const { slug } = await params;
-  const product = getProductBySlug(slug);
+  const product = await getProductBySlug(slug);
   if (!product) return { title: "Product not found" };
   return {
     title: product.name,
@@ -63,10 +63,10 @@ export default async function ProductDetailPage({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  const product = getProductBySlug(slug);
+  const product = await getProductBySlug(slug);
   if (!product) notFound();
 
-  const related = getRelatedProducts(product);
+  const related = await getRelatedProducts(product);
   const discount = product.originalPrice
     ? discountPercent(product.originalPrice, product.price)
     : 0;

@@ -22,7 +22,25 @@
                 "product_image_path_list": [
                     "/product_images/Heart/Heartcare_HeartBlock.jpeg"
                 ],
-                "size_available": ["30 Capsule"],
+                "size_available": [
+                    "30 Capsule"
+                ],
+                "product_description": "",
+                "discount": "",
+                "sceme": ""
+            },
+            "HEA003": {
+                "product_id": "HEA003",
+                "product_name": "abc projd",
+                "product_price": "250",
+                "product_category": "heart",
+                "product_image_path_list": [
+                    "/product_images/heart/whatsapp-image-2026-09-02-at-13-24-44-13088e5b.jpeg",
+                    "/product_images/heart/whatsapp-image-2026-09-02-at-13-24-44-b69605fc.jpeg"
+                ],
+                "size_available": [
+                    "30 capsule"
+                ],
                 "product_description": "",
                 "discount": "",
                 "sceme": ""
@@ -37,7 +55,9 @@
                 "product_image_path_list": [
                     "/product_images/Kneepain/Kneepain_KneepainYog.jpeg"
                 ],
-                "size_available": ["30 Capsule"],
+                "size_available": [
+                    "30 Capsule"
+                ],
                 "product_description": "",
                 "discount": "",
                 "sceme": ""
@@ -50,7 +70,9 @@
                 "product_image_path_list": [
                     "/product_images/Kneepain/Kneepain_SudhasaptakTablet.jpeg"
                 ],
-                "size_available": ["30 Tablets"],
+                "size_available": [
+                    "30 Tablets"
+                ],
                 "product_description": "",
                 "discount": "",
                 "sceme": ""
@@ -76,7 +98,9 @@
                 "product_image_path_list": [
                     "/product_images/Kneepain/kneePain_Rhemaratna.jpeg"
                 ],
-                "size_available": ["30 Capsule"],
+                "size_available": [
+                    "30 Capsule"
+                ],
                 "product_description": "",
                 "discount": "",
                 "sceme": ""
@@ -89,7 +113,9 @@
                 "product_image_path_list": [
                     "/product_images/Kneepain/kneepain_Flaxseed.jpeg"
                 ],
-                "size_available": ["60 Capsule"],
+                "size_available": [
+                    "60 Capsule"
+                ],
                 "product_description": "",
                 "discount": "",
                 "sceme": ""
@@ -119,7 +145,9 @@
                 "product_image_path_list": [
                     "/product_images/Conspitation/Conspitation_AerandBhrustHardeTablets.jpeg"
                 ],
-                "size_available": ["60 Tablets"],
+                "size_available": [
+                    "60 Tablets"
+                ],
                 "product_description": "",
                 "discount": "",
                 "sceme": ""
@@ -230,7 +258,6 @@
                     "/product_images/LiverDisorder/Liverdisorder_amalakiRasyan.jpeg",
                     "/product_images/aamalikaRasayan.jpeg",
                     "/product_images/amalakiRashyan.jpeg"
-
                 ],
                 "size_available": [],
                 "product_description": "",

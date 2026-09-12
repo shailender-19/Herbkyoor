@@ -9,9 +9,7 @@ import { Select } from "@/components/ui/input";
 import { Pagination } from "@/components/ui/pagination";
 import { ProductGrid } from "@/components/products/product-grid";
 import { EmptyState } from "@/components/ui/states";
-import { products as allProducts } from "@/data/products";
-import { categories } from "@/data/categories";
-import type { Product } from "@/types";
+import type { Category, Product } from "@/types";
 import { cn } from "@/lib/utils";
 
 const PAGE_SIZE = 8;
@@ -46,7 +44,13 @@ function discountOf(p: Product) {
   return p.originalPrice ? (p.originalPrice - p.price) / p.originalPrice : 0;
 }
 
-export function ProductsExplorer() {
+export function ProductsExplorer({
+  products: allProducts,
+  categories,
+}: {
+  products: Product[];
+  categories: Category[];
+}) {
   const router = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams();
@@ -131,7 +135,7 @@ export function ProductsExplorer() {
       }
     });
     return sorted;
-  }, [urlCategory, urlSearch, priceId, sort, inStockOnly]);
+  }, [allProducts, urlCategory, urlSearch, priceId, sort, inStockOnly]);
 
   const totalPages = Math.max(1, Math.ceil(filtered.length / PAGE_SIZE));
   const pageItems = filtered.slice((page - 1) * PAGE_SIZE, page * PAGE_SIZE);

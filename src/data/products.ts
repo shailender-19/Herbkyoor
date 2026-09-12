@@ -1,23 +1,7 @@
+import { cache } from "react";
 import type { CategorySlug, Product } from "@/types";
-import { categoryName } from "./categories";
-import rawCatalog from "../../public/ProductDetails/Product_list.json";
-
-/** Raw product entry shape as authored in `Product_list.json`. */
-interface RawProduct {
-  product_id: string;
-  product_name: string;
-  product_price: string | number;
-  product_category: string;
-  product_image_path_list: string[];
-  size_available: string[];
-  product_description: string;
-  discount: string | number;
-  sceme: string;
-}
-
-interface RawCatalog {
-  products: Record<string, Record<string, RawProduct>>;
-}
+import { categoryNameFrom } from "./categories";
+import { loadCatalog, type RawCatalog } from "./catalog-source";
 
 const FALLBACK_IMAGE = "/categories/herbal-medicines.svg";
 
@@ -48,20 +32,18 @@ function originalPriceFrom(price: number, discount: number): number | undefined 
   return Math.round(price / (1 - discount / 100));
 }
 
-const rawProducts = (rawCatalog as RawCatalog).products;
+/** Normalize the category-keyed JSON into a flat, public product list. */
+function buildProducts(catalog: RawCatalog): Product[] {
+  const usedSlugs = new Set<string>();
 
-const usedSlugs = new Set<string>();
-
-/** Public catalogue, flattened and normalized from the category-keyed JSON. */
-export const products: Product[] = Object.entries(rawProducts).flatMap(
-  ([category, entries]) =>
+  return Object.entries(catalog.products).flatMap(([category, entries]) =>
     Object.values(entries).map((raw): Product => {
       // Ensure a unique, stable slug even if two products share a name.
       let slug = slugify(raw.product_name) || slugify(raw.product_id);
       if (usedSlugs.has(slug)) slug = `${slug}-${raw.product_id.toLowerCase()}`;
       usedSlugs.add(slug);
 
-      const label = categoryName(category);
+      const label = categoryNameFrom(catalog, category);
       const price = parseNumber(raw.product_price);
       const originalPrice = originalPriceFrom(price, parseNumber(raw.discount));
       const images =
@@ -102,27 +84,46 @@ export const products: Product[] = Object.entries(rawProducts).flatMap(
         tag: scheme,
       };
     }),
-);
+  );
+}
 
-export function getProductBySlug(slug: string): Product | undefined {
-  return products.find((p) => p.slug === slug);
+/**
+ * Public catalogue, read fresh from `Product_list.json` at request time and
+ * deduped per render via `cache()`. Admin edits are picked up on the next
+ * request once the affected routes are revalidated.
+ */
+export const getAllProducts = cache(async (): Promise<Product[]> => {
+  return buildProducts(await loadCatalog());
+});
+
+export async function getProductBySlug(
+  slug: string,
+): Promise<Product | undefined> {
+  return (await getAllProducts()).find((p) => p.slug === slug);
 }
 
 /**
  * Products surfaced in the home "Featured" section. Falls back to the first
  * few products when nothing is explicitly flagged, so the section is never empty.
  */
-export function getFeaturedProducts(): Product[] {
+export async function getFeaturedProducts(): Promise<Product[]> {
+  const products = await getAllProducts();
   const featured = products.filter((p) => p.featured);
   return featured.length > 0 ? featured : products.slice(0, 8);
 }
 
-export function getRelatedProducts(product: Product, limit = 4): Product[] {
+export async function getRelatedProducts(
+  product: Product,
+  limit = 4,
+): Promise<Product[]> {
+  const products = await getAllProducts();
   return products
     .filter((p) => p.category === product.category && p.id !== product.id)
     .slice(0, limit);
 }
 
-export function getProductsByCategory(category: CategorySlug): Product[] {
-  return products.filter((p) => p.category === category);
+export async function getProductsByCategory(
+  category: CategorySlug,
+): Promise<Product[]> {
+  return (await getAllProducts()).filter((p) => p.category === category);
 }

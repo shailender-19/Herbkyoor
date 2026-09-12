@@ -3,6 +3,8 @@ import type { Metadata } from "next";
 import { ProductsExplorer } from "@/components/products/products-explorer";
 import { Container } from "@/components/ui/container";
 import { ProductCardSkeleton } from "@/components/ui/states";
+import { getAllProducts } from "@/data/products";
+import { getCategories } from "@/data/categories";
 
 export const metadata: Metadata = {
   title: "Ayurvedic Products",
@@ -23,10 +25,14 @@ function ProductsFallback() {
   );
 }
 
-export default function ProductsPage() {
+export default async function ProductsPage() {
+  const [products, categories] = await Promise.all([
+    getAllProducts(),
+    getCategories(),
+  ]);
   return (
     <Suspense fallback={<ProductsFallback />}>
-      <ProductsExplorer />
+      <ProductsExplorer products={products} categories={categories} />
     </Suspense>
   );
 }

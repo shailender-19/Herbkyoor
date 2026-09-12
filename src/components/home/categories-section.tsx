@@ -2,9 +2,10 @@ import { Container } from "@/components/ui/container";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { CategoryCard } from "@/components/products/category-card";
 import { Reveal } from "@/components/common/reveal";
-import { categories } from "@/data/categories";
+import { getCategories } from "@/data/categories";
 
-export function CategoriesSection() {
+export async function CategoriesSection() {
+  const categories = await getCategories();
   return (
     <section className="py-16 sm:py-20">
       <Container>

@@ -1,10 +1,12 @@
+import { cache } from "react";
 import type { Category, CategorySlug } from "@/types";
-import rawCatalog from "../../public/ProductDetails/Product_list.json";
+import { loadCatalog, type RawCatalog } from "./catalog-source";
 
 /**
  * Presentation metadata (label, blurb, icon) for each category slug that can
  * appear in `Product_list.json`. The `icon` value is a Lucide icon name
- * resolved dynamically in `category-card.tsx`.
+ * resolved dynamically in `category-card.tsx`. Admin-authored `categoryMeta`
+ * in the JSON takes precedence over these built-in defaults.
  */
 const CATEGORY_META: Record<
   string,
@@ -77,14 +79,6 @@ const CATEGORY_META: Record<
   },
 };
 
-/** Minimal shape we read from a raw catalogue entry for the category image. */
-interface RawEntry {
-  product_image_path_list?: string[];
-}
-
-const rawProducts = (rawCatalog as { products: Record<string, Record<string, RawEntry>> })
-  .products;
-
 /** Human-readable fallback label for a slug not present in CATEGORY_META. */
 function humanize(slug: string): string {
   return slug
@@ -94,8 +88,8 @@ function humanize(slug: string): string {
 }
 
 /** First available product image within a category, used as its cover image. */
-function firstImageOf(slug: string): string {
-  const entries = rawProducts[slug] ?? {};
+function firstImageOf(catalog: RawCatalog, slug: string): string {
+  const entries = catalog.products[slug] ?? {};
   for (const entry of Object.values(entries)) {
     const img = entry.product_image_path_list?.[0];
     if (img) return img;
@@ -103,26 +97,49 @@ function firstImageOf(slug: string): string {
   return "/categories/herbal-medicines.svg";
 }
 
-/** Catalogue categories, derived from the keys present in the product JSON. */
-export const categories: Category[] = Object.keys(rawProducts).map((slug) => {
-  const meta = CATEGORY_META[slug];
-  return {
-    slug,
-    name: meta?.name ?? humanize(slug),
-    description: meta?.description ?? "Authentic Ayurvedic remedies.",
-    icon: meta?.icon ?? "Leaf",
-    image: firstImageOf(slug),
-  };
-});
-
-const bySlug = new Map<CategorySlug, Category>(
-  categories.map((c) => [c.slug, c]),
-);
-
-export function getCategory(slug: CategorySlug): Category | undefined {
-  return bySlug.get(slug);
+/**
+ * Resolve a category's display name from already-loaded catalogue data.
+ * Pure/synchronous so `products.ts` can reuse it without a second file read.
+ * Precedence: admin `categoryMeta` → built-in defaults → humanized slug.
+ */
+export function categoryNameFrom(
+  catalog: RawCatalog,
+  slug: CategorySlug,
+): string {
+  return (
+    catalog.categoryMeta?.[slug]?.name ?? CATEGORY_META[slug]?.name ?? humanize(slug)
+  );
 }
 
-export function categoryName(slug: CategorySlug): string {
-  return bySlug.get(slug)?.name ?? humanize(slug);
+/** Build the full category list from loaded catalogue data. */
+function buildCategories(catalog: RawCatalog): Category[] {
+  return Object.keys(catalog.products).map((slug) => {
+    const authored = catalog.categoryMeta?.[slug];
+    const meta = CATEGORY_META[slug];
+    return {
+      slug,
+      name: authored?.name ?? meta?.name ?? humanize(slug),
+      description:
+        authored?.description ??
+        meta?.description ??
+        "Authentic Ayurvedic remedies.",
+      icon: authored?.icon ?? meta?.icon ?? "Leaf",
+      image: authored?.image ?? firstImageOf(catalog, slug),
+    };
+  });
+}
+
+/** Catalogue categories, derived from the keys present in the product JSON. */
+export const getCategories = cache(async (): Promise<Category[]> => {
+  return buildCategories(await loadCatalog());
+});
+
+export async function getCategory(
+  slug: CategorySlug,
+): Promise<Category | undefined> {
+  return (await getCategories()).find((c) => c.slug === slug);
+}
+
+export async function categoryName(slug: CategorySlug): Promise<string> {
+  return categoryNameFrom(await loadCatalog(), slug);
 }

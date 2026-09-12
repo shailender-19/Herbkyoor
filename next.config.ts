@@ -20,6 +20,16 @@ const nextConfig: NextConfig = {
     dangerouslyAllowSVG: true,
     contentDispositionType: "attachment",
     contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
+    /*
+     * Admin-uploaded images are stored in Vercel Blob in production and served
+     * from the Blob CDN host, so next/image must be allowed to optimize them.
+     */
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "*.public.blob.vercel-storage.com",
+      },
+    ],
   },
 };
 

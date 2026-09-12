@@ -8,7 +8,7 @@ import {
   InstagramIcon,
   YoutubeIcon,
 } from "@/components/common/social-icons";
-import { categories } from "@/data/categories";
+import { getCategories } from "@/data/categories";
 import { mainNav, siteConfig } from "@/config/site";
 import { whatsAppEnquiryUrl } from "@/lib/whatsapp";
 
@@ -17,7 +17,8 @@ const legalLinks = [
   { label: "Terms & Conditions", href: "/terms" },
 ];
 
-export function Footer() {
+export async function Footer() {
+  const categories = await getCategories();
   return (
     <footer className="mt-20 bg-forest-900 text-cream-100">
       <Container className="py-14">
