@@ -9,7 +9,7 @@ import { Container } from "@/components/ui/container";
 import { SearchBar } from "@/components/common/search-bar";
 import { WhatsAppButton } from "@/components/common/whatsapp-button";
 import { whatsAppEnquiryUrl } from "@/lib/whatsapp";
-import { mainNav, siteConfig } from "@/config/site";
+import { mainNav, siteConfig, telHref } from "@/config/site";
 import { cn } from "@/lib/utils";
 
 export function Navbar() {
@@ -57,12 +57,17 @@ export function Navbar() {
             {siteConfig.payment.currencySymbol}
             {siteConfig.payment.freeShippingThreshold} · 100% Authentic Ayurveda
           </p>
-          <a
-            href={`tel:${siteConfig.contact.phone.replace(/\s/g, "")}`}
-            className="inline-flex items-center gap-1.5 hover:text-gold-300"
-          >
-            <Phone size={13} /> {siteConfig.contact.phone}
-          </a>
+          <div className="inline-flex items-center gap-3">
+            {siteConfig.contact.phones.map((phone, i) => (
+              <a
+                key={phone}
+                href={telHref(phone)}
+                className="inline-flex items-center gap-1.5 hover:text-gold-300"
+              >
+                {i === 0 && <Phone size={13} />} {phone}
+              </a>
+            ))}
+          </div>
         </Container>
       </div>
 

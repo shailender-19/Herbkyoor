@@ -8,6 +8,24 @@
 
 const env = process.env;
 
+/**
+ * Parse one or more phone numbers from a single env string.
+ * Numbers may be separated by commas or by whitespace preceding a leading
+ * "+" — e.g. "+91 8750505094, +91 9654555236" or
+ * "+91 8750505094 +91 9654555236" both yield two numbers.
+ */
+function parsePhones(raw: string): string[] {
+  return raw
+    .split(/\s*,\s*|\s+(?=\+)/)
+    .map((p) => p.trim())
+    .filter(Boolean);
+}
+
+const phones = parsePhones(env.NEXT_PUBLIC_CONTACT_PHONE ?? "+91 98765 43210");
+
+/** Build a dialable `tel:` href, stripping spaces/dashes but keeping a leading +. */
+export const telHref = (phone: string) => `tel:${phone.replace(/[^\d+]/g, "")}`;
+
 export const siteConfig = {
   name: env.NEXT_PUBLIC_SITE_NAME ?? "HerbKyoor Ayurveda",
   shortName: "HerbKyoor",
@@ -19,7 +37,10 @@ export const siteConfig = {
   /** Contact details */
   contact: {
     email: env.NEXT_PUBLIC_CONTACT_EMAIL ?? "care@herbkyoor.in",
-    phone: env.NEXT_PUBLIC_CONTACT_PHONE ?? "+91 98765 43210",
+    /** Primary number — kept for single-number consumers. */
+    phone: phones[0],
+    /** All contact numbers, in display order. */
+    phones,
     address:
       env.NEXT_PUBLIC_SHOP_ADDRESS ??
       "12, Herbal Lane, Green Park, New Delhi, India 110016",

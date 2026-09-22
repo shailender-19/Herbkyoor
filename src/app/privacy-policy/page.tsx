@@ -55,7 +55,7 @@ export default function PrivacyPolicyPage() {
         {
           heading: "Contact Us",
           body: [
-            `For any privacy-related questions, reach us at ${siteConfig.contact.email} or ${siteConfig.contact.phone}.`,
+            `For any privacy-related questions, reach us at ${siteConfig.contact.email} or ${siteConfig.contact.phones.join(" / ")}.`,
           ],
         },
       ]}

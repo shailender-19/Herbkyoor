@@ -21,7 +21,10 @@ export function SiteStructuredData() {
     url: base,
     image: `${base}/misc/og.svg`,
     logo: `${base}/brand/logo-mark.svg`,
-    telephone: siteConfig.contact.phone,
+    telephone:
+      siteConfig.contact.phones.length > 1
+        ? siteConfig.contact.phones
+        : siteConfig.contact.phone,
     email: siteConfig.contact.email,
     priceRange: "₹₹",
     address: {

@@ -6,12 +6,12 @@ import { QuantitySelector } from "@/components/ui/quantity-selector";
 import { WhatsAppButton } from "@/components/common/whatsapp-button";
 import { buttonClasses } from "@/components/ui/button";
 import { productOrderUrl } from "@/lib/whatsapp";
-import { siteConfig } from "@/config/site";
+import { siteConfig, telHref } from "@/config/site";
 import type { Product } from "@/types";
 
 export function ProductActions({ product }: { product: Product }) {
   const [qty, setQty] = useState(1);
-  const phoneHref = `tel:${siteConfig.contact.phone.replace(/\s/g, "")}`;
+  const phones = siteConfig.contact.phones;
 
   if (!product.inStock) {
     return (
@@ -44,10 +44,16 @@ export function ProductActions({ product }: { product: Product }) {
         className="w-full"
       />
 
-      <a href={phoneHref} className={buttonClasses({ variant: "outline", size: "lg", className: "w-full" })}>
-        <Phone size={18} />
-        Call to Order
-      </a>
+      {phones.map((phone) => (
+        <a
+          key={phone}
+          href={telHref(phone)}
+          className={buttonClasses({ variant: "outline", size: "lg", className: "w-full" })}
+        >
+          <Phone size={18} />
+          {phones.length > 1 ? `Call ${phone}` : "Call to Order"}
+        </a>
+      ))}
 
       <p className="text-center text-xs text-forest-700/50">
         Share your requirement on WhatsApp or call us — our team will confirm

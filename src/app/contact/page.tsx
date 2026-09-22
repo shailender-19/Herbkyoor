@@ -6,14 +6,13 @@ import { ContactForm } from "@/components/forms/contact-form";
 import { WhatsAppButton } from "@/components/common/whatsapp-button";
 import { WhatsAppIcon } from "@/components/common/whatsapp-icon";
 import { whatsAppEnquiryUrl } from "@/lib/whatsapp";
-import { siteConfig } from "@/config/site";
+import { siteConfig, telHref } from "@/config/site";
 
 export const metadata: Metadata = {
   title: "Contact Us",
   description: `Get in touch with ${siteConfig.name}. Visit our store, call, email or chat with our Ayurvedic experts on WhatsApp.`,
 };
 
-const phoneHref = `tel:${siteConfig.contact.phone.replace(/\s/g, "")}`;
 const mapSrc = `https://maps.google.com/maps?q=${encodeURIComponent(
   siteConfig.contact.mapQuery,
 )}&t=&z=13&ie=UTF8&iwloc=&output=embed`;
@@ -42,9 +41,15 @@ export default function ContactPage() {
                 {siteConfig.contact.address}
               </InfoRow>
               <InfoRow icon={<Phone size={20} />} title="Call Us">
-                <a href={phoneHref} className="hover:text-forest-700">
-                  {siteConfig.contact.phone}
-                </a>
+                {siteConfig.contact.phones.map((phone) => (
+                  <a
+                    key={phone}
+                    href={telHref(phone)}
+                    className="block hover:text-forest-700"
+                  >
+                    {phone}
+                  </a>
+                ))}
               </InfoRow>
               <InfoRow icon={<Mail size={20} />} title="Email Us">
                 <a

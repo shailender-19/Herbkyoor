@@ -9,7 +9,7 @@ import {
   YoutubeIcon,
 } from "@/components/common/social-icons";
 import { getCategories } from "@/data/categories";
-import { mainNav, siteConfig } from "@/config/site";
+import { mainNav, siteConfig, telHref } from "@/config/site";
 import { whatsAppEnquiryUrl } from "@/lib/whatsapp";
 
 const legalLinks = [
@@ -115,15 +115,20 @@ export async function Footer() {
                 <MapPin size={17} className="mt-0.5 shrink-0 text-gold-400" />
                 <span>{siteConfig.contact.address}</span>
               </li>
-              <li>
-                <a
-                  href={`tel:${siteConfig.contact.phone.replace(/\s/g, "")}`}
-                  className="flex items-center gap-2.5 transition-colors hover:text-gold-300"
-                >
-                  <Phone size={17} className="shrink-0 text-gold-400" />
-                  {siteConfig.contact.phone}
-                </a>
-              </li>
+              {siteConfig.contact.phones.map((phone, i) => (
+                <li key={phone}>
+                  <a
+                    href={telHref(phone)}
+                    className="flex items-center gap-2.5 transition-colors hover:text-gold-300"
+                  >
+                    <Phone
+                      size={17}
+                      className={`shrink-0 text-gold-400 ${i > 0 ? "invisible" : ""}`}
+                    />
+                    {phone}
+                  </a>
+                </li>
+              ))}
               <li>
                 <a
                   href={`mailto:${siteConfig.contact.email}`}
