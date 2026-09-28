@@ -1,0 +1,827 @@
+{
+    "products": [
+        {
+            "id": "HRT001",
+            "slug": "omega-3",
+            "name": "Omega-3",
+            "category": "heart",
+            "categoryName": "Heart Care",
+            "shortDescription": "Authentic Ayurvedic heart care remedy.",
+            "description": "Omega-3 from our Heart Care range. Full product details are coming soon — enquire on WhatsApp for ingredients, dosage and pricing.",
+            "price": 0,
+            "originalPrice": null,
+            "rating": 0,
+            "reviewCount": 0,
+            "image": "assets/images/product_images/Heart/Heart_omega-3.jpeg",
+            "images": [
+                "assets/images/product_images/Heart/Heart_omega-3.jpeg"
+            ],
+            "sizes": null,
+            "scheme": null,
+            "usage": "Use as directed by your Ayurvedic physician. Contact us on WhatsApp for detailed usage and dosage guidance.",
+            "info": null,
+            "inStock": true,
+            "featured": false,
+            "tag": null
+        },
+        {
+            "id": "HRT002",
+            "slug": "heart-block",
+            "name": "Heart Block",
+            "category": "heart",
+            "categoryName": "Heart Care",
+            "shortDescription": "Authentic Ayurvedic heart care remedy.",
+            "description": "Heart Block from our Heart Care range. Full product details are coming soon — enquire on WhatsApp for ingredients, dosage and pricing.",
+            "price": 350,
+            "originalPrice": null,
+            "rating": 0,
+            "reviewCount": 0,
+            "image": "assets/images/product_images/Heart/Heartcare_HeartBlock.jpeg",
+            "images": [
+                "assets/images/product_images/Heart/Heartcare_HeartBlock.jpeg"
+            ],
+            "sizes": [
+                "30 Capsule"
+            ],
+            "scheme": null,
+            "usage": "Use as directed by your Ayurvedic physician. Contact us on WhatsApp for detailed usage and dosage guidance.",
+            "info": {
+                "Available Sizes": "30 Capsule"
+            },
+            "inStock": true,
+            "featured": false,
+            "tag": null
+        },
+        {
+            "id": "HEA003",
+            "slug": "abc-projd",
+            "name": "abc projd",
+            "category": "heart",
+            "categoryName": "Heart Care",
+            "shortDescription": "Authentic Ayurvedic heart care remedy.",
+            "description": "abc projd from our Heart Care range. Full product details are coming soon — enquire on WhatsApp for ingredients, dosage and pricing.",
+            "price": 250,
+            "originalPrice": null,
+            "rating": 0,
+            "reviewCount": 0,
+            "image": "assets/images/product_images/heart/whatsapp-image-2026-09-02-at-13-24-44-13088e5b.jpeg",
+            "images": [
+                "assets/images/product_images/heart/whatsapp-image-2026-09-02-at-13-24-44-13088e5b.jpeg",
+                "assets/images/product_images/heart/whatsapp-image-2026-09-02-at-13-24-44-b69605fc.jpeg"
+            ],
+            "sizes": [
+                "30 capsule"
+            ],
+            "scheme": null,
+            "usage": "Use as directed by your Ayurvedic physician. Contact us on WhatsApp for detailed usage and dosage guidance.",
+            "info": {
+                "Available Sizes": "30 capsule"
+            },
+            "inStock": true,
+            "featured": false,
+            "tag": null
+        },
+        {
+            "id": "KNP001",
+            "slug": "kneepain-yog",
+            "name": "Kneepain Yog",
+            "category": "kneePain",
+            "categoryName": "Knee & Joint Pain",
+            "shortDescription": "Authentic Ayurvedic knee & joint pain remedy.",
+            "description": "Kneepain Yog from our Knee & Joint Pain range. Full product details are coming soon — enquire on WhatsApp for ingredients, dosage and pricing.",
+            "price": 350,
+            "originalPrice": null,
+            "rating": 0,
+            "reviewCount": 0,
+            "image": "assets/images/product_images/Kneepain/Kneepain_KneepainYog.jpeg",
+            "images": [
+                "assets/images/product_images/Kneepain/Kneepain_KneepainYog.jpeg"
+            ],
+            "sizes": [
+                "30 Capsule"
+            ],
+            "scheme": null,
+            "usage": "Use as directed by your Ayurvedic physician. Contact us on WhatsApp for detailed usage and dosage guidance.",
+            "info": {
+                "Available Sizes": "30 Capsule"
+            },
+            "inStock": true,
+            "featured": false,
+            "tag": null
+        },
+        {
+            "id": "KNP002",
+            "slug": "sudhasaptak-tablet",
+            "name": "Sudhasaptak Tablet",
+            "category": "kneePain",
+            "categoryName": "Knee & Joint Pain",
+            "shortDescription": "Authentic Ayurvedic knee & joint pain remedy.",
+            "description": "Sudhasaptak Tablet from our Knee & Joint Pain range. Full product details are coming soon — enquire on WhatsApp for ingredients, dosage and pricing.",
+            "price": 166,
+            "originalPrice": null,
+            "rating": 0,
+            "reviewCount": 0,
+            "image": "assets/images/product_images/Kneepain/Kneepain_SudhasaptakTablet.jpeg",
+            "images": [
+                "assets/images/product_images/Kneepain/Kneepain_SudhasaptakTablet.jpeg"
+            ],
+            "sizes": [
+                "30 Tablets"
+            ],
+            "scheme": null,
+            "usage": "Use as directed by your Ayurvedic physician. Contact us on WhatsApp for detailed usage and dosage guidance.",
+            "info": {
+                "Available Sizes": "30 Tablets"
+            },
+            "inStock": true,
+            "featured": false,
+            "tag": null
+        },
+        {
+            "id": "KNP003",
+            "slug": "trayodasang",
+            "name": "Trayodasang",
+            "category": "kneePain",
+            "categoryName": "Knee & Joint Pain",
+            "shortDescription": "Authentic Ayurvedic knee & joint pain remedy.",
+            "description": "Trayodasang from our Knee & Joint Pain range. Full product details are coming soon — enquire on WhatsApp for ingredients, dosage and pricing.",
+            "price": 180,
+            "originalPrice": null,
+            "rating": 0,
+            "reviewCount": 0,
+            "image": "assets/images/product_images/Kneepain/Kneepain_Trayodasang.jpeg",
+            "images": [
+                "assets/images/product_images/Kneepain/Kneepain_Trayodasang.jpeg"
+            ],
+            "sizes": null,
+            "scheme": null,
+            "usage": "Use as directed by your Ayurvedic physician. Contact us on WhatsApp for detailed usage and dosage guidance.",
+            "info": null,
+            "inStock": true,
+            "featured": false,
+            "tag": null
+        },
+        {
+            "id": "KNP004",
+            "slug": "rhemaratna",
+            "name": "Rhemaratna",
+            "category": "kneePain",
+            "categoryName": "Knee & Joint Pain",
+            "shortDescription": "Authentic Ayurvedic knee & joint pain remedy.",
+            "description": "Rhemaratna from our Knee & Joint Pain range. Full product details are coming soon — enquire on WhatsApp for ingredients, dosage and pricing.",
+            "price": 690,
+            "originalPrice": null,
+            "rating": 0,
+            "reviewCount": 0,
+            "image": "assets/images/product_images/Kneepain/kneePain_Rhemaratna.jpeg",
+            "images": [
+                "assets/images/product_images/Kneepain/kneePain_Rhemaratna.jpeg"
+            ],
+            "sizes": [
+                "30 Capsule"
+            ],
+            "scheme": null,
+            "usage": "Use as directed by your Ayurvedic physician. Contact us on WhatsApp for detailed usage and dosage guidance.",
+            "info": {
+                "Available Sizes": "30 Capsule"
+            },
+            "inStock": true,
+            "featured": false,
+            "tag": null
+        },
+        {
+            "id": "KNP005",
+            "slug": "flaxseed",
+            "name": "Flaxseed",
+            "category": "kneePain",
+            "categoryName": "Knee & Joint Pain",
+            "shortDescription": "Authentic Ayurvedic knee & joint pain remedy.",
+            "description": "Flaxseed from our Knee & Joint Pain range. Full product details are coming soon — enquire on WhatsApp for ingredients, dosage and pricing.",
+            "price": 395,
+            "originalPrice": null,
+            "rating": 0,
+            "reviewCount": 0,
+            "image": "assets/images/product_images/Kneepain/kneepain_Flaxseed.jpeg",
+            "images": [
+                "assets/images/product_images/Kneepain/kneepain_Flaxseed.jpeg"
+            ],
+            "sizes": [
+                "60 Capsule"
+            ],
+            "scheme": null,
+            "usage": "Use as directed by your Ayurvedic physician. Contact us on WhatsApp for detailed usage and dosage guidance.",
+            "info": {
+                "Available Sizes": "60 Capsule"
+            },
+            "inStock": true,
+            "featured": false,
+            "tag": null
+        },
+        {
+            "id": "BLD001",
+            "slug": "hemossom-syrup",
+            "name": "Hemossom Syrup",
+            "category": "blood",
+            "categoryName": "Blood Care",
+            "shortDescription": "Authentic Ayurvedic blood care remedy.",
+            "description": "Hemossom Syrup from our Blood Care range. Full product details are coming soon — enquire on WhatsApp for ingredients, dosage and pricing.",
+            "price": 0,
+            "originalPrice": null,
+            "rating": 0,
+            "reviewCount": 0,
+            "image": "assets/images/product_images/Blood/BloodCare_HemossomSyrup.jpeg",
+            "images": [
+                "assets/images/product_images/Blood/BloodCare_HemossomSyrup.jpeg"
+            ],
+            "sizes": null,
+            "scheme": null,
+            "usage": "Use as directed by your Ayurvedic physician. Contact us on WhatsApp for detailed usage and dosage guidance.",
+            "info": null,
+            "inStock": true,
+            "featured": false,
+            "tag": null
+        },
+        {
+            "id": "CNS001",
+            "slug": "aerand-bhrust-harde-tablets",
+            "name": "Aerand Bhrust Harde Tablets",
+            "category": "conspitation",
+            "categoryName": "Constipation Care",
+            "shortDescription": "Authentic Ayurvedic constipation care remedy.",
+            "description": "Aerand Bhrust Harde Tablets from our Constipation Care range. Full product details are coming soon — enquire on WhatsApp for ingredients, dosage and pricing.",
+            "price": 130,
+            "originalPrice": null,
+            "rating": 0,
+            "reviewCount": 0,
+            "image": "assets/images/product_images/Conspitation/Conspitation_AerandBhrustHardeTablets.jpeg",
+            "images": [
+                "assets/images/product_images/Conspitation/Conspitation_AerandBhrustHardeTablets.jpeg"
+            ],
+            "sizes": [
+                "60 Tablets"
+            ],
+            "scheme": null,
+            "usage": "Use as directed by your Ayurvedic physician. Contact us on WhatsApp for detailed usage and dosage guidance.",
+            "info": {
+                "Available Sizes": "60 Tablets"
+            },
+            "inStock": true,
+            "featured": false,
+            "tag": null
+        },
+        {
+            "id": "CNS002",
+            "slug": "detozayu",
+            "name": "Detozayu",
+            "category": "conspitation",
+            "categoryName": "Constipation Care",
+            "shortDescription": "Authentic Ayurvedic constipation care remedy.",
+            "description": "Detozayu from our Constipation Care range. Full product details are coming soon — enquire on WhatsApp for ingredients, dosage and pricing.",
+            "price": 0,
+            "originalPrice": null,
+            "rating": 0,
+            "reviewCount": 0,
+            "image": "assets/images/product_images/Conspitation/constipation_Detozayu.jpeg",
+            "images": [
+                "assets/images/product_images/Conspitation/constipation_Detozayu.jpeg"
+            ],
+            "sizes": null,
+            "scheme": null,
+            "usage": "Use as directed by your Ayurvedic physician. Contact us on WhatsApp for detailed usage and dosage guidance.",
+            "info": null,
+            "inStock": true,
+            "featured": false,
+            "tag": null
+        },
+        {
+            "id": "HLT001",
+            "slug": "j9g-capsule",
+            "name": "J9G Capsule",
+            "category": "health",
+            "categoryName": "General Health",
+            "shortDescription": "Authentic Ayurvedic general health remedy.",
+            "description": "J9G Capsule from our General Health range. Full product details are coming soon — enquire on WhatsApp for ingredients, dosage and pricing.",
+            "price": 0,
+            "originalPrice": null,
+            "rating": 0,
+            "reviewCount": 0,
+            "image": "assets/images/product_images/Health/Health_J9GCapsule.jpeg",
+            "images": [
+                "assets/images/product_images/Health/Health_J9GCapsule.jpeg"
+            ],
+            "sizes": null,
+            "scheme": null,
+            "usage": "Use as directed by your Ayurvedic physician. Contact us on WhatsApp for detailed usage and dosage guidance.",
+            "info": null,
+            "inStock": true,
+            "featured": false,
+            "tag": null
+        },
+        {
+            "id": "HLT002",
+            "slug": "moringa",
+            "name": "Moringa",
+            "category": "health",
+            "categoryName": "General Health",
+            "shortDescription": "Authentic Ayurvedic general health remedy.",
+            "description": "Moringa from our General Health range. Full product details are coming soon — enquire on WhatsApp for ingredients, dosage and pricing.",
+            "price": 0,
+            "originalPrice": null,
+            "rating": 0,
+            "reviewCount": 0,
+            "image": "assets/images/product_images/Health/Health_moringa.jpeg",
+            "images": [
+                "assets/images/product_images/Health/Health_moringa.jpeg"
+            ],
+            "sizes": null,
+            "scheme": null,
+            "usage": "Use as directed by your Ayurvedic physician. Contact us on WhatsApp for detailed usage and dosage guidance.",
+            "info": null,
+            "inStock": true,
+            "featured": false,
+            "tag": null
+        },
+        {
+            "id": "KDN001",
+            "slug": "punnarva-churan",
+            "name": "Punnarva Churan",
+            "category": "kidney",
+            "categoryName": "Kidney Care",
+            "shortDescription": "Authentic Ayurvedic kidney care remedy.",
+            "description": "Punnarva Churan from our Kidney Care range. Full product details are coming soon — enquire on WhatsApp for ingredients, dosage and pricing.",
+            "price": 0,
+            "originalPrice": null,
+            "rating": 0,
+            "reviewCount": 0,
+            "image": "assets/images/product_images/Kidney/Kidney_PunnarvaChuran.jpeg",
+            "images": [
+                "assets/images/product_images/Kidney/Kidney_PunnarvaChuran.jpeg"
+            ],
+            "sizes": null,
+            "scheme": null,
+            "usage": "Use as directed by your Ayurvedic physician. Contact us on WhatsApp for detailed usage and dosage guidance.",
+            "info": null,
+            "inStock": true,
+            "featured": false,
+            "tag": null
+        },
+        {
+            "id": "LVR001",
+            "slug": "gastoliv-100",
+            "name": "GastoLiv 100",
+            "category": "liverDisorder",
+            "categoryName": "Liver Care",
+            "shortDescription": "Authentic Ayurvedic liver care remedy.",
+            "description": "GastoLiv 100 from our Liver Care range. Full product details are coming soon — enquire on WhatsApp for ingredients, dosage and pricing.",
+            "price": 0,
+            "originalPrice": null,
+            "rating": 0,
+            "reviewCount": 0,
+            "image": "assets/images/product_images/LiverDisorder/LiverDisorder_GastoLiv100.jpeg",
+            "images": [
+                "assets/images/product_images/LiverDisorder/LiverDisorder_GastoLiv100.jpeg"
+            ],
+            "sizes": null,
+            "scheme": null,
+            "usage": "Use as directed by your Ayurvedic physician. Contact us on WhatsApp for detailed usage and dosage guidance.",
+            "info": null,
+            "inStock": true,
+            "featured": false,
+            "tag": null
+        },
+        {
+            "id": "LVR002",
+            "slug": "livbond-sf",
+            "name": "Livbond SF",
+            "category": "liverDisorder",
+            "categoryName": "Liver Care",
+            "shortDescription": "Authentic Ayurvedic liver care remedy.",
+            "description": "Livbond SF from our Liver Care range. Full product details are coming soon — enquire on WhatsApp for ingredients, dosage and pricing.",
+            "price": 0,
+            "originalPrice": null,
+            "rating": 0,
+            "reviewCount": 0,
+            "image": "assets/images/product_images/LiverDisorder/LiverDisorder_LivbondSF.jpeg",
+            "images": [
+                "assets/images/product_images/LiverDisorder/LiverDisorder_LivbondSF.jpeg"
+            ],
+            "sizes": null,
+            "scheme": null,
+            "usage": "Use as directed by your Ayurvedic physician. Contact us on WhatsApp for detailed usage and dosage guidance.",
+            "info": null,
+            "inStock": true,
+            "featured": false,
+            "tag": null
+        },
+        {
+            "id": "LVR003",
+            "slug": "livozid",
+            "name": "Livozid",
+            "category": "liverDisorder",
+            "categoryName": "Liver Care",
+            "shortDescription": "Authentic Ayurvedic liver care remedy.",
+            "description": "Livozid from our Liver Care range. Full product details are coming soon — enquire on WhatsApp for ingredients, dosage and pricing.",
+            "price": 0,
+            "originalPrice": null,
+            "rating": 0,
+            "reviewCount": 0,
+            "image": "assets/images/product_images/LiverDisorder/LiverDisorder_Livozid.jpeg",
+            "images": [
+                "assets/images/product_images/LiverDisorder/LiverDisorder_Livozid.jpeg"
+            ],
+            "sizes": null,
+            "scheme": null,
+            "usage": "Use as directed by your Ayurvedic physician. Contact us on WhatsApp for detailed usage and dosage guidance.",
+            "info": null,
+            "inStock": true,
+            "featured": false,
+            "tag": null
+        },
+        {
+            "id": "LVR004",
+            "slug": "amalaki-rasyan",
+            "name": "Amalaki Rasyan",
+            "category": "liverDisorder",
+            "categoryName": "Liver Care",
+            "shortDescription": "Authentic Ayurvedic liver care remedy.",
+            "description": "Amalaki Rasyan from our Liver Care range. Full product details are coming soon — enquire on WhatsApp for ingredients, dosage and pricing.",
+            "price": 0,
+            "originalPrice": null,
+            "rating": 0,
+            "reviewCount": 0,
+            "image": "assets/images/product_images/LiverDisorder/Liverdisorder_amalakiRasyan.jpeg",
+            "images": [
+                "assets/images/product_images/LiverDisorder/Liverdisorder_amalakiRasyan.jpeg",
+                "assets/images/product_images/aamalikaRasayan.jpeg",
+                "assets/images/product_images/amalakiRashyan.jpeg"
+            ],
+            "sizes": null,
+            "scheme": null,
+            "usage": "Use as directed by your Ayurvedic physician. Contact us on WhatsApp for detailed usage and dosage guidance.",
+            "info": null,
+            "inStock": true,
+            "featured": false,
+            "tag": null
+        },
+        {
+            "id": "LVR005",
+            "slug": "ampachan-vati",
+            "name": "Ampachan Vati",
+            "category": "liverDisorder",
+            "categoryName": "Liver Care",
+            "shortDescription": "Authentic Ayurvedic liver care remedy.",
+            "description": "Ampachan Vati from our Liver Care range. Full product details are coming soon — enquire on WhatsApp for ingredients, dosage and pricing.",
+            "price": 0,
+            "originalPrice": null,
+            "rating": 0,
+            "reviewCount": 0,
+            "image": "assets/images/product_images/LiverDisorder/Liverdisorder_ampachanVati.jpeg",
+            "images": [
+                "assets/images/product_images/LiverDisorder/Liverdisorder_ampachanVati.jpeg"
+            ],
+            "sizes": null,
+            "scheme": null,
+            "usage": "Use as directed by your Ayurvedic physician. Contact us on WhatsApp for detailed usage and dosage guidance.",
+            "info": null,
+            "inStock": true,
+            "featured": false,
+            "tag": null
+        },
+        {
+            "id": "LVR006",
+            "slug": "arogyavardhini",
+            "name": "Arogyavardhini",
+            "category": "liverDisorder",
+            "categoryName": "Liver Care",
+            "shortDescription": "Authentic Ayurvedic liver care remedy.",
+            "description": "Arogyavardhini from our Liver Care range. Full product details are coming soon — enquire on WhatsApp for ingredients, dosage and pricing.",
+            "price": 0,
+            "originalPrice": null,
+            "rating": 0,
+            "reviewCount": 0,
+            "image": "assets/images/product_images/LiverDisorder/Liverdisorder_arogyavardhnin.jpeg",
+            "images": [
+                "assets/images/product_images/LiverDisorder/Liverdisorder_arogyavardhnin.jpeg"
+            ],
+            "sizes": null,
+            "scheme": null,
+            "usage": "Use as directed by your Ayurvedic physician. Contact us on WhatsApp for detailed usage and dosage guidance.",
+            "info": null,
+            "inStock": true,
+            "featured": false,
+            "tag": null
+        },
+        {
+            "id": "LVR007",
+            "slug": "livbond-drops",
+            "name": "Livbond Drops",
+            "category": "liverDisorder",
+            "categoryName": "Liver Care",
+            "shortDescription": "Authentic Ayurvedic liver care remedy.",
+            "description": "Livbond Drops from our Liver Care range. Full product details are coming soon — enquire on WhatsApp for ingredients, dosage and pricing.",
+            "price": 0,
+            "originalPrice": null,
+            "rating": 0,
+            "reviewCount": 0,
+            "image": "assets/images/product_images/LiverDisorder/Liverrdisorder_LivbondDrops.jpeg",
+            "images": [
+                "assets/images/product_images/LiverDisorder/Liverrdisorder_LivbondDrops.jpeg"
+            ],
+            "sizes": null,
+            "scheme": null,
+            "usage": "Use as directed by your Ayurvedic physician. Contact us on WhatsApp for detailed usage and dosage guidance.",
+            "info": null,
+            "inStock": true,
+            "featured": false,
+            "tag": null
+        },
+        {
+            "id": "LVR008",
+            "slug": "castor-oil",
+            "name": "Castor Oil",
+            "category": "liverDisorder",
+            "categoryName": "Liver Care",
+            "shortDescription": "Authentic Ayurvedic liver care remedy.",
+            "description": "Castor Oil from our Liver Care range. Full product details are coming soon — enquire on WhatsApp for ingredients, dosage and pricing.",
+            "price": 0,
+            "originalPrice": null,
+            "rating": 0,
+            "reviewCount": 0,
+            "image": "assets/images/product_images/LiverDisorder/lLiverdisorder_castorOil.jpeg",
+            "images": [
+                "assets/images/product_images/LiverDisorder/lLiverdisorder_castorOil.jpeg"
+            ],
+            "sizes": null,
+            "scheme": null,
+            "usage": "Use as directed by your Ayurvedic physician. Contact us on WhatsApp for detailed usage and dosage guidance.",
+            "info": null,
+            "inStock": true,
+            "featured": false,
+            "tag": null
+        },
+        {
+            "id": "MEM001",
+            "slug": "yaad-granules",
+            "name": "Yaad Granules",
+            "category": "memory",
+            "categoryName": "Memory & Brain",
+            "shortDescription": "Authentic Ayurvedic memory & brain remedy.",
+            "description": "Yaad Granules from our Memory & Brain range. Full product details are coming soon — enquire on WhatsApp for ingredients, dosage and pricing.",
+            "price": 0,
+            "originalPrice": null,
+            "rating": 0,
+            "reviewCount": 0,
+            "image": "assets/images/product_images/Memory/Memory_YaadGranules.jpeg",
+            "images": [
+                "assets/images/product_images/Memory/Memory_YaadGranules.jpeg"
+            ],
+            "sizes": null,
+            "scheme": null,
+            "usage": "Use as directed by your Ayurvedic physician. Contact us on WhatsApp for detailed usage and dosage guidance.",
+            "info": null,
+            "inStock": true,
+            "featured": false,
+            "tag": null
+        },
+        {
+            "id": "PCD001",
+            "slug": "ashoka-cordial",
+            "name": "Ashoka Cordial",
+            "category": "pcodPcos",
+            "categoryName": "PCOD / PCOS",
+            "shortDescription": "Authentic Ayurvedic pcod / pcos remedy.",
+            "description": "Ashoka Cordial from our PCOD / PCOS range. Full product details are coming soon — enquire on WhatsApp for ingredients, dosage and pricing.",
+            "price": 0,
+            "originalPrice": null,
+            "rating": 0,
+            "reviewCount": 0,
+            "image": "assets/images/product_images/PcodPcos/PcodPcos_AshokaCordial.jpeg",
+            "images": [
+                "assets/images/product_images/PcodPcos/PcodPcos_AshokaCordial.jpeg"
+            ],
+            "sizes": null,
+            "scheme": null,
+            "usage": "Use as directed by your Ayurvedic physician. Contact us on WhatsApp for detailed usage and dosage guidance.",
+            "info": null,
+            "inStock": true,
+            "featured": false,
+            "tag": null
+        },
+        {
+            "id": "PLS001",
+            "slug": "pylofyn",
+            "name": "Pylofyn",
+            "category": "piles",
+            "categoryName": "Piles Care",
+            "shortDescription": "Authentic Ayurvedic piles care remedy.",
+            "description": "Pylofyn from our Piles Care range. Full product details are coming soon — enquire on WhatsApp for ingredients, dosage and pricing.",
+            "price": 0,
+            "originalPrice": null,
+            "rating": 0,
+            "reviewCount": 0,
+            "image": "assets/images/product_images/Piles/Piles_Pylofyn.jpeg",
+            "images": [
+                "assets/images/product_images/Piles/Piles_Pylofyn.jpeg"
+            ],
+            "sizes": null,
+            "scheme": null,
+            "usage": "Use as directed by your Ayurvedic physician. Contact us on WhatsApp for detailed usage and dosage guidance.",
+            "info": null,
+            "inStock": true,
+            "featured": false,
+            "tag": null
+        },
+        {
+            "id": "SXL001",
+            "slug": "makardhwaj-vati",
+            "name": "Makardhwaj Vati",
+            "category": "sexual",
+            "categoryName": "Sexual Wellness",
+            "shortDescription": "Authentic Ayurvedic sexual wellness remedy.",
+            "description": "Makardhwaj Vati from our Sexual Wellness range. Full product details are coming soon — enquire on WhatsApp for ingredients, dosage and pricing.",
+            "price": 0,
+            "originalPrice": null,
+            "rating": 0,
+            "reviewCount": 0,
+            "image": "assets/images/product_images/Sexual/Sexaul_MakardhwajVati.jpeg",
+            "images": [
+                "assets/images/product_images/Sexual/Sexaul_MakardhwajVati.jpeg"
+            ],
+            "sizes": null,
+            "scheme": null,
+            "usage": "Use as directed by your Ayurvedic physician. Contact us on WhatsApp for detailed usage and dosage guidance.",
+            "info": null,
+            "inStock": true,
+            "featured": false,
+            "tag": null
+        },
+        {
+            "id": "SXL002",
+            "slug": "musli-pak",
+            "name": "Musli Pak",
+            "category": "sexual",
+            "categoryName": "Sexual Wellness",
+            "shortDescription": "Authentic Ayurvedic sexual wellness remedy.",
+            "description": "Musli Pak from our Sexual Wellness range. Full product details are coming soon — enquire on WhatsApp for ingredients, dosage and pricing.",
+            "price": 0,
+            "originalPrice": null,
+            "rating": 0,
+            "reviewCount": 0,
+            "image": "assets/images/product_images/Sexual/Sexual_MusliPak.jpeg",
+            "images": [
+                "assets/images/product_images/Sexual/Sexual_MusliPak.jpeg"
+            ],
+            "sizes": null,
+            "scheme": null,
+            "usage": "Use as directed by your Ayurvedic physician. Contact us on WhatsApp for detailed usage and dosage guidance.",
+            "info": null,
+            "inStock": true,
+            "featured": false,
+            "tag": null
+        },
+        {
+            "id": "SXL003",
+            "slug": "safed-musli-churna",
+            "name": "Safed Musli Churna",
+            "category": "sexual",
+            "categoryName": "Sexual Wellness",
+            "shortDescription": "Authentic Ayurvedic sexual wellness remedy.",
+            "description": "Safed Musli Churna from our Sexual Wellness range. Full product details are coming soon — enquire on WhatsApp for ingredients, dosage and pricing.",
+            "price": 0,
+            "originalPrice": null,
+            "rating": 0,
+            "reviewCount": 0,
+            "image": "assets/images/product_images/Sexual/Sexual_SafedMusliChurna.jpeg",
+            "images": [
+                "assets/images/product_images/Sexual/Sexual_SafedMusliChurna.jpeg"
+            ],
+            "sizes": null,
+            "scheme": null,
+            "usage": "Use as directed by your Ayurvedic physician. Contact us on WhatsApp for detailed usage and dosage guidance.",
+            "info": null,
+            "inStock": true,
+            "featured": false,
+            "tag": null
+        },
+        {
+            "id": "SXL004",
+            "slug": "vanari-gutika",
+            "name": "Vanari Gutika",
+            "category": "sexual",
+            "categoryName": "Sexual Wellness",
+            "shortDescription": "Authentic Ayurvedic sexual wellness remedy.",
+            "description": "Vanari Gutika from our Sexual Wellness range. Full product details are coming soon — enquire on WhatsApp for ingredients, dosage and pricing.",
+            "price": 0,
+            "originalPrice": null,
+            "rating": 0,
+            "reviewCount": 0,
+            "image": "assets/images/product_images/Sexual/Sexual_vanarigutika.jpeg",
+            "images": [
+                "assets/images/product_images/Sexual/Sexual_vanarigutika.jpeg"
+            ],
+            "sizes": null,
+            "scheme": null,
+            "usage": "Use as directed by your Ayurvedic physician. Contact us on WhatsApp for detailed usage and dosage guidance.",
+            "info": null,
+            "inStock": true,
+            "featured": false,
+            "tag": null
+        },
+        {
+            "id": "SXL005",
+            "slug": "shilajit",
+            "name": "Shilajit",
+            "category": "sexual",
+            "categoryName": "Sexual Wellness",
+            "shortDescription": "Authentic Ayurvedic sexual wellness remedy.",
+            "description": "Shilajit from our Sexual Wellness range. Full product details are coming soon — enquire on WhatsApp for ingredients, dosage and pricing.",
+            "price": 0,
+            "originalPrice": null,
+            "rating": 0,
+            "reviewCount": 0,
+            "image": "assets/images/product_images/Sexual/sexualwellnes_shilajit.jpeg",
+            "images": [
+                "assets/images/product_images/Sexual/sexualwellnes_shilajit.jpeg"
+            ],
+            "sizes": null,
+            "scheme": null,
+            "usage": "Use as directed by your Ayurvedic physician. Contact us on WhatsApp for detailed usage and dosage guidance.",
+            "info": null,
+            "inStock": true,
+            "featured": false,
+            "tag": null
+        },
+        {
+            "id": "THY001",
+            "slug": "thyrokyoor-capsule",
+            "name": "ThyroKyoor Capsule",
+            "category": "thyroid",
+            "categoryName": "Thyroid Care",
+            "shortDescription": "Authentic Ayurvedic thyroid care remedy.",
+            "description": "ThyroKyoor Capsule from our Thyroid Care range. Full product details are coming soon — enquire on WhatsApp for ingredients, dosage and pricing.",
+            "price": 0,
+            "originalPrice": null,
+            "rating": 0,
+            "reviewCount": 0,
+            "image": "assets/images/product_images/Thyroid/Thyroid_ThryroKyoorCapsule.jpeg",
+            "images": [
+                "assets/images/product_images/Thyroid/Thyroid_ThryroKyoorCapsule.jpeg"
+            ],
+            "sizes": null,
+            "scheme": null,
+            "usage": "Use as directed by your Ayurvedic physician. Contact us on WhatsApp for detailed usage and dosage guidance.",
+            "info": null,
+            "inStock": true,
+            "featured": false,
+            "tag": null
+        },
+        {
+            "id": "URN001",
+            "slug": "bahumutranatak",
+            "name": "Bahumutranatak",
+            "category": "urine",
+            "categoryName": "Urinary Care",
+            "shortDescription": "Authentic Ayurvedic urinary care remedy.",
+            "description": "Bahumutranatak from our Urinary Care range. Full product details are coming soon — enquire on WhatsApp for ingredients, dosage and pricing.",
+            "price": 0,
+            "originalPrice": null,
+            "rating": 0,
+            "reviewCount": 0,
+            "image": "assets/images/product_images/Urine/Urine_Bahumutranatak.jpeg",
+            "images": [
+                "assets/images/product_images/Urine/Urine_Bahumutranatak.jpeg"
+            ],
+            "sizes": null,
+            "scheme": null,
+            "usage": "Use as directed by your Ayurvedic physician. Contact us on WhatsApp for detailed usage and dosage guidance.",
+            "info": null,
+            "inStock": true,
+            "featured": false,
+            "tag": null
+        },
+        {
+            "id": "URN002",
+            "slug": "proston-tablet",
+            "name": "Proston Tablet",
+            "category": "urine",
+            "categoryName": "Urinary Care",
+            "shortDescription": "Authentic Ayurvedic urinary care remedy.",
+            "description": "Proston Tablet from our Urinary Care range. Full product details are coming soon — enquire on WhatsApp for ingredients, dosage and pricing.",
+            "price": 0,
+            "originalPrice": null,
+            "rating": 0,
+            "reviewCount": 0,
+            "image": "assets/images/product_images/Urine/Urine_ProstonTablet.jpeg",
+            "images": [
+                "assets/images/product_images/Urine/Urine_ProstonTablet.jpeg"
+            ],
+            "sizes": null,
+            "scheme": null,
+            "usage": "Use as directed by your Ayurvedic physician. Contact us on WhatsApp for detailed usage and dosage guidance.",
+            "info": null,
+            "inStock": true,
+            "featured": false,
+            "tag": null
+        }
+    ]
+}

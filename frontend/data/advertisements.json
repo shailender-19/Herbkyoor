@@ -1,0 +1,46 @@
+{
+    "advertisements": [
+        {
+            "id": "ad-monsoon",
+            "title": "Monsoon Wellness Collection",
+            "subtitle": "Up to 20% off on selected immunity & wellness essentials.",
+            "eyebrow": "Seasonal Offer",
+            "ctaLabel": "Shop the Collection",
+            "ctaHref": "products.html",
+            "image": "assets/images/banners/monsoon-wellness.svg",
+            "type": "banner",
+            "status": "active",
+            "startDate": "2026-07-01",
+            "endDate": "2026-09-30",
+            "accent": "#2e5c42"
+        },
+        {
+            "id": "ad-glow",
+            "title": "Natural Glow Skincare",
+            "subtitle": "Saffron Kumkumadi oil & herbal ubtans for radiant skin.",
+            "eyebrow": "New Arrivals",
+            "ctaLabel": "Explore Skincare",
+            "ctaHref": "products.html",
+            "image": "assets/images/banners/natural-glow.svg",
+            "type": "gif",
+            "status": "active",
+            "startDate": "2026-08-01",
+            "endDate": "2026-10-31",
+            "accent": "#a8851d"
+        },
+        {
+            "id": "ad-immunity",
+            "title": "Everyday Immunity, Made Simple",
+            "subtitle": "Chyawanprash, Giloy & Amla — stock up and save more.",
+            "eyebrow": "Bestsellers",
+            "ctaLabel": "Build Your Immunity",
+            "ctaHref": "products.html",
+            "image": "assets/images/banners/immunity-combo.svg",
+            "type": "slider",
+            "status": "active",
+            "startDate": "2026-06-15",
+            "endDate": "2026-12-31",
+            "accent": "#274a37"
+        }
+    ]
+}

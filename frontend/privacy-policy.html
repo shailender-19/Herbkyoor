@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#274a37">
+    <title>Privacy Policy · HerbKyoor Ayurveda</title>
+    <meta name="description" content="How HerbKyoor Ayurveda collects, uses and protects your personal information.">
+    <link rel="canonical" href="https://herbkyoor.example.com/privacy-policy.html">
+    <link rel="icon" href="assets/favicon.ico" sizes="any">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/config.js"></script>
+</head>
+<body class="min-h-screen bg-cream-50 antialiased">
+    <a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[200] focus:rounded-full focus:bg-forest-800 focus:px-4 focus:py-2 focus:text-cream-50">Skip to content</a>
+    <div id="site-header"></div>
+    <main id="main"><div id="legal-root"></div></main>
+    <div id="site-footer"></div>
+
+    <script src="js/icons.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/components.js"></script>
+    <script src="js/layout.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/reveal.js"></script>
+    <script>
+      (function () {
+        var email = (window.APP_CONFIG.CONTACT && window.APP_CONFIG.CONTACT.email) || "";
+        var phones = ((window.APP_CONFIG.CONTACT && window.APP_CONFIG.CONTACT.phones) || []).join(" / ");
+        document.getElementById("legal-root").innerHTML = window.Components.legal(
+          "Privacy Policy", "1 August 2026",
+          "At " + window.APP_CONFIG.SITE_NAME + ", your privacy matters to us. This policy explains what information we collect, how we use it, and the choices you have. By using our website you agree to the practices described below.",
+          [
+            { heading: "Information We Collect", body: ["We collect information you provide directly — such as your name, email, phone number and delivery address when you place an order or contact us.", "We also collect limited technical data (such as device and usage information) to keep the site secure and improve your experience."] },
+            { heading: "How We Use Your Information", body: ["We use your information to process and deliver orders, respond to enquiries, provide customer support and, with your consent, send wellness updates and offers.", "We never sell your personal information to third parties."] },
+            { heading: "Payment Information", body: ["Payments are processed by trusted third-party payment providers. We do not store your full card details on our servers. Sensitive payment data is handled securely by the payment gateway."] },
+            { heading: "Cookies & Local Storage", body: ["We use local storage to remember your cart between visits. You can clear this at any time from your browser settings."] },
+            { heading: "Data Security", body: ["We apply reasonable technical and organisational measures to protect your information. However, no method of transmission over the internet is completely secure."] },
+            { heading: "Your Rights", body: ["You may request access to, correction of, or deletion of your personal data by contacting us at " + email + "."] },
+            { heading: "Contact Us", body: ["For any privacy-related questions, reach us at " + email + " or " + phones + "."] }
+          ]
+        );
+      })();
+    </script>
+</body>
+</html>

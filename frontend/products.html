@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#274a37">
+    <title>Ayurvedic Products · HerbKyoor Ayurveda</title>
+    <meta name="description" content="Browse our full range of authentic Ayurvedic products — herbal medicines, oils, skincare and everyday wellness essentials.">
+    <link rel="canonical" href="https://herbkyoor.example.com/products.html">
+    <link rel="icon" href="assets/favicon.ico" sizes="any">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/config.js"></script>
+</head>
+<body class="min-h-screen bg-cream-50 antialiased">
+    <a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[200] focus:rounded-full focus:bg-forest-800 focus:px-4 focus:py-2 focus:text-cream-50">Skip to content</a>
+    <div id="site-header"></div>
+
+    <main id="main">
+        <div class="mx-auto w-full max-w-7xl container-px py-8 sm:py-10">
+            <div class="mb-6">
+                <h1 class="text-3xl font-bold sm:text-4xl" data-active-category>All Products</h1>
+                <p class="mt-2 text-forest-700/60">Authentic Ayurvedic products for everyday wellness.</p>
+            </div>
+
+            <!-- Toolbar -->
+            <div class="mb-6 flex flex-col gap-3 sm:flex-row sm:items-center">
+                <div class="flex-1">
+                    <form role="search" data-search class="toolbar-search relative w-full">
+                        <span data-lucide="search" data-size="18" class="pointer-events-none absolute left-3.5 top-1/2 -translate-y-1/2 text-forest-700/50"></span>
+                        <input type="search" name="search" placeholder="Search Ayurvedic products…" aria-label="Search products" class="h-11 w-full rounded-full border border-cream-300 bg-cream-50 pl-10 pr-10 text-base sm:text-sm text-forest-900 placeholder:text-forest-700/40 focus:border-forest-400 focus:outline-none focus:ring-2 focus:ring-forest-400/30">
+                        <button type="button" data-search-clear hidden aria-label="Clear search" class="absolute right-2 top-1/2 flex h-8 w-8 -translate-y-1/2 items-center justify-center rounded-full text-forest-700/60 hover:bg-cream-200"><span data-lucide="x" data-size="16"></span></button>
+                    </form>
+                </div>
+                <div class="flex flex-wrap items-center gap-3">
+                    <button type="button" data-filter-open class="inline-flex h-11 shrink-0 items-center gap-2 rounded-full border border-cream-300 px-4 text-sm font-medium text-forest-700 hover:bg-cream-200 lg:hidden"><span data-lucide="sliders-horizontal" data-size="16"></span> Filters</button>
+                    <div class="min-w-0 flex-1 sm:min-w-[11rem] sm:flex-none">
+                        <select data-sort aria-label="Sort products" class="h-11 w-full rounded-full border border-cream-300 bg-cream-50 px-4 text-sm text-forest-900 focus:border-forest-400 focus:outline-none focus:ring-2 focus:ring-forest-400/30"></select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex gap-8">
+                <aside class="hidden w-64 shrink-0 lg:block">
+                    <div class="sticky top-28 rounded-2xl border border-cream-300 bg-cream-50 p-5" id="filters-desktop"></div>
+                </aside>
+
+                <div class="min-w-0 flex-1">
+                    <p class="mb-4 text-sm text-forest-700/60">Showing <span class="font-semibold text-forest-800" data-result-count>0</span> <span data-result-noun>products</span></p>
+                    <div class="grid grid-cols-1 gap-5 min-[420px]:grid-cols-2 md:grid-cols-3 xl:grid-cols-4" data-products-grid></div>
+                    <div class="hidden" data-empty-state>
+                        <div class="flex flex-col items-center justify-center rounded-2xl border border-dashed border-cream-400 bg-cream-100/60 px-6 py-16 text-center">
+                            <span class="flex h-14 w-14 items-center justify-center rounded-full bg-cream-200 text-forest-600"><span data-lucide="package-search" data-size="28"></span></span>
+                            <h3 class="mt-4 text-lg font-semibold text-forest-800">No products found</h3>
+                            <p class="mt-1 max-w-sm text-sm text-forest-700/60">Try adjusting your search or filters to find what you're looking for.</p>
+                            <a href="products.html" class="inline-flex items-center justify-center gap-2 rounded-full font-medium transition-all duration-200 active:scale-[0.98] whitespace-nowrap bg-forest-700 text-cream-50 hover:bg-forest-800 shadow-sm hover:shadow-md h-11 px-6 text-sm mt-5">Clear filters</a>
+                        </div>
+                    </div>
+                    <nav class="mt-10 flex flex-wrap items-center justify-center gap-1.5" aria-label="Pagination" data-pagination></nav>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile filter drawer -->
+        <div class="fixed inset-0 z-[80] hidden lg:hidden" data-filter-drawer>
+            <div class="absolute inset-0 bg-forest-950/50 backdrop-blur-sm" data-filter-close aria-hidden="true"></div>
+            <div class="absolute bottom-0 left-0 right-0 max-h-[85vh] overflow-y-auto rounded-t-3xl bg-cream-50 p-6">
+                <div class="mb-4 flex items-center justify-between">
+                    <h2 class="text-lg font-bold text-forest-800">Filters</h2>
+                    <button type="button" data-filter-close aria-label="Close filters" class="rounded-full p-1.5 text-forest-700 hover:bg-cream-200"><span data-lucide="x" data-size="20"></span></button>
+                </div>
+                <div id="filters-mobile"></div>
+                <button type="button" data-filter-close class="mt-6 h-12 w-full rounded-full bg-forest-700 font-medium text-cream-50">Show <span data-result-count>0</span> results</button>
+            </div>
+        </div>
+    </main>
+
+    <div id="site-footer"></div>
+
+    <script src="js/icons.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/components.js"></script>
+    <script src="js/layout.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/reveal.js"></script>
+    <script src="js/carousel.js"></script>
+    <script src="js/products.js"></script>
+</body>
+</html>
