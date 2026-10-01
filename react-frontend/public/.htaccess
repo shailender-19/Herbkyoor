@@ -1,0 +1,50 @@
+# =============================================================================
+# HerbKyoor SPA — Apache / LiteSpeed rewrite rules for shared hosting.
+#
+# Upload this file to the SAME directory as index.html (e.g. public_html/).
+# It makes client-side routes (e.g. /products, /products/omega-3, /admin)
+# return index.html so React Router can handle them on direct load / refresh,
+# WITHOUT hijacking API requests or real static assets.
+# =============================================================================
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+
+  # If HTTPS is available, uncomment to force it:
+  # RewriteCond %{HTTPS} off
+  # RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+  # Never rewrite API calls — let PHP handle them.
+  RewriteRule ^api/ - [L]
+
+  # Never rewrite uploaded product images (served by PHP/filesystem).
+  RewriteRule ^product_images/ - [L]
+
+  # Serve real existing files and directories as-is (JS, CSS, images, fonts...).
+  RewriteCond %{REQUEST_FILENAME} -f [OR]
+  RewriteCond %{REQUEST_FILENAME} -d
+  RewriteRule ^ - [L]
+
+  # Everything else -> index.html (SPA entry point).
+  RewriteRule ^ index.html [L]
+</IfModule>
+
+# ---- Caching: long-lived, content-hashed build assets ----------------------
+<IfModule mod_expires.c>
+  ExpiresActive On
+  <FilesMatch "\.(js|css|woff2?|ttf|eot|svg|png|jpe?g|gif|webp|avif|ico)$">
+    ExpiresDefault "access plus 1 year"
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </FilesMatch>
+  # Never cache the HTML shell so new deploys are picked up immediately.
+  <FilesMatch "\.(html)$">
+    ExpiresDefault "access plus 0 seconds"
+    Header set Cache-Control "no-cache, must-revalidate"
+  </FilesMatch>
+</IfModule>
+
+# ---- Gzip/Brotli compression ------------------------------------------------
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/plain text/css application/javascript application/json image/svg+xml
+</IfModule>

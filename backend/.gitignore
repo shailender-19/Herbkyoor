@@ -1,0 +1,5 @@
+# Never commit real credentials
+config/config.local.php
+# Uploaded files (keep the folder, ignore contents)
+uploads/products/*
+!uploads/products/.gitkeep

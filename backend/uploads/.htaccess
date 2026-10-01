@@ -1,0 +1,16 @@
+# Uploaded files are static assets only — never execute code here.
+php_flag engine off
+Options -ExecCGI -Indexes
+<IfModule mod_authz_core.c>
+    <FilesMatch "\.(php|phtml|php3|php4|php5|php7|phps|pht|pl|py|cgi|asp|sh|htaccess)$">
+        Require all denied
+    </FilesMatch>
+</IfModule>
+<IfModule !mod_authz_core.c>
+    <FilesMatch "\.(php|phtml|php3|php4|php5|php7|phps|pht|pl|py|cgi|asp|sh|htaccess)$">
+        Order allow,deny
+        Deny from all
+    </FilesMatch>
+</IfModule>
+# Force any stray script file to be served as plain text, not executed.
+AddType text/plain .php .phtml .php3 .php4 .php5 .php7 .phps .pht .pl .py .cgi
