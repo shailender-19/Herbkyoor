@@ -94,7 +94,7 @@ export function Footer() {
               Categories
             </h3>
             <ul className="mt-4 space-y-2.5 text-sm">
-              {categories.slice(0, 6).map((c) => (
+              {categories.map((c) => (
                 <li key={c.slug}>
                   <Link
                     href={`/products?category=${c.slug}`}

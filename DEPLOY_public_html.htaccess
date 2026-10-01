@@ -1,0 +1,72 @@
+# =============================================================================
+# HerbKyoor — COMBINED web-root .htaccess for shared hosting (Apache/LiteSpeed).
+#
+# Upload this as  public_html/.htaccess  when the React SPA (dist/) and the PHP
+# backend (backend/) are deployed together under ONE domain.
+#
+# It replaces BOTH react-frontend/dist/.htaccess and backend/.htaccess —
+# use ONLY this file at the web root. Enable "show hidden files" in your FTP
+# client so it uploads.
+# =============================================================================
+
+# ---- 1. Force HTTPS ---------------------------------------------------------
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+
+  RewriteCond %{HTTPS} !=on [OR]
+  RewriteCond %{HTTP:X-Forwarded-Proto} =http
+  RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
+</IfModule>
+
+# ---- 2. Block sensitive files (backend lands at the web root) ---------------
+<FilesMatch "(^\.|\.(env|ini|sql|md|log|sh|lock|dist|example|gitignore)$)">
+  <IfModule mod_authz_core.c>
+    Require all denied
+  </IfModule>
+  <IfModule !mod_authz_core.c>
+    Order allow,deny
+    Deny from all
+  </IfModule>
+</FilesMatch>
+
+# ---- 3. Security headers ----------------------------------------------------
+<IfModule mod_headers.c>
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set X-Frame-Options "SAMEORIGIN"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains"
+</IfModule>
+
+# ---- 4. SPA routing (React Router) ------------------------------------------
+<IfModule mod_rewrite.c>
+  # Never rewrite API calls — let PHP handle them.
+  RewriteRule ^api/ - [L]
+
+  # Never rewrite uploaded product images (served by PHP/filesystem).
+  RewriteRule ^uploads/ - [L]
+  RewriteRule ^product_images/ - [L]
+
+  # Serve real existing files/directories as-is (JS, CSS, images, fonts...).
+  RewriteCond %{REQUEST_FILENAME} -f [OR]
+  RewriteCond %{REQUEST_FILENAME} -d
+  RewriteRule ^ - [L]
+
+  # Everything else -> index.html so React Router handles the route.
+  RewriteRule ^ index.html [L]
+</IfModule>
+
+# ---- 5. Caching + directory listing -----------------------------------------
+<IfModule mod_expires.c>
+  ExpiresActive On
+  <FilesMatch "\.(js|css|woff2?|ttf|eot|svg|png|jpe?g|gif|webp|avif|ico)$">
+    ExpiresDefault "access plus 1 year"
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </FilesMatch>
+  <FilesMatch "\.(html)$">
+    ExpiresDefault "access plus 0 seconds"
+    Header set Cache-Control "no-cache, must-revalidate"
+  </FilesMatch>
+</IfModule>
+
+Options -Indexes
