@@ -8,6 +8,20 @@ declare(strict_types=1);
 
 const ADMIN_SESSION_KEY = 'admin_id';
 
+/** True when the current request is served over HTTPS (incl. behind a proxy). */
+function request_is_https(): bool
+{
+    if (!empty($_SERVER['HTTPS']) && strtolower((string) $_SERVER['HTTPS']) !== 'off') {
+        return true;
+    }
+    if (($_SERVER['SERVER_PORT'] ?? null) == 443) {
+        return true;
+    }
+    // Common reverse-proxy / load-balancer headers (LiteSpeed, Cloudflare, etc.).
+    $xfp = strtolower((string) ($_SERVER['HTTP_X_FORWARDED_PROTO'] ?? ''));
+    return $xfp === 'https';
+}
+
 /** Start the session with hardened cookie params (idempotent). */
 function start_admin_session(): void
 {
@@ -15,12 +29,15 @@ function start_admin_session(): void
         return;
     }
     $cfg = app_config()['app'];
+    // Secure cookie whenever the connection is HTTPS; the config flag can force it
+    // on as well. This prevents the session cookie leaking over plain HTTP in prod.
+    $secure = request_is_https() || (bool) ($cfg['cookie_secure'] ?? false);
     session_set_cookie_params([
         'lifetime' => (int) ($cfg['session_lifetime'] ?? 28800),
         'path'     => '/',
         'httponly' => true,
         'samesite' => 'Lax',
-        'secure'   => (bool) ($cfg['cookie_secure'] ?? false),
+        'secure'   => $secure,
     ]);
     session_name('herb_admin');
     session_start();

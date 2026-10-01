@@ -1,11 +1,16 @@
 <?php
 /**
- * Configuration TEMPLATE. Copy this to `config.local.php` on the server and fill
- * in your real values. `config.local.php` is NEVER committed and is blocked from
- * web access by config/.htaccess.
+ * LEGACY configuration template (still supported as a fallback).
  *
+ * PREFERRED: use a .env file instead — copy backend/.env.example to backend/.env
+ * and set your credentials there. The app reads .env first and only falls back to
+ * config.local.php if no DB_NAME env var is present.
+ *
+ * If you still want to use this file:
  *   cp config/config.sample.php config/config.local.php
  *   # then edit config/config.local.php
+ * `config.local.php` is NEVER committed and is blocked from web access by
+ * config/.htaccess.
  */
 
 return [

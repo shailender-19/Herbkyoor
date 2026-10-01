@@ -1,0 +1,37 @@
+# ============================================================
+# Web-root hardening for the HerbKyoor backend.
+# Deploys to public_html/.htaccess (Apache / LiteSpeed only).
+# ============================================================
+
+# ---- 1. Force HTTPS ----------------------------------------
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    # Redirect any plain-HTTP request to HTTPS (respects proxy header).
+    RewriteCond %{HTTPS} !=on [OR]
+    RewriteCond %{HTTP:X-Forwarded-Proto} =http
+    RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
+</IfModule>
+
+# ---- 2. Block access to sensitive files --------------------
+# .env, VCS, config, SQL dumps, docs, dotfiles — never web-readable.
+<FilesMatch "(^\.|\.(env|ini|sql|md|log|sh|lock|dist|example|gitignore)$)">
+    <IfModule mod_authz_core.c>
+        Require all denied
+    </IfModule>
+    <IfModule !mod_authz_core.c>
+        Order allow,deny
+        Deny from all
+    </IfModule>
+</FilesMatch>
+
+# ---- 3. Security headers -----------------------------------
+<IfModule mod_headers.c>
+    Header always set X-Content-Type-Options "nosniff"
+    Header always set X-Frame-Options "SAMEORIGIN"
+    Header always set Referrer-Policy "strict-origin-when-cross-origin"
+    # HSTS: force HTTPS for a year (enable only once HTTPS is confirmed working).
+    Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains"
+</IfModule>
+
+# ---- 4. Disable directory listing --------------------------
+Options -Indexes
