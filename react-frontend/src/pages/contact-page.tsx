@@ -8,10 +8,6 @@ import { whatsAppEnquiryUrl } from "@/lib/whatsapp";
 import { siteConfig, telHref } from "@/config/site";
 import { useSeo } from "@/lib/use-seo";
 
-const mapSrc = `https://maps.google.com/maps?q=${encodeURIComponent(
-  siteConfig.contact.mapQuery,
-)}&t=&z=13&ie=UTF8&iwloc=&output=embed`;
-
 export default function ContactPage() {
   useSeo({
     title: "Contact Us",
@@ -90,18 +86,6 @@ export default function ContactPage() {
             <h2 className="mb-6 text-2xl font-bold">Send a Message</h2>
             <ContactForm />
           </div>
-        </div>
-
-        {/* Map */}
-        <div className="mt-12 overflow-hidden rounded-2xl border border-cream-300">
-          <iframe
-            title={`Map showing ${siteConfig.name} location`}
-            src={mapSrc}
-            width="100%"
-            loading="lazy"
-            referrerPolicy="no-referrer-when-downgrade"
-            className="block h-[320px] w-full sm:h-[400px]"
-          />
         </div>
       </Container>
     </>

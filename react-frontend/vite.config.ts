@@ -4,7 +4,14 @@ import tailwindcss from "@tailwindcss/vite";
 import { fileURLToPath, URL } from "node:url";
 
 // https://vite.dev/config/
+// `VITE_OFFLINE=true` produces a double-clickable `file://` build: relative
+// asset URLs (base "./") so JS/CSS resolve next to index.html. Pairs with the
+// HashRouter switch in main.tsx and the withBase() image normalizer. The normal
+// (served) build is unaffected — base stays "/".
+const OFFLINE = process.env.VITE_OFFLINE === "true";
+
 export default defineConfig({
+  base: OFFLINE ? "./" : "/",
   plugins: [react(), tailwindcss()],
   resolve: {
     alias: {

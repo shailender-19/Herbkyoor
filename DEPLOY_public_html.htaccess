@@ -1,5 +1,5 @@
 # =============================================================================
-# HerbKyoor — COMBINED web-root .htaccess for shared hosting (Apache/LiteSpeed).
+# HerbsKyoor — COMBINED web-root .htaccess for shared hosting (Apache/LiteSpeed).
 #
 # Upload this as  public_html/.htaccess  when the React SPA (dist/) and the PHP
 # backend (backend/) are deployed together under ONE domain.

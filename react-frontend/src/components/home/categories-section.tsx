@@ -13,9 +13,9 @@ export function CategoriesSection() {
     <section className="py-16 sm:py-20">
       <Container>
         <SectionHeading
-          eyebrow="Shop by Category"
+          eyebrow="Shop by Concern"
           title="Explore Our Ayurvedic Range"
-          description="From time-tested herbal medicines to everyday wellness essentials, find exactly what your body needs."
+          description="Browse by health need — from liver, heart and diabetic care to immunity, joint support and everyday wellness essentials."
         />
         <div className="mt-10 grid grid-cols-2 gap-4 sm:gap-5 md:grid-cols-3 lg:grid-cols-4">
           {loading && categories.length === 0

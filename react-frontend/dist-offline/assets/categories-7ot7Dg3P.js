@@ -1,0 +1,1 @@
+import{r,a,U as i}from"./client-DF01jHDW.js";import{c as o,s as n}from"./products-DkdT1LqX.js";function c(){return r("/categories/list.php").then(s=>(s.categories??[]).map(t=>({...t,image:a(t.image)})))}const g=n;let e=null;function u(){return e||(e=o(g)),e}async function l(){return i?u():c()}export{l as g};

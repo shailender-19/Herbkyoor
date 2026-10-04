@@ -4,10 +4,14 @@ import { Image } from "@/components/ui/image";
 import {
   FolderPlus,
   ImagePlus,
+  Inbox,
   Loader2,
   LogOut,
+  Mail,
+  MailOpen,
   Package,
   Pencil,
+  Phone,
   Plus,
   RefreshCw,
   Trash2,
@@ -15,12 +19,15 @@ import {
   X,
 } from "lucide-react";
 import { Container } from "@/components/ui/container";
-import { Button } from "@/components/ui/button";
+import { Button, buttonClasses } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Modal } from "@/components/ui/modal";
+import { EmptyState } from "@/components/ui/states";
+import { WhatsAppIcon } from "@/components/common/whatsapp-icon";
 import { Input, Select, Textarea } from "@/components/ui/input";
 import { adminApi } from "@/api/admin";
 import { resolveAssetPath } from "@/api/client";
+import type { ContactMessage } from "@/types";
 
 // ---------------------------------------------------------------------------
 // Types (mirror the admin API payloads)
@@ -34,6 +41,9 @@ interface RawProduct {
   product_image_path_list: string[];
   size_available: string[];
   product_description: string;
+  product_ingredients?: string;
+  product_benefits?: string;
+  product_safety?: string;
   discount: string | number;
   sceme: string;
 }
@@ -64,6 +74,36 @@ function toList(value: string): string[] {
     .split(/[\n,]/)
     .map((s) => s.trim())
     .filter(Boolean);
+}
+
+/** Parse a possibly-empty / formatted numeric string. */
+function toNum(value: string | number | undefined): number {
+  if (typeof value === "number") return Number.isFinite(value) ? value : 0;
+  if (!value) return 0;
+  const n = parseFloat(String(value).replace(/[^0-9.]/g, ""));
+  return Number.isFinite(n) ? n : 0;
+}
+
+/**
+ * Selling price = original price with the discount applied.
+ * e.g. original 100, discount 20% → 80. No / zero discount → the original.
+ */
+function sellingPriceOf(original: number, discount: number): number {
+  if (original <= 0) return 0;
+  if (discount <= 0) return Math.round(original);
+  if (discount >= 100) return 0;
+  return Math.round(original * (1 - discount / 100));
+}
+
+/**
+ * Reconstruct the original (pre-discount) price from a stored selling price,
+ * so the edit form can pre-fill the "Original price" field. Inverse of
+ * `sellingPriceOf` and mirrors the storefront's `originalPriceFrom`.
+ */
+function originalPriceOf(selling: number, discount: number): number {
+  if (selling <= 0) return 0;
+  if (discount <= 0 || discount >= 100) return Math.round(selling);
+  return Math.round(selling / (1 - discount / 100));
 }
 
 // ---------------------------------------------------------------------------
@@ -288,12 +328,21 @@ function LoginScreen({ onSuccess }: { onSuccess: () => void }) {
 // Panel
 // ---------------------------------------------------------------------------
 
+type Tab = "catalogue" | "messages";
+
 function Panel({ onLogout }: { onLogout: () => void }) {
+  const [tab, setTab] = useState<Tab>("catalogue");
   const [categories, setCategories] = useState<AdminCategory[]>([]);
   const [icons, setIcons] = useState<string[]>([]);
   const [selected, setSelected] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+
+  // Contact messages (user enquiries)
+  const [messages, setMessages] = useState<ContactMessage[]>([]);
+  const [unread, setUnread] = useState(0);
+  const [messagesLoading, setMessagesLoading] = useState(true);
+  const [messagesError, setMessagesError] = useState<string | null>(null);
 
   // Modal state
   const [editingProduct, setEditingProduct] = useState<{
@@ -345,6 +394,23 @@ function Panel({ onLogout }: { onLogout: () => void }) {
     };
   }, [apply]);
 
+  const loadMessages = useCallback(async () => {
+    setMessagesLoading(true);
+    const { ok, data } = await adminApi.messages();
+    setMessagesLoading(false);
+    if (!ok) {
+      setMessagesError((data.error as string) ?? "Failed to load messages.");
+      return;
+    }
+    setMessages((data.messages as ContactMessage[]) ?? []);
+    setUnread((data.unread as number) ?? 0);
+    setMessagesError(null);
+  }, []);
+
+  useEffect(() => {
+    void loadMessages();
+  }, [loadMessages]);
+
   const logout = async () => {
     await adminApi.logout();
     onLogout();
@@ -389,21 +455,40 @@ function Panel({ onLogout }: { onLogout: () => void }) {
               Admin
             </span>
             <h1 className="mt-1 text-3xl font-bold sm:text-4xl">
-              Catalogue Management
+              {tab === "catalogue" ? "Catalogue Management" : "Contact Messages"}
             </h1>
             <p className="mt-2 text-sm text-forest-700/60">
-              {categories.length} categories · {totalProducts} products ·
-              changes are saved to{" "}
-              <code className="rounded bg-cream-200 px-1 py-0.5 text-xs">
-                Product_list.json
-              </code>
+              {tab === "catalogue" ? (
+                <>
+                  {categories.length} categories · {totalProducts} products ·
+                  changes are saved to{" "}
+                  <code className="rounded bg-cream-200 px-1 py-0.5 text-xs">
+                    Product_list.json
+                  </code>
+                </>
+              ) : (
+                <>
+                  {messages.length} message{messages.length === 1 ? "" : "s"}
+                  {unread > 0 ? ` · ${unread} unread` : " · all read"} · submitted
+                  via the Contact form
+                </>
+              )}
             </p>
           </div>
           <div className="flex items-center gap-2">
-            <Button variant="outline" size="sm" onClick={load} disabled={loading}>
+            <Button
+              variant="outline"
+              size="sm"
+              onClick={tab === "catalogue" ? load : loadMessages}
+              disabled={tab === "catalogue" ? loading : messagesLoading}
+            >
               <RefreshCw
                 size={16}
-                className={loading ? "animate-spin" : undefined}
+                className={
+                  (tab === "catalogue" ? loading : messagesLoading)
+                    ? "animate-spin"
+                    : undefined
+                }
               />
               Refresh
             </Button>
@@ -413,12 +498,34 @@ function Panel({ onLogout }: { onLogout: () => void }) {
           </div>
         </div>
 
-        {error && (
+        {/* Tabs */}
+        <div className="mt-6 flex gap-1 border-b border-cream-300">
+          <TabButton
+            active={tab === "catalogue"}
+            onClick={() => setTab("catalogue")}
+          >
+            <Package size={16} /> Catalogue
+          </TabButton>
+          <TabButton
+            active={tab === "messages"}
+            onClick={() => setTab("messages")}
+          >
+            <Inbox size={16} /> Messages
+            {unread > 0 && (
+              <span className="ml-1 inline-flex min-w-5 items-center justify-center rounded-full bg-forest-600 px-1.5 text-[11px] font-bold text-cream-50">
+                {unread}
+              </span>
+            )}
+          </TabButton>
+        </div>
+
+        {tab === "catalogue" && error && (
           <p className="mt-4 rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-sm font-medium text-red-700">
             {error}
           </p>
         )}
 
+        {tab === "catalogue" && (
         <div className="mt-8 grid gap-6 lg:grid-cols-[280px_1fr]">
           {/* Categories */}
           <aside className="space-y-3">
@@ -584,6 +691,18 @@ function Panel({ onLogout }: { onLogout: () => void }) {
             )}
           </section>
         </div>
+        )}
+
+        {tab === "messages" && (
+          <div className="mt-8">
+            <MessagesPanel
+              messages={messages}
+              loading={messagesLoading}
+              error={messagesError}
+              onReload={loadMessages}
+            />
+          </div>
+        )}
       </Container>
 
       {editingProduct && (
@@ -677,6 +796,309 @@ function IconButton({
   );
 }
 
+function TabButton({
+  active,
+  onClick,
+  children,
+}: {
+  active: boolean;
+  onClick: () => void;
+  children: React.ReactNode;
+}) {
+  return (
+    <button
+      type="button"
+      onClick={onClick}
+      className={`-mb-px flex items-center gap-2 border-b-2 px-4 py-2.5 text-sm font-semibold transition-colors ${
+        active
+          ? "border-forest-600 text-forest-800"
+          : "border-transparent text-forest-700/60 hover:text-forest-800"
+      }`}
+    >
+      {children}
+    </button>
+  );
+}
+
+// ---------------------------------------------------------------------------
+// Contact messages
+// ---------------------------------------------------------------------------
+
+/** Parse the MySQL "YYYY-MM-DD HH:MM:SS" timestamp into a readable local date. */
+function formatMessageDate(raw: string): string {
+  const d = new Date(raw.replace(" ", "T"));
+  if (Number.isNaN(d.getTime())) return raw;
+  return d.toLocaleString(undefined, {
+    dateStyle: "medium",
+    timeStyle: "short",
+  });
+}
+
+/** Build a wa.me link to reply to the customer (assumes Indian numbers). */
+function customerWhatsAppUrl(phone: string): string {
+  let digits = phone.replace(/\D/g, "");
+  if (digits.length === 10) digits = `91${digits}`;
+  return `https://wa.me/${digits}`;
+}
+
+function MessagesPanel({
+  messages,
+  loading,
+  error,
+  onReload,
+}: {
+  messages: ContactMessage[];
+  loading: boolean;
+  error: string | null;
+  onReload: () => Promise<void> | void;
+}) {
+  const [filter, setFilter] = useState<"all" | "unread">("all");
+  const [busyId, setBusyId] = useState<number | null>(null);
+  const [actionError, setActionError] = useState<string | null>(null);
+  const [confirmDelete, setConfirmDelete] = useState<ContactMessage | null>(
+    null,
+  );
+
+  const unreadCount = useMemo(
+    () => messages.filter((m) => !m.is_read).length,
+    [messages],
+  );
+  const visible = useMemo(
+    () => (filter === "unread" ? messages.filter((m) => !m.is_read) : messages),
+    [messages, filter],
+  );
+
+  const toggleRead = async (m: ContactMessage) => {
+    setBusyId(m.id);
+    setActionError(null);
+    const { ok, data } = await adminApi.markMessage(m.id, !m.is_read);
+    setBusyId(null);
+    if (!ok) {
+      setActionError((data.error as string) ?? "Could not update the message.");
+      return;
+    }
+    await onReload();
+  };
+
+  const doDelete = async () => {
+    if (!confirmDelete) return;
+    setBusyId(confirmDelete.id);
+    setActionError(null);
+    const { ok, data } = await adminApi.deleteMessage(confirmDelete.id);
+    setBusyId(null);
+    setConfirmDelete(null);
+    if (!ok) {
+      setActionError((data.error as string) ?? "Delete failed.");
+      return;
+    }
+    await onReload();
+  };
+
+  if (loading && messages.length === 0) {
+    return (
+      <div className="flex min-h-[40vh] items-center justify-center">
+        <Loader2 className="animate-spin text-forest-600" size={26} />
+      </div>
+    );
+  }
+
+  if (error && messages.length === 0) {
+    return (
+      <div className="rounded-2xl border border-red-200 bg-red-50 px-4 py-10 text-center">
+        <p className="text-sm font-medium text-red-700">{error}</p>
+        <Button variant="outline" size="sm" className="mt-4" onClick={onReload}>
+          <RefreshCw size={16} /> Try again
+        </Button>
+      </div>
+    );
+  }
+
+  if (messages.length === 0) {
+    return (
+      <EmptyState
+        icon={<Inbox size={28} />}
+        title="No messages yet"
+        description="Enquiries submitted through the Contact form will appear here."
+      />
+    );
+  }
+
+  return (
+    <>
+      {/* Filter pills */}
+      <div className="flex flex-wrap items-center gap-2">
+        <FilterPill active={filter === "all"} onClick={() => setFilter("all")}>
+          All <span className="opacity-60">({messages.length})</span>
+        </FilterPill>
+        <FilterPill
+          active={filter === "unread"}
+          onClick={() => setFilter("unread")}
+        >
+          Unread <span className="opacity-60">({unreadCount})</span>
+        </FilterPill>
+      </div>
+
+      {actionError && (
+        <p className="mt-4 rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-sm font-medium text-red-700">
+          {actionError}
+        </p>
+      )}
+
+      {visible.length === 0 ? (
+        <p className="mt-6 rounded-2xl border border-dashed border-cream-400 bg-cream-100/60 px-4 py-12 text-center text-sm text-forest-700/60">
+          No unread messages. 🎉
+        </p>
+      ) : (
+        <ul className="mt-5 space-y-3">
+          {visible.map((m) => (
+            <li
+              key={m.id}
+              className={`rounded-2xl border p-4 transition-colors sm:p-5 ${
+                m.is_read
+                  ? "border-cream-300 bg-cream-50"
+                  : "border-forest-300 bg-forest-50/50"
+              }`}
+            >
+              <div className="flex flex-wrap items-start justify-between gap-2">
+                <div className="min-w-0">
+                  <p className="flex items-center gap-2 font-semibold text-forest-900">
+                    {!m.is_read && (
+                      <span
+                        className="h-2 w-2 shrink-0 rounded-full bg-forest-600"
+                        aria-label="Unread"
+                      />
+                    )}
+                    <span className="truncate">{m.name}</span>
+                  </p>
+                  <div className="mt-1 flex flex-wrap gap-x-4 gap-y-1 text-xs text-forest-700/70">
+                    <a
+                      href={`mailto:${m.email}`}
+                      className="inline-flex items-center gap-1 hover:text-forest-700"
+                    >
+                      <Mail size={13} /> {m.email}
+                    </a>
+                    {m.phone && (
+                      <a
+                        href={`tel:${m.phone.replace(/[^\d+]/g, "")}`}
+                        className="inline-flex items-center gap-1 hover:text-forest-700"
+                      >
+                        <Phone size={13} /> {m.phone}
+                      </a>
+                    )}
+                  </div>
+                </div>
+                <time className="shrink-0 text-xs text-forest-700/50">
+                  {formatMessageDate(m.created_at)}
+                </time>
+              </div>
+
+              <p className="mt-3 whitespace-pre-wrap break-words text-sm leading-relaxed text-forest-800">
+                {m.message}
+              </p>
+
+              <div className="mt-4 flex flex-wrap items-center gap-2">
+                <a
+                  href={`mailto:${m.email}?subject=${encodeURIComponent(
+                    "Re: your enquiry",
+                  )}`}
+                  className={buttonClasses({ variant: "outline", size: "sm" })}
+                >
+                  <Mail size={15} /> Reply
+                </a>
+                {m.phone && (
+                  <a
+                    href={customerWhatsAppUrl(m.phone)}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={buttonClasses({ variant: "whatsapp", size: "sm" })}
+                  >
+                    <WhatsAppIcon size={15} /> WhatsApp
+                  </a>
+                )}
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  onClick={() => toggleRead(m)}
+                  disabled={busyId === m.id}
+                >
+                  {busyId === m.id ? (
+                    <Loader2 className="animate-spin" size={15} />
+                  ) : m.is_read ? (
+                    <MailOpen size={15} />
+                  ) : (
+                    <Mail size={15} />
+                  )}
+                  {m.is_read ? "Mark unread" : "Mark read"}
+                </Button>
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  className="text-red-600 hover:bg-red-50"
+                  onClick={() => setConfirmDelete(m)}
+                  disabled={busyId === m.id}
+                >
+                  <Trash2 size={15} /> Delete
+                </Button>
+              </div>
+            </li>
+          ))}
+        </ul>
+      )}
+
+      <Modal
+        open={!!confirmDelete}
+        onClose={() => setConfirmDelete(null)}
+        title="Delete message?"
+        className="max-w-sm"
+      >
+        <p className="text-sm text-forest-700/70">
+          This permanently removes the message from{" "}
+          <strong>{confirmDelete?.name}</strong>. This cannot be undone.
+        </p>
+        <div className="mt-6 flex justify-end gap-3">
+          <Button variant="outline" onClick={() => setConfirmDelete(null)}>
+            Cancel
+          </Button>
+          <Button
+            className="bg-red-600 hover:bg-red-700"
+            onClick={doDelete}
+            disabled={busyId === confirmDelete?.id}
+          >
+            {busyId === confirmDelete?.id && (
+              <Loader2 className="animate-spin" size={16} />
+            )}
+            Delete
+          </Button>
+        </div>
+      </Modal>
+    </>
+  );
+}
+
+function FilterPill({
+  active,
+  onClick,
+  children,
+}: {
+  active: boolean;
+  onClick: () => void;
+  children: React.ReactNode;
+}) {
+  return (
+    <button
+      type="button"
+      onClick={onClick}
+      className={`rounded-full border px-3.5 py-1.5 text-sm font-medium transition-colors ${
+        active
+          ? "border-forest-300 bg-forest-50 text-forest-800"
+          : "border-cream-300 bg-cream-50 text-forest-700/70 hover:bg-cream-100"
+      }`}
+    >
+      {children}
+    </button>
+  );
+}
+
 // ---------------------------------------------------------------------------
 // Product editor
 // ---------------------------------------------------------------------------
@@ -695,13 +1117,21 @@ function ProductModal({
   onSaved: () => void;
 }) {
   const isEdit = !!product;
+  // Stored `product_price` is the final selling price; reconstruct the original
+  // (pre-discount) price so the admin edits in terms of original + discount.
+  const initialOriginal = product
+    ? originalPriceOf(toNum(product.product_price), toNum(product.discount))
+    : 0;
   const [form, setForm] = useState({
     product_name: product?.product_name ?? "",
-    product_price: String(product?.product_price ?? ""),
+    original_price: initialOriginal > 0 ? String(initialOriginal) : "",
     product_category: product?.product_category ?? category,
     discount: String(product?.discount ?? ""),
     sceme: product?.sceme ?? "",
     product_description: product?.product_description ?? "",
+    product_ingredients: product?.product_ingredients ?? "",
+    product_benefits: product?.product_benefits ?? "",
+    product_safety: product?.product_safety ?? "",
     sizes: (product?.size_available ?? []).join(", "),
   });
   const [images, setImages] = useState<string[]>(
@@ -713,6 +1143,12 @@ function ProductModal({
   const set = <K extends keyof typeof form>(key: K, value: string) =>
     setForm((prev) => ({ ...prev, [key]: value }));
 
+  // Live calculation: original price − discount = selling price shown to customers.
+  const originalNum = toNum(form.original_price);
+  const discountNum = toNum(form.discount);
+  const sellingNum = sellingPriceOf(originalNum, discountNum);
+  const showCalc = originalNum > 0 && discountNum > 0 && discountNum < 100;
+
   const submit = async (e: React.FormEvent) => {
     e.preventDefault();
     setBusy(true);
@@ -720,11 +1156,16 @@ function ProductModal({
 
     const payload = {
       product_name: form.product_name,
-      product_price: form.product_price,
+      // Store the computed selling price; the storefront re-derives the original
+      // from this + the discount for the struck-through MRP.
+      product_price: originalNum > 0 ? String(sellingNum) : "",
       product_category: form.product_category,
       discount: form.discount,
       sceme: form.sceme,
       product_description: form.product_description,
+      product_ingredients: form.product_ingredients,
+      product_benefits: form.product_benefits,
+      product_safety: form.product_safety,
       product_image_path_list: images,
       size_available: toList(form.sizes),
     };
@@ -753,17 +1194,18 @@ function ProductModal({
         />
         <div className="grid gap-4 sm:grid-cols-2">
           <Input
-            label="Price (₹)"
+            label="Original price (₹)"
             inputMode="numeric"
-            value={form.product_price}
-            onChange={(e) => set("product_price", e.target.value)}
-            hint="Leave blank if not set"
+            value={form.original_price}
+            onChange={(e) => set("original_price", e.target.value)}
+            hint="MRP before discount. Leave blank if not set."
           />
           <Input
             label="Discount (%)"
             inputMode="numeric"
             value={form.discount}
             onChange={(e) => set("discount", e.target.value)}
+            hint="e.g. 20"
           />
           <Select
             label="Category"
@@ -783,6 +1225,14 @@ function ProductModal({
             hint='e.g. "Buy 1 Get 1"'
           />
         </div>
+        {showCalc && (
+          <p className="rounded-lg bg-forest-50 px-3 py-2 text-sm text-forest-700">
+            Customer pays{" "}
+            <span className="font-semibold text-forest-900">₹{sellingNum}</span>{" "}
+            <span className="text-forest-400 line-through">₹{Math.round(originalNum)}</span>{" "}
+            <span className="text-forest-500">({discountNum}% off)</span>
+          </p>
+        )}
         <Textarea
           label="Sizes available"
           rows={2}
@@ -801,10 +1251,32 @@ function ProductModal({
           />
         </div>
         <Textarea
-          label="Description"
+          label="Product overview"
           rows={3}
           value={form.product_description}
           onChange={(e) => set("product_description", e.target.value)}
+          hint="Optional. Main description shown at the top of the product page."
+        />
+        <Textarea
+          label="Key ingredients"
+          rows={3}
+          value={form.product_ingredients}
+          onChange={(e) => set("product_ingredients", e.target.value)}
+          hint="Optional. One per line, or comma separated."
+        />
+        <Textarea
+          label="Key benefits"
+          rows={3}
+          value={form.product_benefits}
+          onChange={(e) => set("product_benefits", e.target.value)}
+          hint="Optional. One per line, or comma separated."
+        />
+        <Textarea
+          label="Safety & precautions"
+          rows={3}
+          value={form.product_safety}
+          onChange={(e) => set("product_safety", e.target.value)}
+          hint="Optional. Free text — warnings, contraindications, storage."
         />
         {error && (
           <p className="text-sm font-medium text-red-600" role="alert">

@@ -35,8 +35,8 @@ the same `public_html`.** They don't overlap.
 
 ## Step 1 — Create the MariaDB database (cPanel → "MySQL® Databases")
 
-1. Under **Create New Database**, enter a name, e.g. `herbkyoor`. cPanel prefixes it
-   with your account, so the real name becomes something like `cpuser_herbkyoor`.
+1. Under **Create New Database**, enter a name, e.g. `herbskyoor`. cPanel prefixes it
+   with your account, so the real name becomes something like `cpuser_herbskyoor`.
    Click **Create Database**. Note the full name.
 
 ## Step 2 — Create a database user
@@ -52,7 +52,7 @@ the same `public_html`.** They don't overlap.
 
 ## Step 4 — Import the schema and seed data (cPanel → phpMyAdmin)
 
-1. Open **phpMyAdmin**, select your database (`cpuser_herbkyoor`) in the left list.
+1. Open **phpMyAdmin**, select your database (`cpuser_herbskyoor`) in the left list.
 2. Click the **Import** tab → **Choose File** → select `database/schema.sql` → **Go**.
    You should see the 7 tables created.
 3. Import again with `database/seed.sql` (categories, products, images, sizes, and the
@@ -61,8 +61,8 @@ the same `public_html`.** They don't overlap.
 
 *Command-line alternative (if you have SSH):*
 ```bash
-mysql -u cpuser_herb -p cpuser_herbkyoor < database/schema.sql
-mysql -u cpuser_herb -p cpuser_herbkyoor < database/seed.sql
+mysql -u cpuser_herb -p cpuser_herbskyoor < database/schema.sql
+mysql -u cpuser_herb -p cpuser_herbskyoor < database/seed.sql
 ```
 
 ## Step 5 — Configure the database credentials
@@ -73,7 +73,7 @@ mysql -u cpuser_herb -p cpuser_herbkyoor < database/seed.sql
    ```php
    'db' => [
        'host'    => 'localhost',          // HostyCare: almost always "localhost"
-       'name'    => 'cpuser_herbkyoor',
+       'name'    => 'cpuser_herbskyoor',
        'user'    => 'cpuser_herb',
        'pass'    => 'your-strong-password',
        'charset' => 'utf8mb4',

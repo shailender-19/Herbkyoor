@@ -1,4 +1,4 @@
-# HerbKyoor Ayurveda — Ayurvedic Medical Shop
+# HerbsKyoor Ayurveda — Ayurvedic Medical Shop
 
 A production-quality, fully responsive storefront for an Ayurvedic medical shop,
 built with **Next.js (App Router) + TypeScript + Tailwind CSS**.

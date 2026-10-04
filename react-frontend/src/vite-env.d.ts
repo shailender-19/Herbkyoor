@@ -13,6 +13,8 @@ interface ImportMetaEnv {
   readonly VITE_CONTACT_PHONE?: string;
   readonly VITE_SHOP_ADDRESS?: string;
   readonly VITE_WHATSAPP_NUMBER?: string;
+  /** When "true", build for double-clickable file:// use (HashRouter + base "./"). */
+  readonly VITE_OFFLINE?: string;
 }
 
 interface ImportMeta {

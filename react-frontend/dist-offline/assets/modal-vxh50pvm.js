@@ -1,0 +1,11 @@
+import{o as x,c as d,r as c,j as e,X as y,a as v}from"./index-CiNzH1w3.js";var p=x();/**
+ * @license lucide-react v1.48.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */const l={name:"pencil",size:24,node:[["path",{d:"M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z",key:"1a8usu"}],["path",{d:"m15 5 4 4",key:"1mk7zo"}]]};l.node;const k=d(l);/**
+ * @license lucide-react v1.48.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */const i={name:"trash",size:24,node:[["path",{d:"M10 11v6",key:"nco0om"}],["path",{d:"M14 11v6",key:"outv1u"}],["path",{d:"M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6",key:"miytrc"}],["path",{d:"M3 6h18",key:"d0wm0j"}],["path",{d:"M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2",key:"e791ji"}]],aliases:["trash-2"]};i.node;const j=d(i);function w({open:a,onClose:t,title:s,children:u,className:m}){const o=c.useRef(null);return c.useEffect(()=>{var r;if(!a)return;const n=h=>{h.key==="Escape"&&t()};document.addEventListener("keydown",n);const f=document.body.style.overflow;return document.body.style.overflow="hidden",(r=o.current)==null||r.focus(),()=>{document.removeEventListener("keydown",n),document.body.style.overflow=f}},[a,t]),!a||typeof document>"u"?null:p.createPortal(e.jsxs("div",{className:"fixed inset-0 z-[100] flex items-center justify-center p-4",role:"dialog","aria-modal":"true","aria-label":s,children:[e.jsx("div",{className:"absolute inset-0 bg-forest-950/50 backdrop-blur-sm",onClick:t,"aria-hidden":!0}),e.jsxs("div",{ref:o,tabIndex:-1,className:v("relative z-10 max-h-[85vh] w-full max-w-lg overflow-y-auto rounded-2xl bg-cream-50 p-6 shadow-xl focus:outline-none animate-[scale-in_0.25s_ease-out]",m),children:[e.jsxs("div",{className:"mb-4 flex items-start justify-between gap-4",children:[s&&e.jsx("h2",{className:"text-xl font-bold text-forest-800",children:s}),e.jsx("button",{type:"button",onClick:t,"aria-label":"Close dialog",className:"ml-auto flex h-10 w-10 shrink-0 items-center justify-center rounded-full text-forest-700 transition-colors hover:bg-cream-200",children:e.jsx(y,{size:20})})]}),u]})]}),document.body)}export{w as M,k as P,j as T};

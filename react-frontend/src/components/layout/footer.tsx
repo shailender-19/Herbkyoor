@@ -8,8 +8,6 @@ import {
   InstagramIcon,
   YoutubeIcon,
 } from "@/components/common/social-icons";
-import { getCategories } from "@/data/categories";
-import { useAsync } from "@/hooks/use-async";
 import { mainNav, siteConfig, telHref } from "@/config/site";
 import { whatsAppEnquiryUrl } from "@/lib/whatsapp";
 
@@ -19,12 +17,10 @@ const legalLinks = [
 ];
 
 export function Footer() {
-  const { data } = useAsync(() => getCategories(), []);
-  const categories = data ?? [];
   return (
     <footer className="mt-20 bg-forest-900 text-cream-100">
       <Container className="py-14">
-        <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-4">
+        <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-3">
           {/* Brand */}
           <div>
             <Link href="/" className="flex items-center gap-2.5">
@@ -82,25 +78,6 @@ export function Footer() {
                     className="text-cream-100/70 transition-colors hover:text-gold-300"
                   >
                     {item.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </nav>
-
-          {/* Categories */}
-          <nav aria-label="Product categories">
-            <h3 className="text-sm font-semibold uppercase tracking-wider text-gold-400">
-              Categories
-            </h3>
-            <ul className="mt-4 space-y-2.5 text-sm">
-              {categories.map((c) => (
-                <li key={c.slug}>
-                  <Link
-                    href={`/products?category=${c.slug}`}
-                    className="text-cream-100/70 transition-colors hover:text-gold-300"
-                  >
-                    {c.name}
                   </Link>
                 </li>
               ))}

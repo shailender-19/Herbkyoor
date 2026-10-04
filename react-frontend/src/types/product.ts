@@ -36,8 +36,12 @@ export interface Product {
   sizes?: string[];
   /** Promotional scheme, e.g. "Buy 1 Get 1", "10% cashback". */
   scheme?: string;
+  /** "Key Ingredients" section — a list of ingredient names. */
   ingredients?: string[];
+  /** "Key Benefits" section — a list of benefit statements. */
   benefits?: string[];
+  /** "Safety & Precautions" section — free-text guidance. */
+  safety?: string;
   usage?: string;
   /** Additional key/value specs shown on the detail page. */
   info?: Record<string, string>;

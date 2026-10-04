@@ -4,11 +4,12 @@ import { Check } from "lucide-react";
 import { Container } from "@/components/ui/container";
 import { buttonClasses } from "@/components/ui/button";
 import { Reveal } from "@/components/common/reveal";
+import { siteConfig } from "@/config/site";
 
 const pillars = [
-  "Balance of body, mind and spirit",
-  "Time-tested herbs and formulations",
-  "Gentle, holistic everyday wellness",
+  "Authentic, traditionally crafted formulations",
+  "Ethically sourced, purity-tested ingredients",
+  "Trusted by thousands of families across India",
 ];
 
 export function WellnessSection() {
@@ -19,8 +20,8 @@ export function WellnessSection() {
           <Reveal>
             <div className="relative mx-auto aspect-[5/4] w-full max-w-lg overflow-hidden rounded-[2rem] border border-cream-300 shadow-lg">
               <Image
-                src="/misc/wellness.svg"
-                alt="Ayurvedic herbs and natural ingredients"
+                src="/product_images/Heart/whatsapp-image-2026-09-02-at-13-24-44-b69605fc.jpeg"
+                alt={`${siteConfig.name} — authentic Ayurvedic products from our range`}
                 fill
                 sizes="(max-width: 1024px) 90vw, 45vw"
                 className="object-cover"
@@ -32,17 +33,18 @@ export function WellnessSection() {
             <div>
               <span className="mb-3 inline-flex items-center gap-2 rounded-full bg-forest-50 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-forest-600">
                 <span className="h-1.5 w-1.5 rounded-full bg-gold-500" aria-hidden />
-                The Ayurvedic Way
+                About Us
               </span>
               <h2 className="text-3xl font-bold text-balance sm:text-4xl">
-                Ancient Wisdom. Modern Wellness.
+                Rooted in Tradition, Crafted for You
               </h2>
               <p className="mt-4 text-base leading-relaxed text-forest-700/70">
-                For over 5,000 years, Ayurveda has guided people towards
-                balance and vitality using the healing power of nature. We bring
-                this timeless wisdom to your everyday life with authentic,
-                thoughtfully sourced products — so wellness feels natural, not
-                complicated.
+                {siteConfig.name} began with a simple belief — that the timeless
+                wisdom of Ayurveda belongs in every home. What started as a small
+                family apothecary has grown into a trusted destination for genuine
+                herbal wellness. We work closely with traditional makers and
+                time-tested formulations, so every jar, bottle and pouch carries
+                the integrity of true Ayurveda — with none of the compromise.
               </p>
               <ul className="mt-6 space-y-3">
                 {pillars.map((p) => (
@@ -55,14 +57,14 @@ export function WellnessSection() {
                 ))}
               </ul>
               <Link
-                href="/products"
+                href="/about"
                 className={buttonClasses({
                   variant: "primary",
                   size: "lg",
                   className: "mt-8",
                 })}
               >
-                Explore Our Products
+                Learn More About Us
               </Link>
             </div>
           </Reveal>

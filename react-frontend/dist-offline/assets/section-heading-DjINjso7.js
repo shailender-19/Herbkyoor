@@ -1,0 +1,6 @@
+import{c as x,j as e,a as d}from"./index-CiNzH1w3.js";/**
+ * @license lucide-react v1.48.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */const s={name:"sparkles",size:24,node:[["path",{d:"M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z",key:"1s2grr"}],["path",{d:"M20 2v4",key:"1rf3ol"}],["path",{d:"M22 4h-4",key:"gwowj6"}],["circle",{cx:"4",cy:"20",r:"2",key:"6kqj1y"}]],aliases:["stars"]};s.node;const i=x(s);function m({eyebrow:a,title:l,description:t,align:n="center",className:r,as:c="h2"}){return e.jsxs("div",{className:d("max-w-2xl",n==="center"?"mx-auto text-center":"text-left",r),children:[a&&e.jsxs("span",{className:"mb-3 inline-flex items-center gap-2 rounded-full bg-forest-50 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-forest-600",children:[e.jsx("span",{className:"h-1.5 w-1.5 rounded-full bg-gold-500","aria-hidden":!0}),a]}),e.jsx(c,{className:"text-3xl font-bold text-balance sm:text-4xl",children:l}),t&&e.jsx("p",{className:"mt-4 text-base leading-relaxed text-forest-700/70",children:t})]})}export{i as S,m as a};

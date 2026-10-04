@@ -27,16 +27,16 @@ const phones = parsePhones(env.VITE_CONTACT_PHONE ?? "+91 98765 43210");
 export const telHref = (phone: string) => `tel:${phone.replace(/[^\d+]/g, "")}`;
 
 export const siteConfig = {
-  name: env.VITE_SITE_NAME ?? "HerbKyoor Ayurveda",
-  shortName: "HerbKyoor",
+  name: env.VITE_SITE_NAME ?? "HerbsKyoor Ayurveda",
+  shortName: "HerbsKyoor",
   tagline: "Natural Wellness, Trusted Ayurveda",
   description:
     "Discover authentic Ayurvedic products carefully selected to support your everyday health and wellness. Herbal medicines, oils, skincare and more.",
-  url: env.VITE_SITE_URL ?? "https://herbkyoor.example.com",
+  url: env.VITE_SITE_URL ?? "https://herbskyoor.example.com",
 
   /** Contact details */
   contact: {
-    email: env.VITE_CONTACT_EMAIL ?? "care@herbkyoor.in",
+    email: env.VITE_CONTACT_EMAIL ?? "care@herbskyoor.in",
     /** Primary number — kept for single-number consumers. */
     phone: phones[0],
     /** All contact numbers, in display order. */
@@ -46,8 +46,8 @@ export const siteConfig = {
       "12, Herbal Lane, Green Park, New Delhi, India 110016",
     /** Human-readable opening hours, one entry per line. */
     hours: [
-      "Mon–Sat: 9:00 AM – 8:00 PM",
-      "Sunday: 10:00 AM – 4:00 PM",
+      "Mon–Sat: 9:00 AM – 6:00 PM",
+      "Sunday: Closed",
     ],
     /** Machine-readable hours for schema.org openingHoursSpecification. */
     hoursSpec: [
@@ -61,9 +61,8 @@ export const siteConfig = {
           "Saturday",
         ],
         opens: "09:00",
-        closes: "20:00",
+        closes: "18:00",
       },
-      { days: ["Sunday"], opens: "10:00", closes: "16:00" },
     ],
     mapQuery: "Green Park, New Delhi",
   },

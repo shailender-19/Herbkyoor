@@ -21,6 +21,12 @@ export interface RawProduct {
   product_image_path_list: string[];
   size_available: string[];
   product_description: string;
+  /** "Key Ingredients" — comma/newline separated list. */
+  product_ingredients?: string;
+  /** "Key Benefits" — comma/newline separated list. */
+  product_benefits?: string;
+  /** "Safety & Precautions" — free text. */
+  product_safety?: string;
   discount: string | number;
   sceme: string;
 }
@@ -122,6 +128,15 @@ function parseNumber(value: string | number | undefined): number {
   return Number.isFinite(n) ? n : 0;
 }
 
+/** Split a comma/newline-separated string into a clean list of items. */
+function splitList(value: string | undefined): string[] {
+  if (!value) return [];
+  return value
+    .split(/[\n,]+/)
+    .map((s) => s.trim())
+    .filter(Boolean);
+}
+
 /** Turn a product name into a URL-safe slug. */
 function slugify(value: string): string {
   return value
@@ -210,6 +225,13 @@ export function buildProducts(catalog: RawCatalog): Product[] {
         images,
         sizes: sizes.length > 0 ? sizes : undefined,
         scheme,
+        ingredients: splitList(raw.product_ingredients).length
+          ? splitList(raw.product_ingredients)
+          : undefined,
+        benefits: splitList(raw.product_benefits).length
+          ? splitList(raw.product_benefits)
+          : undefined,
+        safety: raw.product_safety?.trim() || undefined,
         usage:
           "Use as directed by your Ayurvedic physician. Contact us on WhatsApp for detailed usage and dosage guidance.",
         info: Object.keys(info).length > 0 ? info : undefined,

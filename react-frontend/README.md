@@ -1,4 +1,4 @@
-# HerbKyoor Ayurveda — React + Vite SPA
+# HerbsKyoor Ayurveda — React + Vite SPA
 
 Client-side React storefront migrated from the original Next.js app (repo root
 `../src/`). Builds to static files for FTP deployment to shared hosting with no

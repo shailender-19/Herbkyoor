@@ -1,5 +1,5 @@
 # ============================================================
-# Web-root hardening for the HerbKyoor backend.
+# Web-root hardening for the HerbsKyoor backend.
 # Deploys to public_html/.htaccess (Apache / LiteSpeed only).
 # ============================================================
 

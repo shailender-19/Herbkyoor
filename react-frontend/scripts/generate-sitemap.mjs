@@ -16,7 +16,7 @@ import { dirname, join } from "node:path";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const root = join(__dirname, "..");
-const BASE = (process.env.SITE_URL || "https://herbkyoor.example.com").replace(
+const BASE = (process.env.SITE_URL || "https://herbskyoor.example.com").replace(
   /\/$/,
   "",
 );

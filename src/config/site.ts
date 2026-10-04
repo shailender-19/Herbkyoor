@@ -27,16 +27,16 @@ const phones = parsePhones(env.NEXT_PUBLIC_CONTACT_PHONE ?? "+91 98765 43210");
 export const telHref = (phone: string) => `tel:${phone.replace(/[^\d+]/g, "")}`;
 
 export const siteConfig = {
-  name: env.NEXT_PUBLIC_SITE_NAME ?? "HerbKyoor Ayurveda",
-  shortName: "HerbKyoor",
+  name: env.NEXT_PUBLIC_SITE_NAME ?? "HerbsKyoor Ayurveda",
+  shortName: "HerbsKyoor",
   tagline: "Natural Wellness, Trusted Ayurveda",
   description:
     "Discover authentic Ayurvedic products carefully selected to support your everyday health and wellness. Herbal medicines, oils, skincare and more.",
-  url: env.NEXT_PUBLIC_SITE_URL ?? "https://herbkyoor.example.com",
+  url: env.NEXT_PUBLIC_SITE_URL ?? "https://herbskyoor.example.com",
 
   /** Contact details */
   contact: {
-    email: env.NEXT_PUBLIC_CONTACT_EMAIL ?? "care@herbkyoor.in",
+    email: env.NEXT_PUBLIC_CONTACT_EMAIL ?? "care@herbskyoor.in",
     /** Primary number — kept for single-number consumers. */
     phone: phones[0],
     /** All contact numbers, in display order. */

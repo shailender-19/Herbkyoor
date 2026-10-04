@@ -16,7 +16,7 @@ Next.js-specific, and defines a migration plan to a static, FTP-deployable
 frontend (HTML/CSS/vanilla JS) talking to a PHP + MariaDB backend.
 
 - Companion document: **`API_REQUIREMENTS.md`** — the full PHP API contract.
-- The project is an Ayurvedic storefront ("HerbKyoor Ayurveda"). Orders are
+- The project is an Ayurvedic storefront ("HerbsKyoor Ayurveda"). Orders are
   placed via **WhatsApp / phone** — there is **no cart, checkout, or payment**.
 
 ---

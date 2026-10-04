@@ -1,0 +1,941 @@
+{
+  "products": {
+    "heart": {
+      "HRT001": {
+        "product_id": "HRT001",
+        "product_name": "Omega-3",
+        "product_price": "",
+        "product_category": "heart",
+        "product_image_path_list": [
+          "/product_images/Heart/Heart_omega-3.jpeg"
+        ],
+        "size_available": [],
+        "product_description": "",
+        "discount": "",
+        "sceme": ""
+      },
+      "HRT002": {
+        "product_id": "HRT002",
+        "product_name": "Heart Block",
+        "product_price": "259",
+        "product_category": "heart",
+        "product_image_path_list": [
+          "/product_images/Heart/Heartcare_HeartBlock.jpeg"
+        ],
+        "size_available": [
+          "30 Capsule"
+        ],
+        "product_description": "Helps support overall heart health.",
+        "discount": "26",
+        "sceme": ""
+      }
+    },
+    "kneePain": {
+      "KNP001": {
+        "product_id": "KNP001",
+        "product_name": "Kneepain Yog",
+        "product_price": "350",
+        "product_category": "kneePain",
+        "product_image_path_list": [
+          "/product_images/Kneepain/Kneepain_KneepainYog.jpeg"
+        ],
+        "size_available": [
+          "30 Capsule"
+        ],
+        "product_description": "",
+        "discount": "",
+        "sceme": ""
+      },
+      "KNP002": {
+        "product_id": "KNP002",
+        "product_name": "Sudhasaptak Tablet",
+        "product_price": "166",
+        "product_category": "kneePain",
+        "product_image_path_list": [
+          "/product_images/Kneepain/Kneepain_SudhasaptakTablet.jpeg"
+        ],
+        "size_available": [
+          "30 Tablets"
+        ],
+        "product_description": "",
+        "discount": "",
+        "sceme": ""
+      },
+      "KNP003": {
+        "product_id": "KNP003",
+        "product_name": "Trayodasang",
+        "product_price": "180",
+        "product_category": "kneePain",
+        "product_image_path_list": [
+          "/product_images/Kneepain/Kneepain_Trayodasang.jpeg"
+        ],
+        "size_available": [],
+        "product_description": "",
+        "discount": "",
+        "sceme": ""
+      },
+      "KNP004": {
+        "product_id": "KNP004",
+        "product_name": "Rhemaratna",
+        "product_price": "690",
+        "product_category": "kneePain",
+        "product_image_path_list": [
+          "/product_images/Kneepain/kneePain_Rhemaratna.jpeg"
+        ],
+        "size_available": [
+          "30 Capsule"
+        ],
+        "product_description": "",
+        "discount": "",
+        "sceme": ""
+      },
+      "KNP005": {
+        "product_id": "KNP005",
+        "product_name": "Flaxseed",
+        "product_price": "395",
+        "product_category": "kneePain",
+        "product_image_path_list": [
+          "/product_images/Kneepain/kneepain_Flaxseed.jpeg"
+        ],
+        "size_available": [
+          "60 Capsule"
+        ],
+        "product_description": "",
+        "discount": "",
+        "sceme": ""
+      }
+    },
+    "blood": {
+      "BLD001": {
+        "product_id": "BLD001",
+        "product_name": "Hemossom Syrup",
+        "product_price": "144",
+        "product_category": "blood",
+        "product_image_path_list": [
+          "/product_images/Blood/BloodCare_HemossomSyrup.jpeg"
+        ],
+        "size_available": [
+          "200 ML"
+        ],
+        "product_description": "",
+        "discount": "20",
+        "sceme": ""
+      },
+      "BLO002": {
+        "product_id": "BLO002",
+        "product_name": "Hepto Plus Tablet",
+        "product_price": "180",
+        "product_category": "blood",
+        "product_image_path_list": [
+          "/product_images/Blood/1000481546-e0be4771.jpeg"
+        ],
+        "size_available": [
+          "30 Tablet"
+        ],
+        "product_description": "",
+        "discount": "20",
+        "sceme": ""
+      },
+      "BLO003": {
+        "product_id": "BLO003",
+        "product_name": "BLOSSOM Capsule",
+        "product_price": "170",
+        "product_category": "blood",
+        "product_image_path_list": [
+          "/product_images/Blood/1000481553-2f1854ad.jpeg",
+          "/product_images/Blood/1000481554-af80da1b.jpeg"
+        ],
+        "size_available": [
+          "30 Capsules"
+        ],
+        "product_description": "Indication : Helpful in iron deficiency anaemia and as iron tonic in illness, surgery, Growing agr, children and old age.",
+        "discount": "10",
+        "sceme": ""
+      }
+    },
+    "conspitation": {
+      "CNS001": {
+        "product_id": "CNS001",
+        "product_name": "Aerand Bhrust Harde Tablets",
+        "product_price": "130",
+        "product_category": "conspitation",
+        "product_image_path_list": [
+          "/product_images/Conspitation/Conspitation_AerandBhrustHardeTablets.jpeg"
+        ],
+        "size_available": [
+          "60 Tablets"
+        ],
+        "product_description": "",
+        "discount": "",
+        "sceme": ""
+      },
+      "CNS002": {
+        "product_id": "CNS002",
+        "product_name": "Detozayu",
+        "product_price": "112",
+        "product_category": "conspitation",
+        "product_image_path_list": [
+          "/product_images/Conspitation/constipation_Detozayu.jpeg"
+        ],
+        "size_available": [
+          "30 Tablet"
+        ],
+        "product_description": "A Herbal Laxative For Constipation Manegement.",
+        "discount": "30",
+        "sceme": ""
+      }
+    },
+    "health": {
+      "HLT001": {
+        "product_id": "HLT001",
+        "product_name": "J9G Capsule",
+        "product_price": "555",
+        "product_category": "health",
+        "product_image_path_list": [
+          "/product_images/Health/Health_J9GCapsule.jpeg"
+        ],
+        "size_available": [
+          "5*10 Strip Capsules"
+        ],
+        "product_description": "",
+        "discount": "40",
+        "sceme": ""
+      },
+      "HLT002": {
+        "product_id": "HLT002",
+        "product_name": "Moringa",
+        "product_price": "",
+        "product_category": "health",
+        "product_image_path_list": [
+          "/product_images/Health/Health_moringa.jpeg"
+        ],
+        "size_available": [],
+        "product_description": "",
+        "discount": "",
+        "sceme": ""
+      }
+    },
+    "kidney": {
+      "KDN001": {
+        "product_id": "KDN001",
+        "product_name": "Punnarva Churan",
+        "product_price": "288",
+        "product_category": "kidney",
+        "product_image_path_list": [
+          "/product_images/Kidney/Kidney_PunnarvaChuran.jpeg"
+        ],
+        "size_available": [
+          "200 Gm"
+        ],
+        "product_description": "",
+        "discount": "20",
+        "sceme": ""
+      }
+    },
+    "liverDisorder": {
+      "LVR001": {
+        "product_id": "LVR001",
+        "product_name": "GastoLiv 100 Syrup",
+        "product_price": "120",
+        "product_category": "liverDisorder",
+        "product_image_path_list": [
+          "/product_images/LiverDisorder/LiverDisorder_GastoLiv100.jpeg"
+        ],
+        "size_available": [
+          "200 ML"
+        ],
+        "product_description": "",
+        "discount": "25",
+        "sceme": ""
+      },
+      "LVR002": {
+        "product_id": "LVR002",
+        "product_name": "Livbond SF",
+        "product_price": "184",
+        "product_category": "liverDisorder",
+        "product_image_path_list": [
+          "/product_images/LiverDisorder/LiverDisorder_LivbondSF.jpeg"
+        ],
+        "size_available": [
+          "200 ML"
+        ],
+        "product_description": "Ayurvedic Liver Syrup In Sugar Free segment.",
+        "discount": "20",
+        "sceme": ""
+      },
+      "LVR003": {
+        "product_id": "LVR003",
+        "product_name": "Livozid",
+        "product_price": "119",
+        "product_category": "liverDisorder",
+        "product_image_path_list": [
+          "/product_images/LiverDisorder/LiverDisorder_Livozid.jpeg"
+        ],
+        "size_available": [
+          "225 ML"
+        ],
+        "product_description": "Ayurvedic Liver Tonic",
+        "discount": "30",
+        "sceme": ""
+      },
+      "LVR004": {
+        "product_id": "LVR004",
+        "product_name": "Amalaki Rasyan",
+        "product_price": "116",
+        "product_category": "liverDisorder",
+        "product_image_path_list": [
+          "/product_images/LiverDisorder/Liverdisorder_amalakiRasyan.jpeg",
+          "/product_images/aamalikaRasayan.jpeg",
+          "/product_images/amalakiRashyan.jpeg"
+        ],
+        "size_available": [
+          "120 Tablet"
+        ],
+        "product_description": "Indication: Useful in Digestive and Eye Disease.",
+        "discount": "20",
+        "sceme": ""
+      },
+      "LVR005": {
+        "product_id": "LVR005",
+        "product_name": "Ampachan Vati",
+        "product_price": "116",
+        "product_category": "liverDisorder",
+        "product_image_path_list": [
+          "/product_images/LiverDisorder/Liverdisorder_ampachanVati.jpeg"
+        ],
+        "size_available": [
+          "60 Tablet"
+        ],
+        "product_description": "Useful in Digestion",
+        "discount": "20",
+        "sceme": ""
+      },
+      "LVR006": {
+        "product_id": "LVR006",
+        "product_name": "Arogyavardhini",
+        "product_price": "",
+        "product_category": "liverDisorder",
+        "product_image_path_list": [
+          "/product_images/LiverDisorder/Liverdisorder_arogyavardhnin.jpeg"
+        ],
+        "size_available": [],
+        "product_description": "",
+        "discount": "",
+        "sceme": ""
+      },
+      "LVR007": {
+        "product_id": "LVR007",
+        "product_name": "Livbond Drops",
+        "product_price": "71",
+        "product_category": "liverDisorder",
+        "product_image_path_list": [
+          "/product_images/LiverDisorder/Liverrdisorder_LivbondDrops.jpeg"
+        ],
+        "size_available": [
+          "30 ML"
+        ],
+        "product_description": "",
+        "discount": "10.126",
+        "sceme": ""
+      },
+      "LVR008": {
+        "product_id": "LVR008",
+        "product_name": "Castor Oil",
+        "product_price": "72",
+        "product_category": "liverDisorder",
+        "product_image_path_list": [
+          "/product_images/LiverDisorder/lLiverdisorder_castorOil.jpeg"
+        ],
+        "size_available": [
+          "100 ML"
+        ],
+        "product_description": "",
+        "discount": "10",
+        "sceme": ""
+      },
+      "LIV009": {
+        "product_id": "LIV009",
+        "product_name": "Liver Force Tablet",
+        "product_price": "120",
+        "product_category": "liverDisorder",
+        "product_image_path_list": [
+          "/product_images/LiverDisorder/1000481485-f5e1069d.jpeg",
+          "/product_images/LiverDisorder/1000481487-4d2ebb76.jpeg"
+        ],
+        "size_available": [
+          "60 Tablet"
+        ],
+        "product_description": "Support liver function and address issues like liver weakness and jaundice.",
+        "discount": "20",
+        "sceme": ""
+      },
+      "LIV010": {
+        "product_id": "LIV010",
+        "product_name": "Liver Force Tablet",
+        "product_price": "76",
+        "product_category": "liverDisorder",
+        "product_image_path_list": [
+          "/product_images/LiverDisorder/1000481493-c2bb52b0.jpeg"
+        ],
+        "size_available": [
+          "30 Tablet"
+        ],
+        "product_description": "Support liver function and address issues like liver weakness and jaundice.",
+        "discount": "10",
+        "sceme": ""
+      },
+      "LIV011": {
+        "product_id": "LIV011",
+        "product_name": "LIVBOND Tablet",
+        "product_price": "145",
+        "product_category": "liverDisorder",
+        "product_image_path_list": [
+          "/product_images/LiverDisorder/1000481503-84b1675a.jpeg",
+          "/product_images/LiverDisorder/1000481496-ffe28e91.jpeg",
+          "/product_images/LiverDisorder/1000481506-26840ef3.jpeg",
+          "/product_images/LiverDisorder/1000481507-ca153736.jpeg"
+        ],
+        "size_available": [
+          "50 Tablet"
+        ],
+        "product_description": "",
+        "discount": "10",
+        "sceme": ""
+      },
+      "LIV012": {
+        "product_id": "LIV012",
+        "product_name": "Liver Force Syrup",
+        "product_price": "128",
+        "product_category": "liverDisorder",
+        "product_image_path_list": [
+          "/product_images/LiverDisorder/1000481510-124a2ce0.jpeg",
+          "/product_images/LiverDisorder/1000481511-f3635c9a.jpeg"
+        ],
+        "size_available": [
+          "200 ML"
+        ],
+        "product_description": "For Liver Complaint such as weak digestion, chronic disease etc.",
+        "discount": "20",
+        "sceme": ""
+      }
+    },
+    "memory": {
+      "MEM001": {
+        "product_id": "MEM001",
+        "product_name": "Yaad Granules",
+        "product_price": "",
+        "product_category": "memory",
+        "product_image_path_list": [
+          "/product_images/Memory/Memory_YaadGranules.jpeg"
+        ],
+        "size_available": [],
+        "product_description": "",
+        "discount": "",
+        "sceme": ""
+      }
+    },
+    "pcodPcos": {
+      "PCD001": {
+        "product_id": "PCD001",
+        "product_name": "Ashoka Cordial",
+        "product_price": "",
+        "product_category": "pcodPcos",
+        "product_image_path_list": [
+          "/product_images/PcodPcos/PcodPcos_AshokaCordial.jpeg"
+        ],
+        "size_available": [],
+        "product_description": "",
+        "discount": "",
+        "sceme": ""
+      }
+    },
+    "piles": {
+      "PLS001": {
+        "product_id": "PLS001",
+        "product_name": "PyloFyn",
+        "product_price": "148",
+        "product_category": "piles",
+        "product_image_path_list": [
+          "/product_images/Piles/Piles_Pylofyn.jpeg"
+        ],
+        "size_available": [
+          "30gm"
+        ],
+        "product_description": "Herbal treatment cream for Piles and Fissures.",
+        "discount": "20",
+        "sceme": ""
+      },
+      "PIL002": {
+        "product_id": "PIL002",
+        "product_name": "PAILOREX Capsule",
+        "product_price": "195",
+        "product_category": "piles",
+        "product_image_path_list": [
+          "/product_images/Piles/1000480184-089f598c.jpeg",
+          "/product_images/Piles/1000480191-61c151c9.jpeg"
+        ],
+        "size_available": [
+          "30 Cap"
+        ],
+        "product_description": "Relieve Piles(Hemorrhoids) discomfort \nReduce Anal Pain, selling and bleeding due to piles",
+        "discount": "22",
+        "sceme": ""
+      },
+      "PIL003": {
+        "product_id": "PIL003",
+        "product_name": "Pilona Capsule",
+        "product_price": "150",
+        "product_category": "piles",
+        "product_image_path_list": [
+          "/product_images/Piles/1000480207-7711787d.jpeg",
+          "/product_images/Piles/1000480216-f71e1087.jpeg"
+        ],
+        "size_available": [
+          "30 Capsule"
+        ],
+        "product_description": "Complete relief from Piles. Natural, safe and effective way to cure Piles. It's helps to treat bleeding, itching, burning, pain and other symptoms of Piles.",
+        "discount": "10",
+        "sceme": ""
+      },
+      "PIL004": {
+        "product_id": "PIL004",
+        "product_name": "Kasisadi Tail",
+        "product_price": "148",
+        "product_category": "piles",
+        "product_image_path_list": [
+          "/product_images/Piles/1000226154-a4aa3de4.jpeg"
+        ],
+        "size_available": [
+          "50ML"
+        ],
+        "product_description": "",
+        "discount": "10",
+        "sceme": ""
+      }
+    },
+    "sexual": {
+      "SXL001": {
+        "product_id": "SXL001",
+        "product_name": "Makardhwaj Vati",
+        "product_price": "",
+        "product_category": "sexual",
+        "product_image_path_list": [
+          "/product_images/Sexual/Sexaul_MakardhwajVati.jpeg",
+          "/product_images/Sexual/1000335227-d43bd46e.jpeg"
+        ],
+        "size_available": [],
+        "product_description": "",
+        "discount": "",
+        "sceme": ""
+      },
+      "SXL002": {
+        "product_id": "SXL002",
+        "product_name": "Musli Pak",
+        "product_price": "256",
+        "product_category": "sexual",
+        "product_image_path_list": [
+          "/product_images/Sexual/Sexual_MusliPak.jpeg"
+        ],
+        "size_available": [
+          "100 Gm"
+        ],
+        "product_description": "Indication : Nutritive, Energetic and General Rejevenating tonic.",
+        "discount": "10",
+        "sceme": ""
+      },
+      "SXL003": {
+        "product_id": "SXL003",
+        "product_name": "Safed Musli Churna",
+        "product_price": "",
+        "product_category": "sexual",
+        "product_image_path_list": [
+          "/product_images/Sexual/Sexual_SafedMusliChurna.jpeg"
+        ],
+        "size_available": [],
+        "product_description": "",
+        "discount": "",
+        "sceme": ""
+      },
+      "SXL004": {
+        "product_id": "SXL004",
+        "product_name": "Vanari Gutika",
+        "product_price": "",
+        "product_category": "sexual",
+        "product_image_path_list": [
+          "/product_images/Sexual/Sexual_vanarigutika.jpeg"
+        ],
+        "size_available": [],
+        "product_description": "",
+        "discount": "",
+        "sceme": ""
+      },
+      "SXL005": {
+        "product_id": "SXL005",
+        "product_name": "Shilajit",
+        "product_price": "693",
+        "product_category": "sexual",
+        "product_image_path_list": [
+          "/product_images/Sexual/sexualwellnes_shilajit.jpeg",
+          "/product_images/Sexual/1000480380-1dc1cd26.jpeg"
+        ],
+        "size_available": [
+          "20 Gm"
+        ],
+        "product_description": "",
+        "discount": "30",
+        "sceme": ""
+      }
+    },
+    "thyroid": {
+      "THY001": {
+        "product_id": "THY001",
+        "product_name": "ThyroKyoor Capsule",
+        "product_price": "",
+        "product_category": "thyroid",
+        "product_image_path_list": [
+          "/product_images/Thyroid/Thyroid_ThryroKyoorCapsule.jpeg"
+        ],
+        "size_available": [],
+        "product_description": "",
+        "discount": "",
+        "sceme": ""
+      }
+    },
+    "urine": {
+      "URN001": {
+        "product_id": "URN001",
+        "product_name": "Bahumutranatak",
+        "product_price": "",
+        "product_category": "urine",
+        "product_image_path_list": [
+          "/product_images/Urine/Urine_Bahumutranatak.jpeg"
+        ],
+        "size_available": [],
+        "product_description": "",
+        "discount": "",
+        "sceme": ""
+      },
+      "URN002": {
+        "product_id": "URN002",
+        "product_name": "Proston Tablet",
+        "product_price": "",
+        "product_category": "urine",
+        "product_image_path_list": [
+          "/product_images/Urine/Urine_ProstonTablet.jpeg"
+        ],
+        "size_available": [],
+        "product_description": "",
+        "discount": "",
+        "sceme": ""
+      }
+    },
+    "acidityAndIndigestion": {
+      "ACI001": {
+        "product_id": "ACI001",
+        "product_name": "Cidity Tablets",
+        "product_price": "112",
+        "product_category": "acidityAndIndigestion",
+        "product_image_path_list": [
+          "/product_images/acidityAndIndigestion/1000481562-3d15e474.jpeg",
+          "/product_images/acidityAndIndigestion/1000481563-bb815695.jpeg"
+        ],
+        "size_available": [
+          "30 Tablet"
+        ],
+        "product_description": "Indication: Useful in Indigestion and Antacid",
+        "discount": "10",
+        "sceme": ""
+      }
+    },
+    "weightManagement": {},
+    "diabeticCare": {
+      "DIA001": {
+        "product_id": "DIA001",
+        "product_name": "Madhucare Tablet",
+        "product_price": "360",
+        "product_category": "diabeticCare",
+        "product_image_path_list": [
+          "/product_images/diabeticCare/1000481516-903f74a6.jpeg",
+          "/product_images/diabeticCare/1000481517-c1e58a82.jpeg"
+        ],
+        "size_available": [
+          "60 Tablet"
+        ],
+        "product_description": "Helps in controlling blood sugar and urine sugar (Diabetes).\nHelps in improving the digestive process.\nImproves insulin levels by producing pancreatic beta cells.\nThe power of Shilajit is beneficial in general weakness (dhatudaurbalya) and diabetic complications.",
+        "discount": "20",
+        "sceme": ""
+      },
+      "DIA002": {
+        "product_id": "DIA002",
+        "product_name": "Jambruyog Tablet",
+        "product_price": "146",
+        "product_category": "diabeticCare",
+        "product_image_path_list": [
+          "/product_images/diabeticCare/1000481534-65913f48.jpeg",
+          "/product_images/diabeticCare/1000481535-b2202e12.jpeg",
+          "/product_images/diabeticCare/1000481538-c4906bdb.jpeg",
+          "/product_images/diabeticCare/1000481540-5d7d4176.jpeg"
+        ],
+        "size_available": [
+          "30 Tablet"
+        ],
+        "product_description": "",
+        "discount": "10",
+        "sceme": ""
+      }
+    },
+    "bloatingAndGas": {},
+    "Cold-cough-care": {
+      "COL001": {
+        "product_id": "COL001",
+        "product_name": "Kafeshwari Syrup",
+        "product_price": "105",
+        "product_category": "Cold-cough-care",
+        "product_image_path_list": [
+          "/product_images/Cold-cough-care/1000335216-3485f0f7.jpeg"
+        ],
+        "size_available": [
+          "100 ML"
+        ],
+        "product_description": "Ayurvedic Herbal Cough Syrup",
+        "discount": "",
+        "sceme": ""
+      }
+    },
+    "whiteDischarge": {},
+    "anxiety": {},
+    "feverAndFatigue": {},
+    "sleepDisorder": {},
+    "antioxidant": {},
+    "prematureGreyingOfHair": {},
+    "sciatica": {},
+    "eczema": {},
+    "itchingAndAllergies": {},
+    "poorMemory": {
+      "POO001": {
+        "product_id": "POO001",
+        "product_name": "Yaad Granules",
+        "product_price": "295",
+        "product_category": "poorMemory",
+        "product_image_path_list": [
+          "/product_images/poorMemory/1000345775-d1431513.jpeg",
+          "/product_images/poorMemory/1000345802-b6262e83.jpeg"
+        ],
+        "size_available": [
+          "500 Gm"
+        ],
+        "product_description": "Yaad Granules with chocolate. \nIndications : Improve Mental Function, Adaptogenic and Tranquilizer properties.",
+        "discount": "10",
+        "sceme": ""
+      },
+      "POO002": {
+        "product_id": "POO002",
+        "product_name": "Brain Power Capsule",
+        "product_price": "200",
+        "product_category": "poorMemory",
+        "product_image_path_list": [
+          "/product_images/poorMemory/1000480361-5a9ddd0c.jpeg",
+          "/product_images/poorMemory/1000480367-dda5c8dd.jpeg"
+        ],
+        "size_available": [
+          "30 Capsule"
+        ],
+        "product_description": "It is beneficial for conditions such as sleeplessness, mental weakness, and memory impairment.",
+        "discount": "20",
+        "sceme": ""
+      }
+    },
+    "lowerBackPain": {},
+    "sinus": {
+      "SIN001": {
+        "product_id": "SIN001",
+        "product_name": "Sinus Fit Capsule",
+        "product_price": "148",
+        "product_category": "sinus",
+        "product_image_path_list": [
+          "/product_images/sinus/1000432638-ff52ce1c.jpeg"
+        ],
+        "size_available": [
+          "30 Capsule"
+        ],
+        "product_description": "",
+        "discount": "20",
+        "sceme": ""
+      }
+    },
+    "leucoderma": {}
+  },
+  "categoryMeta": {
+    "thyroid": {
+      "name": "Thyroid Care",
+      "description": "Authentic Ayurvedic remedies.",
+      "icon": "Pill",
+      "image": "/product_images/Thyroid/1000474965-955f1836.jpeg"
+    },
+    "heart": {
+      "name": "Heart and Cholesterol Care",
+      "description": "Authentic Ayurvedic remedies.",
+      "icon": "HeartPulse",
+      "image": "/product_images/Heart/1000473289-771fe61b.jpeg"
+    },
+    "liverDisorder": {
+      "name": "Liver Disorders",
+      "description": "Authentic Ayurvedic remedies.",
+      "icon": "Leaf",
+      "image": "/product_images/LiverDisorder/1000474916-67a0ec54.jpeg"
+    },
+    "acidityAndIndigestion": {
+      "name": "Acidity and Indigestion",
+      "description": "Authentic Ayurvedic remedies.",
+      "icon": "Waves",
+      "image": ""
+    },
+    "weightManagement": {
+      "name": "Weight Management",
+      "description": "Authentic Ayurvedic remedies.",
+      "icon": "Leaf",
+      "image": "/product_images/weightManagement/1000474979-8e8102a7.jpeg"
+    },
+    "diabeticCare": {
+      "name": "Diabetic Care",
+      "description": "Authentic Ayurvedic remedies.",
+      "icon": "Leaf",
+      "image": "/product_images/diabeticCare/1000474980-51448f06.jpeg"
+    },
+    "bloatingAndGas": {
+      "name": "Bloating and Gas",
+      "description": "Authentic Ayurvedic remedies.",
+      "icon": "Leaf"
+    },
+    "Cold-cough-care": {
+      "name": "Cold and Cough",
+      "description": "Cold and Cough care products for relief and support during common cold, cough, sore throat, nasal congestion and seasonal respiratory discomfort.",
+      "icon": "Leaf"
+    },
+    "whiteDischarge": {
+      "name": "White Discharge",
+      "description": "Authentic Ayurvedic remedies.",
+      "icon": "Leaf"
+    },
+    "anxiety": {
+      "name": "Anxiety",
+      "description": "Authentic Ayurvedic remedies.",
+      "icon": "Leaf"
+    },
+    "feverAndFatigue": {
+      "name": "Fever and Fatigue",
+      "description": "Authentic Ayurvedic remedies.",
+      "icon": "Leaf"
+    },
+    "sleepDisorder": {
+      "name": "Sleep Disorder",
+      "description": "Authentic Ayurvedic remedies.",
+      "icon": "Leaf"
+    },
+    "kneePain": {
+      "name": "Knee Pain",
+      "description": "Authentic Ayurvedic remedies.",
+      "icon": "Leaf",
+      "image": "/product_images/Kneepain/1000473290-1b4ab466.jpeg"
+    },
+    "antioxidant": {
+      "name": "Antioxidant",
+      "description": "Authentic Ayurvedic remedies.",
+      "icon": "Leaf"
+    },
+    "piles": {
+      "name": "Piles and Fistula",
+      "description": "Authentic Ayurvedic remedies.",
+      "icon": "Leaf",
+      "image": "/product_images/Piles/1000474966-f8bd6124.jpeg"
+    },
+    "prematureGreyingOfHair": {
+      "name": "Premature Greying Of Hair",
+      "description": "Authentic Ayurvedic remedies.",
+      "icon": "Leaf"
+    },
+    "sciatica": {
+      "name": "Sciatica",
+      "description": "Authentic Ayurvedic remedies.",
+      "icon": "Leaf"
+    },
+    "eczema": {
+      "name": "Eczema",
+      "description": "Authentic Ayurvedic remedies.",
+      "icon": "Leaf"
+    },
+    "itchingAndAllergies": {
+      "name": "Itching and Allergies",
+      "description": "Authentic Ayurvedic remedies.",
+      "icon": "Leaf"
+    },
+    "poorMemory": {
+      "name": "Poor Memory",
+      "description": "Authentic Ayurvedic remedies.",
+      "icon": "Brain"
+    },
+    "lowerBackPain": {
+      "name": "Lower Back Pain",
+      "description": "Authentic Ayurvedic remedies.",
+      "icon": "Leaf"
+    },
+    "blood": {
+      "name": "Anemia",
+      "description": "Authentic Ayurvedic remedies.",
+      "icon": "Leaf",
+      "image": "/product_images/Blood/1000474894-ca5739c9.jpeg"
+    },
+    "sinus": {
+      "name": "Sinus",
+      "description": "Authentic Ayurvedic remedies.",
+      "icon": "Leaf"
+    },
+    "leucoderma": {
+      "name": "Leucoderma",
+      "description": "Authentic Ayurvedic remedies.",
+      "icon": "Leaf"
+    },
+    "conspitation": {
+      "name": "Constipation Care",
+      "description": "Authentic Ayurvedic remedies.",
+      "icon": "Leaf",
+      "image": "/product_images/Conspitation/1000474895-093f2c27.jpeg"
+    },
+    "health": {
+      "name": "General Health",
+      "description": "Authentic Ayurvedic remedies.",
+      "icon": "Leaf",
+      "image": "/product_images/Health/1000474896-f208eae7.jpeg"
+    },
+    "kidney": {
+      "name": "Kidney Care",
+      "description": "Authentic Ayurvedic remedies.",
+      "icon": "Leaf",
+      "image": "/product_images/Kidney/1000474897-ec9480c8.jpeg"
+    },
+    "memory": {
+      "name": "Memory & Brain",
+      "description": "Authentic Ayurvedic remedies.",
+      "icon": "Leaf",
+      "image": "/product_images/Memory/1000474931-1cd23abe.jpeg"
+    },
+    "pcodPcos": {
+      "name": "PCOD / PCOS",
+      "description": "Authentic Ayurvedic remedies.",
+      "icon": "Leaf",
+      "image": "/product_images/PcodPcos/1000474932-14ada879.jpeg"
+    },
+    "sexual": {
+      "name": "Sexual Wellness",
+      "description": "Authentic Ayurvedic remedies.",
+      "icon": "Leaf",
+      "image": "/product_images/Sexual/1000474952-1afe8aa6.jpeg"
+    },
+    "urine": {
+      "name": "Urine Care",
+      "description": "Authentic Ayurvedic remedies.",
+      "icon": "Leaf",
+      "image": "/product_images/Urine/1000474973-138950dc.jpeg"
+    }
+  }
+}

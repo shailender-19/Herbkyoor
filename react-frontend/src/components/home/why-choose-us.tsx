@@ -50,7 +50,7 @@ export function WhyChooseUs() {
         <SectionHeading
           eyebrow="Why Choose Us"
           title="Wellness You Can Trust"
-          description="We make authentic Ayurveda simple, accessible and reliable — every single day."
+          description="Authentic formulations, careful quality checks and friendly expert support — we make genuine Ayurveda simple and reliable, every single day."
         />
         <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {features.map(({ icon: Icon, title, text }, i) => (

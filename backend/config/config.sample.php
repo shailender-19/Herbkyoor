@@ -16,7 +16,7 @@
 return [
     'db' => [
         'host'    => 'localhost',        // HostyCare: usually "localhost"
-        'name'    => 'your_db_name',      // e.g. cpaneluser_herbkyoor
+        'name'    => 'your_db_name',      // e.g. cpaneluser_herbskyoor
         'user'    => 'your_db_user',      // e.g. cpaneluser_herb
         'pass'    => 'your_db_password',
         'charset' => 'utf8mb4',

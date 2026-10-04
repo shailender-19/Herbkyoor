@@ -62,6 +62,20 @@ export const adminApi = {
       method: "POST",
     }),
 
+  // ---- Contact messages (user enquiries) --------------------------------
+  messages: (): Promise<Result> => call("/admin/messages/list.php"),
+
+  markMessage: (id: number, read: boolean): Promise<Result> =>
+    call("/admin/messages/mark.php", {
+      method: "POST",
+      body: JSON.stringify({ id, read }),
+    }),
+
+  deleteMessage: (id: number): Promise<Result> =>
+    call(`/admin/messages/delete.php?id=${encodeURIComponent(id)}`, {
+      method: "POST",
+    }),
+
   /**
    * Upload one image via multipart/form-data. Do NOT set Content-Type — the
    * browser adds the multipart boundary. `folder` is the target subfolder

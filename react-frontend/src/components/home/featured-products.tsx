@@ -18,7 +18,7 @@ export function FeaturedProducts() {
             align="left"
             eyebrow="Bestsellers"
             title="Featured Products"
-            description="Handpicked favourites loved by our community for their quality and results."
+            description="Handpicked favourites our customers reorder again and again — trusted for their quality and real results."
             className="mx-0"
           />
           <Link

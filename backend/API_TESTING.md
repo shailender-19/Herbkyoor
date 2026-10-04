@@ -7,10 +7,10 @@ verify the backend (all passing against PHP 8 + MySQL/MariaDB).
 
 ```bash
 # 1. Local DB (once)
-mysql -u root -e "CREATE DATABASE herbkyoor_test CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;"
-mysql -u root herbkyoor_test < database/schema.sql
-mysql -u root herbkyoor_test < database/seed.sql
-# config/config.local.php already points at herbkyoor_test (root / no password) for local dev.
+mysql -u root -e "CREATE DATABASE herbskyoor_test CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;"
+mysql -u root herbskyoor_test < database/schema.sql
+mysql -u root herbskyoor_test < database/seed.sql
+# config/config.local.php already points at herbskyoor_test (root / no password) for local dev.
 
 # 2. Serve the backend (from the backend/ folder)
 php -S 127.0.0.1:8200

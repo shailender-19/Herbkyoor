@@ -66,6 +66,17 @@ function decimal_to_raw($v)
     return ($f == (int) $f) ? (int) $f : $f;
 }
 
+/** Split a comma/newline-separated text column into a clean list of items. */
+function split_list(?string $text): array
+{
+    if ($text === null || trim($text) === '') {
+        return [];
+    }
+    $parts = preg_split('/[\n,]+/', $text);
+    $parts = array_map('trim', $parts);
+    return array_values(array_filter($parts, fn ($p) => $p !== ''));
+}
+
 // ---------------------------------------------------------------------------
 // Public (normalized) reads
 // ---------------------------------------------------------------------------
@@ -81,6 +92,9 @@ function normalize_product(array $row, array $images, array $sizes): array
     $imgs = count($images) > 0 ? $images : [FALLBACK_IMAGE];
     $scheme = trim((string) ($row['scheme'] ?? '')) ?: null;
     $desc = trim((string) ($row['description'] ?? ''));
+    $ingredients = split_list($row['ingredients'] ?? null);
+    $benefits = split_list($row['benefits'] ?? null);
+    $safety = trim((string) ($row['safety'] ?? '')) ?: null;
 
     $info = [];
     if (count($sizes) > 0) {
@@ -107,6 +121,9 @@ function normalize_product(array $row, array $images, array $sizes): array
         'images'           => $imgs,
         'sizes'            => count($sizes) > 0 ? $sizes : null,
         'scheme'           => $scheme,
+        'ingredients'      => count($ingredients) > 0 ? $ingredients : null,
+        'benefits'         => count($benefits) > 0 ? $benefits : null,
+        'safety'           => $safety,
         'usage'            => USAGE_TEXT,
         'info'             => count($info) > 0 ? $info : null,
         'inStock'          => true,
@@ -120,7 +137,7 @@ function get_all_products(PDO $pdo): array
 {
     $rows = $pdo->query(
         'SELECT p.product_id, p.slug, p.name, p.category, p.price, p.discount, p.scheme,
-                p.description, p.featured, c.name AS category_name
+                p.description, p.ingredients, p.benefits, p.safety, p.featured, c.name AS category_name
          FROM products p
          LEFT JOIN categories c ON c.slug = p.category
          ORDER BY p.featured DESC, p.id'
@@ -216,6 +233,9 @@ function raw_product(array $row, array $images, array $sizes): array
         'product_image_path_list' => array_values($images),
         'size_available'          => array_values($sizes),
         'product_description'     => (string) ($row['description'] ?? ''),
+        'product_ingredients'     => (string) ($row['ingredients'] ?? ''),
+        'product_benefits'        => (string) ($row['benefits'] ?? ''),
+        'product_safety'          => (string) ($row['safety'] ?? ''),
         'discount'                => decimal_to_raw($row['discount']),
         'sceme'                   => (string) ($row['scheme'] ?? ''),
     ];
@@ -225,7 +245,7 @@ function raw_product(array $row, array $images, array $sizes): array
 function admin_catalog(PDO $pdo): array
 {
     $cats = $pdo->query('SELECT slug, name, description, icon, image FROM categories ORDER BY sort_order, name')->fetchAll();
-    $rows = $pdo->query('SELECT product_id, name, price, category, description, discount, scheme FROM products ORDER BY id')->fetchAll();
+    $rows = $pdo->query('SELECT product_id, name, price, category, description, ingredients, benefits, safety, discount, scheme FROM products ORDER BY id')->fetchAll();
     $ids = array_column($rows, 'product_id');
     $imgMap = fetch_images_map($pdo, $ids);
     $sizeMap = fetch_sizes_map($pdo, $ids);
@@ -256,7 +276,7 @@ function admin_catalog(PDO $pdo): array
 /** Fetch one raw product (or null) scoped to a category. */
 function fetch_raw_product(PDO $pdo, string $category, string $id): ?array
 {
-    $stmt = $pdo->prepare('SELECT product_id, name, price, category, description, discount, scheme FROM products WHERE product_id = ? AND category = ? LIMIT 1');
+    $stmt = $pdo->prepare('SELECT product_id, name, price, category, description, ingredients, benefits, safety, discount, scheme FROM products WHERE product_id = ? AND category = ? LIMIT 1');
     $stmt->execute([$id, $category]);
     $row = $stmt->fetch();
     if (!$row) {
@@ -426,7 +446,7 @@ function admin_category_view(PDO $pdo, string $slug): array
     $stmt = $pdo->prepare('SELECT name, description, icon, image FROM categories WHERE slug = ? LIMIT 1');
     $stmt->execute([$slug]);
     $c = $stmt->fetch();
-    $rows = $pdo->prepare('SELECT product_id, name, price, category, description, discount, scheme FROM products WHERE category = ? ORDER BY id');
+    $rows = $pdo->prepare('SELECT product_id, name, price, category, description, ingredients, benefits, safety, discount, scheme FROM products WHERE category = ? ORDER BY id');
     $rows->execute([$slug]);
     $rows = $rows->fetchAll();
     $ids = array_column($rows, 'product_id');
@@ -483,13 +503,16 @@ function create_product(PDO $pdo, array $input): array
 
     $pdo->beginTransaction();
     try {
-        $pdo->prepare('INSERT INTO products (product_id, slug, name, category, price, discount, scheme, description) VALUES (?,?,?,?,?,?,?,?)')
+        $pdo->prepare('INSERT INTO products (product_id, slug, name, category, price, discount, scheme, description, ingredients, benefits, safety) VALUES (?,?,?,?,?,?,?,?,?,?,?)')
             ->execute([
                 $id, $slug, $name, $category,
                 parse_number_or_null($input['product_price'] ?? null),
                 parse_number_or_null($input['discount'] ?? null),
                 trim((string) ($input['sceme'] ?? '')) ?: null,
                 trim((string) ($input['product_description'] ?? '')) ?: null,
+                trim((string) ($input['product_ingredients'] ?? '')) ?: null,
+                trim((string) ($input['product_benefits'] ?? '')) ?: null,
+                trim((string) ($input['product_safety'] ?? '')) ?: null,
             ]);
         replace_children($pdo, $id, $images, $sizes);
         $pdo->commit();
@@ -526,13 +549,16 @@ function update_product(PDO $pdo, string $category, string $id, array $input): a
 
     $pdo->beginTransaction();
     try {
-        $pdo->prepare('UPDATE products SET slug=?, name=?, category=?, price=?, discount=?, scheme=?, description=? WHERE product_id=?')
+        $pdo->prepare('UPDATE products SET slug=?, name=?, category=?, price=?, discount=?, scheme=?, description=?, ingredients=?, benefits=?, safety=? WHERE product_id=?')
             ->execute([
                 $slug, $name, $target,
                 parse_number_or_null($input['product_price'] ?? null),
                 parse_number_or_null($input['discount'] ?? null),
                 trim((string) ($input['sceme'] ?? '')) ?: null,
                 trim((string) ($input['product_description'] ?? '')) ?: null,
+                trim((string) ($input['product_ingredients'] ?? '')) ?: null,
+                trim((string) ($input['product_benefits'] ?? '')) ?: null,
+                trim((string) ($input['product_safety'] ?? '')) ?: null,
                 $id,
             ]);
         replace_children($pdo, $id, $images, $sizes);

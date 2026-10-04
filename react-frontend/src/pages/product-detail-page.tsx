@@ -4,6 +4,7 @@ import {
   ChevronRight,
   Leaf,
   PackageCheck,
+  ShieldAlert,
   ShieldCheck,
   Sparkles,
   Truck,
@@ -230,7 +231,7 @@ export default function ProductDetailPage() {
           )}
 
           {product.ingredients && product.ingredients.length > 0 && (
-            <DetailCard icon={<Leaf size={18} />} title="Ingredients">
+            <DetailCard icon={<Leaf size={18} />} title="Key Ingredients">
               <ul className="space-y-2 text-sm text-forest-700/80">
                 {product.ingredients.map((ing) => (
                   <li key={ing} className="flex gap-2">
@@ -259,6 +260,17 @@ export default function ProductDetailPage() {
               </dl>
             )}
           </DetailCard>
+
+          {product.safety && product.safety.trim().length > 0 && (
+            <DetailCard
+              icon={<ShieldAlert size={18} />}
+              title="Safety & Precautions"
+            >
+              <p className="whitespace-pre-line text-sm leading-relaxed text-forest-700/80">
+                {product.safety}
+              </p>
+            </DetailCard>
+          )}
         </div>
 
         {/* Related */}

@@ -17,11 +17,11 @@ export function Hero() {
     <section className="relative overflow-hidden bg-gradient-to-b from-cream-100 to-cream-50">
       {/* Soft decorative blobs */}
       <div
-        className="pointer-events-none absolute -left-24 -top-24 h-72 w-72 rounded-full bg-forest-100/60 blur-3xl"
+        className="pointer-events-none absolute -left-24 -top-24 h-72 w-72 animate-blob-1 rounded-full bg-forest-100/60 blur-3xl"
         aria-hidden
       />
       <div
-        className="pointer-events-none absolute -bottom-32 right-0 h-80 w-80 rounded-full bg-gold-300/20 blur-3xl"
+        className="pointer-events-none absolute -bottom-32 right-0 h-80 w-80 animate-blob-2 rounded-full bg-gold-300/20 blur-3xl"
         aria-hidden
       />
 
@@ -39,9 +39,10 @@ export function Hero() {
           </h1>
 
           <p className="mx-auto mt-5 max-w-xl text-base leading-relaxed text-forest-700/70 lg:mx-0 lg:text-lg">
-            Discover authentic Ayurvedic products carefully selected to support
-            your everyday health and wellness — from herbal medicines and oils
-            to skincare, rooted in nature and crafted with care.
+            Genuine Ayurvedic medicines, herbal supplements and daily-care
+            essentials — sourced from trusted makers and time-tested
+            formulations, so authentic wellness fits naturally into your
+            everyday routine.
           </p>
 
           <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row lg:justify-start">
@@ -80,8 +81,8 @@ export function Hero() {
         <div className="relative animate-scale-in">
           <div className="relative mx-auto aspect-[4/5] w-full max-w-md overflow-hidden rounded-[2rem] border border-cream-300 shadow-xl">
             <Image
-              src="/misc/hero.svg"
-              alt="Ayurvedic herbs, oils and wellness essentials"
+              src="/product_images/Health/Health_moringa.jpeg"
+              alt="Authentic Ayurvedic Moringa tablets from our wellness range"
               fill
               priority
               sizes="(max-width: 1024px) 90vw, 40vw"

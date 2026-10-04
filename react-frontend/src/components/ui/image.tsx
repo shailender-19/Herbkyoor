@@ -27,6 +27,26 @@ export interface ImageProps
   style?: CSSProperties;
 }
 
+/**
+ * Resolve a src against the Vite deployment base so root-absolute asset paths
+ * (e.g. "/product_images/x.jpeg") work under a non-"/" base — notably the
+ * offline `file://` build (base "./"). A no-op when base is "/" (served build)
+ * and for external/data/blob/already-relative URLs.
+ */
+function withBase(src: string): string {
+  if (!src) return src;
+  if (
+    /^(?:https?:)?\/\//i.test(src) ||
+    src.startsWith("data:") ||
+    src.startsWith("blob:") ||
+    !src.startsWith("/")
+  ) {
+    return src;
+  }
+  const base = import.meta.env.BASE_URL || "/";
+  return base.replace(/\/+$/, "/") + src.replace(/^\/+/, "");
+}
+
 export function Image({
   src,
   alt,
@@ -50,7 +70,7 @@ export function Image({
 
   return (
     <img
-      src={src}
+      src={withBase(src)}
       alt={alt}
       width={fill ? undefined : width}
       height={fill ? undefined : height}
