@@ -49,74 +49,89 @@ const FALLBACK_IMAGE = "/categories/herbal-medicines.svg";
  * Presentation metadata (label, blurb, icon) for each known category slug.
  * Admin-authored `categoryMeta` in the JSON takes precedence.
  */
+const CONCERN_IMAGE_BASE = "/categories/concerns";
+
 const CATEGORY_META: Record<
   string,
-  { name: string; description: string; icon: string }
+  { name: string; description: string; icon: string; image: string }
 > = {
   heart: {
     name: "Heart Care",
     description: "Cardiac wellness and healthy circulation support.",
     icon: "HeartPulse",
+    image: `${CONCERN_IMAGE_BASE}/heart.svg`,
   },
   kneePain: {
     name: "Knee & Joint Pain",
     description: "Relief and strength for joints, knees and mobility.",
     icon: "Bone",
+    image: `${CONCERN_IMAGE_BASE}/kneePain.svg`,
   },
   blood: {
     name: "Blood Care",
     description: "Purifiers and tonics for healthy, clean blood.",
     icon: "Droplets",
+    image: `${CONCERN_IMAGE_BASE}/blood.svg`,
   },
   conspitation: {
     name: "Constipation Care",
     description: "Gentle relief and everyday digestive regularity.",
     icon: "Leaf",
+    image: `${CONCERN_IMAGE_BASE}/conspitation.svg`,
   },
   health: {
     name: "General Health",
     description: "Everyday wellness, immunity and vitality boosters.",
     icon: "ShieldPlus",
+    image: `${CONCERN_IMAGE_BASE}/health.svg`,
   },
   kidney: {
     name: "Kidney Care",
     description: "Support for kidney function and urinary health.",
     icon: "Droplet",
+    image: `${CONCERN_IMAGE_BASE}/kidney.svg`,
   },
   liverDisorder: {
     name: "Liver Care",
     description: "Formulations for liver health and natural detox.",
     icon: "Activity",
+    image: `${CONCERN_IMAGE_BASE}/liverDisorder.svg`,
   },
   memory: {
     name: "Memory & Brain",
     description: "Support focus, memory and mental clarity.",
     icon: "Brain",
+    image: `${CONCERN_IMAGE_BASE}/memory.svg`,
   },
   pcodPcos: {
     name: "PCOD / PCOS",
     description: "Hormonal balance and women's wellness.",
     icon: "Flower2",
+    image: `${CONCERN_IMAGE_BASE}/pcodPcos.svg`,
   },
   piles: {
     name: "Piles Care",
     description: "Soothing relief and comfort for piles.",
     icon: "Pill",
+    image: `${CONCERN_IMAGE_BASE}/piles.svg`,
   },
   sexual: {
     name: "Sexual Wellness",
     description: "Vitality, stamina and intimate wellness.",
     icon: "HeartHandshake",
+    image: `${CONCERN_IMAGE_BASE}/sexual.svg`,
   },
   thyroid: {
     name: "Thyroid Care",
     description: "Support for healthy thyroid function.",
     icon: "Stethoscope",
+    image: `${CONCERN_IMAGE_BASE}/thyroid.svg`,
   },
   urine: {
     name: "Urinary Care",
     description: "Prostate and urinary tract support.",
     icon: "Waves",
+    image: `${CONCERN_IMAGE_BASE}/urine.svg`,
   },
 };
 
@@ -255,7 +270,10 @@ export function buildCategories(catalog: RawCatalog): Category[] {
         meta?.description ??
         "Authentic Ayurvedic remedies.",
       icon: authored?.icon ?? meta?.icon ?? "Leaf",
-      image: authored?.image ?? firstImageOf(catalog, slug),
+      // Prefer a fixed, consistent concern illustration over a "random" first
+      // product photo. Admin-authored images still win; unknown slugs (no
+      // built-in art) fall back to the first product image.
+      image: authored?.image ?? meta?.image ?? firstImageOf(catalog, slug),
     };
   });
 }
