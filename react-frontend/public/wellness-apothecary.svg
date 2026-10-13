@@ -1,0 +1,142 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 480" role="img" aria-label="Traditional Ayurvedic apothecary — mortar, pestle and herbs">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#faf6ec"/>
+      <stop offset="1" stop-color="#f4ecda"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.5" cy="0.42" r="0.5">
+      <stop offset="0" stop-color="#e6cf8a" stop-opacity="0.35"/>
+      <stop offset="1" stop-color="#e6cf8a" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="600" height="480" fill="url(#bg)"/>
+  <circle cx="300" cy="222" r="150" fill="#8bb598" opacity="0.14"/>
+  <rect width="600" height="480" fill="url(#glow)"/>
+
+  <!-- faint background botanicals -->
+  <g transform="translate(70 150) rotate(210) scale(1.2)" opacity="0.1">
+    <path d="M0 0 C 18 -30 18 -70 0 -96 C -18 -70 -18 -30 0 0 Z" fill="#5c9271"/>
+    <path d="M0 -6 L0 -90" stroke="#8bb598" stroke-width="2.4" fill="none"/>
+    <path d="M0 -28 C 7 -34 12 -40 14 -48 M0 -44 C 7 -50 12 -56 14 -64 M0 -60 C 7 -66 12 -72 14 -80" stroke="#8bb598" stroke-width="1.5" fill="none"/>
+    <path d="M0 -28 C -7 -34 -12 -40 -14 -48 M0 -44 C -7 -50 -12 -56 -14 -64 M0 -60 C -7 -66 -12 -72 -14 -80" stroke="#8bb598" stroke-width="1.5" fill="none"/>
+  </g>
+  <g transform="translate(540 140) rotate(150) scale(1.1)" opacity="0.1">
+    <path d="M0 0 C 18 -30 18 -70 0 -96 C -18 -70 -18 -30 0 0 Z" fill="#5c9271"/>
+    <path d="M0 -6 L0 -90" stroke="#8bb598" stroke-width="2.4" fill="none"/>
+    <path d="M0 -28 C 7 -34 12 -40 14 -48 M0 -44 C 7 -50 12 -56 14 -64 M0 -60 C 7 -66 12 -72 14 -80" stroke="#8bb598" stroke-width="1.5" fill="none"/>
+    <path d="M0 -28 C -7 -34 -12 -40 -14 -48 M0 -44 C -7 -50 -12 -56 -14 -64 M0 -60 C -7 -66 -12 -72 -14 -80" stroke="#8bb598" stroke-width="1.5" fill="none"/>
+  </g>
+  <g transform="translate(60 430) rotate(320) scale(1)" opacity="0.09">
+    <path d="M0 0 C 18 -30 18 -70 0 -96 C -18 -70 -18 -30 0 0 Z" fill="#5c9271"/>
+    <path d="M0 -6 L0 -90" stroke="#8bb598" stroke-width="2.4" fill="none"/>
+    <path d="M0 -28 C 7 -34 12 -40 14 -48 M0 -44 C 7 -50 12 -56 14 -64 M0 -60 C 7 -66 12 -72 14 -80" stroke="#8bb598" stroke-width="1.5" fill="none"/>
+    <path d="M0 -28 C -7 -34 -12 -40 -14 -48 M0 -44 C -7 -50 -12 -56 -14 -64 M0 -60 C -7 -66 -12 -72 -14 -80" stroke="#8bb598" stroke-width="1.5" fill="none"/>
+  </g>
+
+  <!-- soft ground line -->
+  <path d="M60 372 H540" stroke="#dcc79f" stroke-width="2.5" stroke-linecap="round" opacity="0.7"/>
+
+  <!-- right botanical cluster -->
+  <g transform="translate(470 372) rotate(-6) scale(1.15)" opacity="1">
+    <path d="M0 0 C 18 -30 18 -70 0 -96 C -18 -70 -18 -30 0 0 Z" fill="#3d7454"/>
+    <path d="M0 -6 L0 -90" stroke="#f4ecda" stroke-width="2.4" fill="none"/>
+    <path d="M0 -28 C 7 -34 12 -40 14 -48 M0 -44 C 7 -50 12 -56 14 -64 M0 -60 C 7 -66 12 -72 14 -80" stroke="#f4ecda" stroke-width="1.5" fill="none"/>
+    <path d="M0 -28 C -7 -34 -12 -40 -14 -48 M0 -44 C -7 -50 -12 -56 -14 -64 M0 -60 C -7 -66 -12 -72 -14 -80" stroke="#f4ecda" stroke-width="1.5" fill="none"/>
+  </g>
+  <g transform="translate(492 372) rotate(20) scale(0.95)" opacity="1">
+    <path d="M0 0 C 18 -30 18 -70 0 -96 C -18 -70 -18 -30 0 0 Z" fill="#2e5c42"/>
+    <path d="M0 -6 L0 -90" stroke="#f4ecda" stroke-width="2.4" fill="none"/>
+    <path d="M0 -28 C 7 -34 12 -40 14 -48 M0 -44 C 7 -50 12 -56 14 -64 M0 -60 C 7 -66 12 -72 14 -80" stroke="#f4ecda" stroke-width="1.5" fill="none"/>
+    <path d="M0 -28 C -7 -34 -12 -40 -14 -48 M0 -44 C -7 -50 -12 -56 -14 -64 M0 -60 C -7 -66 -12 -72 -14 -80" stroke="#f4ecda" stroke-width="1.5" fill="none"/>
+  </g>
+  <g transform="translate(450 372) rotate(-30) scale(0.85)" opacity="1">
+    <path d="M0 0 C 18 -30 18 -70 0 -96 C -18 -70 -18 -30 0 0 Z" fill="#2e5c42"/>
+    <path d="M0 -6 L0 -90" stroke="#eaddc2" stroke-width="2.4" fill="none"/>
+    <path d="M0 -28 C 7 -34 12 -40 14 -48 M0 -44 C 7 -50 12 -56 14 -64 M0 -60 C 7 -66 12 -72 14 -80" stroke="#eaddc2" stroke-width="1.5" fill="none"/>
+    <path d="M0 -28 C -7 -34 -12 -40 -14 -48 M0 -44 C -7 -50 -12 -56 -14 -64 M0 -60 C -7 -66 -12 -72 -14 -80" stroke="#eaddc2" stroke-width="1.5" fill="none"/>
+  </g>
+
+  <ellipse cx="150" cy="377" rx="38" ry="9" fill="#172b21" opacity="0.10"/>
+  <!-- sprig out of the cork -->
+  <g transform="translate(150 232) rotate(-8) scale(0.5)" opacity="1">
+    <path d="M0 0 C 18 -30 18 -70 0 -96 C -18 -70 -18 -30 0 0 Z" fill="#3d7454"/>
+    <path d="M0 -6 L0 -90" stroke="#f4ecda" stroke-width="2.4" fill="none"/>
+    <path d="M0 -28 C 7 -34 12 -40 14 -48 M0 -44 C 7 -50 12 -56 14 -64 M0 -60 C 7 -66 12 -72 14 -80" stroke="#f4ecda" stroke-width="1.5" fill="none"/>
+    <path d="M0 -28 C -7 -34 -12 -40 -14 -48 M0 -44 C -7 -50 -12 -56 -14 -64 M0 -60 C -7 -66 -12 -72 -14 -80" stroke="#f4ecda" stroke-width="1.5" fill="none"/>
+  </g>
+  <g transform="translate(158 234) rotate(22) scale(0.4)" opacity="1">
+    <path d="M0 0 C 18 -30 18 -70 0 -96 C -18 -70 -18 -30 0 0 Z" fill="#5c9271"/>
+    <path d="M0 -6 L0 -90" stroke="#f4ecda" stroke-width="2.4" fill="none"/>
+    <path d="M0 -28 C 7 -34 12 -40 14 -48 M0 -44 C 7 -50 12 -56 14 -64 M0 -60 C 7 -66 12 -72 14 -80" stroke="#f4ecda" stroke-width="1.5" fill="none"/>
+    <path d="M0 -28 C -7 -34 -12 -40 -14 -48 M0 -44 C -7 -50 -12 -56 -14 -64 M0 -60 C -7 -66 -12 -72 -14 -80" stroke="#f4ecda" stroke-width="1.5" fill="none"/>
+  </g>
+  <!-- cork + neck -->
+  <rect x="134" y="236" width="32" height="16" rx="5" fill="#dcc79f"/>
+  <rect x="134" y="236" width="32" height="16" rx="5" fill="none" stroke="#c9a227" stroke-width="1.2"/>
+  <rect x="140" y="250" width="20" height="20" fill="#5c9271"/>
+  <!-- body (glass + tincture) -->
+  <rect x="122" y="268" width="56" height="104" rx="20" fill="#5c9271" opacity="0.9"/>
+  <rect x="122" y="268" width="56" height="104" rx="20" fill="none" stroke="#2e5c42" stroke-width="2"/>
+  <!-- label -->
+  <rect x="128" y="302" width="44" height="34" rx="5" fill="#faf6ec" opacity="0.95"/>
+  <line x1="138" y1="312" x2="162" y2="312" stroke="#c9a227" stroke-width="2.5" stroke-linecap="round"/>
+  <line x1="136" y1="322" x2="164" y2="322" stroke="#5c9271" stroke-width="2" stroke-linecap="round"/>
+  <line x1="140" y1="330" x2="160" y2="330" stroke="#5c9271" stroke-width="2" stroke-linecap="round"/>
+  <!-- shadow -->
+  <ellipse cx="300" cy="378" rx="92" ry="14" fill="#172b21" opacity="0.10"/>
+  <!-- herb bouquet rising from the bowl -->
+  <g transform="translate(296 322) rotate(-2) scale(1.18)" opacity="1">
+    <path d="M0 0 C 18 -30 18 -70 0 -96 C -18 -70 -18 -30 0 0 Z" fill="#2e5c42"/>
+    <path d="M0 -6 L0 -90" stroke="#f4ecda" stroke-width="2.4" fill="none"/>
+    <path d="M0 -28 C 7 -34 12 -40 14 -48 M0 -44 C 7 -50 12 -56 14 -64 M0 -60 C 7 -66 12 -72 14 -80" stroke="#f4ecda" stroke-width="1.5" fill="none"/>
+    <path d="M0 -28 C -7 -34 -12 -40 -14 -48 M0 -44 C -7 -50 -12 -56 -14 -64 M0 -60 C -7 -66 -12 -72 -14 -80" stroke="#f4ecda" stroke-width="1.5" fill="none"/>
+  </g>
+  <g transform="translate(274 324) rotate(-22) scale(1)" opacity="1">
+    <path d="M0 0 C 18 -30 18 -70 0 -96 C -18 -70 -18 -30 0 0 Z" fill="#3d7454"/>
+    <path d="M0 -6 L0 -90" stroke="#f4ecda" stroke-width="2.4" fill="none"/>
+    <path d="M0 -28 C 7 -34 12 -40 14 -48 M0 -44 C 7 -50 12 -56 14 -64 M0 -60 C 7 -66 12 -72 14 -80" stroke="#f4ecda" stroke-width="1.5" fill="none"/>
+    <path d="M0 -28 C -7 -34 -12 -40 -14 -48 M0 -44 C -7 -50 -12 -56 -14 -64 M0 -60 C -7 -66 -12 -72 -14 -80" stroke="#f4ecda" stroke-width="1.5" fill="none"/>
+  </g>
+  <g transform="translate(322 324) rotate(20) scale(1)" opacity="1">
+    <path d="M0 0 C 18 -30 18 -70 0 -96 C -18 -70 -18 -30 0 0 Z" fill="#3d7454"/>
+    <path d="M0 -6 L0 -90" stroke="#f4ecda" stroke-width="2.4" fill="none"/>
+    <path d="M0 -28 C 7 -34 12 -40 14 -48 M0 -44 C 7 -50 12 -56 14 -64 M0 -60 C 7 -66 12 -72 14 -80" stroke="#f4ecda" stroke-width="1.5" fill="none"/>
+    <path d="M0 -28 C -7 -34 -12 -40 -14 -48 M0 -44 C -7 -50 -12 -56 -14 -64 M0 -60 C -7 -66 -12 -72 -14 -80" stroke="#f4ecda" stroke-width="1.5" fill="none"/>
+  </g>
+  <g transform="translate(254 328) rotate(-42) scale(0.8)" opacity="1">
+    <path d="M0 0 C 18 -30 18 -70 0 -96 C -18 -70 -18 -30 0 0 Z" fill="#274a37"/>
+    <path d="M0 -6 L0 -90" stroke="#eaddc2" stroke-width="2.4" fill="none"/>
+    <path d="M0 -28 C 7 -34 12 -40 14 -48 M0 -44 C 7 -50 12 -56 14 -64 M0 -60 C 7 -66 12 -72 14 -80" stroke="#eaddc2" stroke-width="1.5" fill="none"/>
+    <path d="M0 -28 C -7 -34 -12 -40 -14 -48 M0 -44 C -7 -50 -12 -56 -14 -64 M0 -60 C -7 -66 -12 -72 -14 -80" stroke="#eaddc2" stroke-width="1.5" fill="none"/>
+  </g>
+  <g transform="translate(344 328) rotate(40) scale(0.8)" opacity="1">
+    <path d="M0 0 C 18 -30 18 -70 0 -96 C -18 -70 -18 -30 0 0 Z" fill="#274a37"/>
+    <path d="M0 -6 L0 -90" stroke="#eaddc2" stroke-width="2.4" fill="none"/>
+    <path d="M0 -28 C 7 -34 12 -40 14 -48 M0 -44 C 7 -50 12 -56 14 -64 M0 -60 C 7 -66 12 -72 14 -80" stroke="#eaddc2" stroke-width="1.5" fill="none"/>
+    <path d="M0 -28 C -7 -34 -12 -40 -14 -48 M0 -44 C -7 -50 -12 -56 -14 -64 M0 -60 C -7 -66 -12 -72 -14 -80" stroke="#eaddc2" stroke-width="1.5" fill="none"/>
+  </g>
+  <g transform="translate(302 326) rotate(8) scale(0.72)" opacity="1">
+    <path d="M0 0 C 18 -30 18 -70 0 -96 C -18 -70 -18 -30 0 0 Z" fill="#d8b85c"/>
+    <path d="M0 -6 L0 -90" stroke="#c9a227" stroke-width="2.4" fill="none"/>
+    <path d="M0 -28 C 7 -34 12 -40 14 -48 M0 -44 C 7 -50 12 -56 14 -64 M0 -60 C 7 -66 12 -72 14 -80" stroke="#c9a227" stroke-width="1.5" fill="none"/>
+    <path d="M0 -28 C -7 -34 -12 -40 -14 -48 M0 -44 C -7 -50 -12 -56 -14 -64 M0 -60 C -7 -66 -12 -72 -14 -80" stroke="#c9a227" stroke-width="1.5" fill="none"/>
+  </g>
+  <!-- pestle -->
+  <line x1="354" y1="244" x2="302" y2="330" stroke="#eaddc2" stroke-width="15" stroke-linecap="round"/>
+  <circle cx="356" cy="242" r="13" fill="#eaddc2"/>
+  <circle cx="356" cy="242" r="13" fill="none" stroke="#d8b85c" stroke-width="2"/>
+  <!-- bowl -->
+  <path d="M220 330 Q 232 400 300 404 Q 368 400 380 330 Z" fill="#2e5c42"/>
+  <path d="M220 330 Q 232 400 300 404 Q 368 400 380 330" fill="none" stroke="#274a37" stroke-width="2"/>
+  <ellipse cx="300" cy="330" rx="80" ry="19" fill="#274a37"/>
+  <ellipse cx="300" cy="330" rx="64" ry="13" fill="#172b21"/>
+  <path d="M240 348 Q 260 392 292 396" fill="none" stroke="#3d7454" stroke-width="3" opacity="0.6" stroke-linecap="round"/>
+
+  <!-- scattered grains / seeds -->
+  <circle cx="250" cy="388" r="3" fill="#d8b85c" opacity="1"/>
+  <circle cx="360" cy="390" r="3" fill="#d8b85c" opacity="1"/>
+  <circle cx="330" cy="384" r="2" fill="#d8b85c" opacity="1"/>
+  <circle cx="205" cy="386" r="2" fill="#3d7454" opacity="1"/>
+  <circle cx="410" cy="388" r="2.4" fill="#d8b85c" opacity="1"/>
+</svg>

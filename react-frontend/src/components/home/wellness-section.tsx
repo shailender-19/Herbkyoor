@@ -20,8 +20,8 @@ export function WellnessSection() {
           <Reveal>
             <div className="relative mx-auto aspect-[5/4] w-full max-w-lg overflow-hidden rounded-[2rem] border border-cream-300 shadow-lg">
               <Image
-                src="/product_images/Heart/whatsapp-image-2026-09-02-at-13-24-44-b69605fc.jpeg"
-                alt={`${siteConfig.name} — authentic Ayurvedic products from our range`}
+                src="/wellness-apothecary.svg"
+                alt={`${siteConfig.name} — traditional Ayurvedic apothecary with mortar, pestle and herbs`}
                 fill
                 sizes="(max-width: 1024px) 90vw, 45vw"
                 className="object-cover"

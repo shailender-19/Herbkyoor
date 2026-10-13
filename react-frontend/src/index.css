@@ -75,6 +75,10 @@
   --animate-blob-1: blob-1 22s ease-in-out infinite;
   --animate-blob-2: blob-2 28s ease-in-out infinite;
   --animate-blob-3: blob-3 34s ease-in-out infinite;
+  /* Softly drifting botanical leaves (home page background) */
+  --animate-leaf-1: leaf-1 26s ease-in-out infinite;
+  --animate-leaf-2: leaf-2 32s ease-in-out infinite;
+  --animate-leaf-3: leaf-3 38s ease-in-out infinite;
 }
 
 @keyframes fade-in {
@@ -147,6 +151,41 @@
   }
   50% {
     transform: translate(25px, -30px) scale(1.06);
+  }
+}
+
+/* Gentle botanical drift — a slow bob + sway, like a leaf on a breeze.
+   The wrapper animates; each leaf keeps its own base rotation/scale. */
+@keyframes leaf-1 {
+  0%,
+  100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  50% {
+    transform: translate(34px, -52px) rotate(14deg);
+  }
+}
+
+@keyframes leaf-2 {
+  0%,
+  100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  50% {
+    transform: translate(-42px, -40px) rotate(-16deg);
+  }
+}
+
+@keyframes leaf-3 {
+  0%,
+  100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  33% {
+    transform: translate(-30px, 36px) rotate(12deg);
+  }
+  66% {
+    transform: translate(38px, 22px) rotate(-10deg);
   }
 }
 

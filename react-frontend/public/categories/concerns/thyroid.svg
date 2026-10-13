@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" role="img" aria-label="Thyroid Care">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#517f65"/>
+      <stop offset="1" stop-color="#012f15"/>
+    </linearGradient>
+  </defs>
+  <rect width="400" height="300" fill="url(#g)"/>
+  <g transform="translate(372 150) rotate(232) scale(0.9)" opacity="0.1">
+    <path d="M0 0 C 18 -30 18 -70 0 -96 C -18 -70 -18 -30 0 0 Z" fill="#ffffff"/>
+    <path d="M0 -6 L0 -90" stroke="#e6e6e6" stroke-width="2.5" fill="none"/>
+    <path d="M0 -28 C 7 -34 12 -40 14 -48 M0 -44 C 7 -50 12 -56 14 -64 M0 -60 C 7 -66 12 -72 14 -80" stroke="#e6e6e6" stroke-width="1.6" fill="none"/>
+    <path d="M0 -28 C -7 -34 -12 -40 -14 -48 M0 -44 C -7 -50 -12 -56 -14 -64 M0 -60 C -7 -66 -12 -72 -14 -80" stroke="#e6e6e6" stroke-width="1.6" fill="none"/>
+  </g>
+  <g transform="translate(26 96) rotate(188) scale(1.15)" opacity="0.09">
+    <path d="M0 0 C 18 -30 18 -70 0 -96 C -18 -70 -18 -30 0 0 Z" fill="#ffffff"/>
+    <path d="M0 -6 L0 -90" stroke="#e6e6e6" stroke-width="2.5" fill="none"/>
+    <path d="M0 -28 C 7 -34 12 -40 14 -48 M0 -44 C 7 -50 12 -56 14 -64 M0 -60 C 7 -66 12 -72 14 -80" stroke="#e6e6e6" stroke-width="1.6" fill="none"/>
+    <path d="M0 -28 C -7 -34 -12 -40 -14 -48 M0 -44 C -7 -50 -12 -56 -14 -64 M0 -60 C -7 -66 -12 -72 -14 -80" stroke="#e6e6e6" stroke-width="1.6" fill="none"/>
+  </g>
+  <g transform="translate(80 278) rotate(300) scale(0.8)" opacity="0.08">
+    <path d="M0 0 C 18 -30 18 -70 0 -96 C -18 -70 -18 -30 0 0 Z" fill="#ffffff"/>
+    <path d="M0 -6 L0 -90" stroke="#e6e6e6" stroke-width="2.5" fill="none"/>
+    <path d="M0 -28 C 7 -34 12 -40 14 -48 M0 -44 C 7 -50 12 -56 14 -64 M0 -60 C 7 -66 12 -72 14 -80" stroke="#e6e6e6" stroke-width="1.6" fill="none"/>
+    <path d="M0 -28 C -7 -34 -12 -40 -14 -48 M0 -44 C -7 -50 -12 -56 -14 -64 M0 -60 C -7 -66 -12 -72 -14 -80" stroke="#e6e6e6" stroke-width="1.6" fill="none"/>
+  </g>
+  <circle cx="200" cy="135" r="72" fill="#faf6ec" opacity="0.96"/>
+  <g transform="translate(156.00 91.00) scale(3.6667)">
+    <path d="M11 2v2" fill="none" stroke="#0f3a22" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M5 2v2" fill="none" stroke="#0f3a22" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M5 3H4a2 2 0 0 0-2 2v4a6 6 0 0 0 12 0V5a2 2 0 0 0-2-2h-1" fill="none" stroke="#0f3a22" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M8 15a6 6 0 0 0 12 0v-3" fill="none" stroke="#0f3a22" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="20" cy="10" r="2" fill="none" stroke="#0f3a22" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+</svg>

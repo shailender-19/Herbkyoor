@@ -48,11 +48,7 @@ if ($size > $maxBytes) {
 }
 
 // Detect the real MIME from the file bytes (never trust the client-sent type).
-$finfo = new finfo(FILEINFO_MIME_TYPE);
-$mime = (string) $finfo->file($file['tmp_name']);
-if ($mime === 'text/plain' && strtolower(pathinfo((string) $file['name'], PATHINFO_EXTENSION)) === 'svg') {
-    $mime = 'image/svg+xml'; // some libmagic builds report SVG as text/plain
-}
+$mime = detect_image_mime($file['tmp_name'], (string) ($file['name'] ?? ''));
 if (!isset($EXT_BY_MIME[$mime])) {
     json_error('Unsupported image type: ' . ($mime !== '' ? $mime : 'unknown') . '.', 415);
 }

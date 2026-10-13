@@ -1,0 +1,167 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 600" role="img" aria-label="Authentic Ayurvedic herbs and wellness">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#274a37"/>
+      <stop offset="0.55" stop-color="#1f3a2c"/>
+      <stop offset="1" stop-color="#0c1811"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.5" cy="0.4" r="0.6">
+      <stop offset="0" stop-color="#d8b85c" stop-opacity="0.28"/>
+      <stop offset="1" stop-color="#d8b85c" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="disc" cx="0.42" cy="0.36" r="0.75">
+      <stop offset="0" stop-color="#fdfbf6"/>
+      <stop offset="1" stop-color="#f4ecda"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="480" height="600" fill="url(#bg)"/>
+  <rect width="480" height="600" fill="url(#glow)"/>
+
+  <!-- faint background botanicals -->
+  <g transform="translate(66 150) rotate(205) scale(1.25)" opacity="0.06">
+    <path d="M0 0 C 18 -30 18 -70 0 -96 C -18 -70 -18 -30 0 0 Z" fill="#faf6ec"/>
+    <path d="M0 -6 L0 -90" stroke="#3d7454" stroke-width="2.4" fill="none"/>
+    <path d="M0 -28 C 7 -34 12 -40 14 -48 M0 -44 C 7 -50 12 -56 14 -64 M0 -60 C 7 -66 12 -72 14 -80" stroke="#3d7454" stroke-width="1.5" fill="none"/>
+    <path d="M0 -28 C -7 -34 -12 -40 -14 -48 M0 -44 C -7 -50 -12 -56 -14 -64 M0 -60 C -7 -66 -12 -72 -14 -80" stroke="#3d7454" stroke-width="1.5" fill="none"/>
+  </g>
+  <g transform="translate(430 110) rotate(150) scale(1.1)" opacity="0.06">
+    <path d="M0 0 C 18 -30 18 -70 0 -96 C -18 -70 -18 -30 0 0 Z" fill="#faf6ec"/>
+    <path d="M0 -6 L0 -90" stroke="#3d7454" stroke-width="2.4" fill="none"/>
+    <path d="M0 -28 C 7 -34 12 -40 14 -48 M0 -44 C 7 -50 12 -56 14 -64 M0 -60 C 7 -66 12 -72 14 -80" stroke="#3d7454" stroke-width="1.5" fill="none"/>
+    <path d="M0 -28 C -7 -34 -12 -40 -14 -48 M0 -44 C -7 -50 -12 -56 -14 -64 M0 -60 C -7 -66 -12 -72 -14 -80" stroke="#3d7454" stroke-width="1.5" fill="none"/>
+  </g>
+  <g transform="translate(60 560) rotate(320) scale(1.15)" opacity="0.05">
+    <path d="M0 0 C 18 -30 18 -70 0 -96 C -18 -70 -18 -30 0 0 Z" fill="#faf6ec"/>
+    <path d="M0 -6 L0 -90" stroke="#3d7454" stroke-width="2.4" fill="none"/>
+    <path d="M0 -28 C 7 -34 12 -40 14 -48 M0 -44 C 7 -50 12 -56 14 -64 M0 -60 C 7 -66 12 -72 14 -80" stroke="#3d7454" stroke-width="1.5" fill="none"/>
+    <path d="M0 -28 C -7 -34 -12 -40 -14 -48 M0 -44 C -7 -50 -12 -56 -14 -64 M0 -60 C -7 -66 -12 -72 -14 -80" stroke="#3d7454" stroke-width="1.5" fill="none"/>
+  </g>
+  <g transform="translate(440 540) rotate(40) scale(1)" opacity="0.05">
+    <path d="M0 0 C 18 -30 18 -70 0 -96 C -18 -70 -18 -30 0 0 Z" fill="#faf6ec"/>
+    <path d="M0 -6 L0 -90" stroke="#3d7454" stroke-width="2.4" fill="none"/>
+    <path d="M0 -28 C 7 -34 12 -40 14 -48 M0 -44 C 7 -50 12 -56 14 -64 M0 -60 C 7 -66 12 -72 14 -80" stroke="#3d7454" stroke-width="1.5" fill="none"/>
+    <path d="M0 -28 C -7 -34 -12 -40 -14 -48 M0 -44 C -7 -50 -12 -56 -14 -64 M0 -60 C -7 -66 -12 -72 -14 -80" stroke="#3d7454" stroke-width="1.5" fill="none"/>
+  </g>
+
+  <!-- emblem disc -->
+  <circle cx="240" cy="288" r="178" fill="none" stroke="#d8b85c" stroke-width="1.5" opacity="0.5"/>
+  <circle cx="240.0" cy="100.0" r="3" fill="#d8b85c" opacity="0.9"/>
+  <circle cx="281.8" cy="104.7" r="1.6" fill="#d8b85c" opacity="0.9"/>
+  <circle cx="321.6" cy="118.6" r="3" fill="#d8b85c" opacity="0.9"/>
+  <circle cx="357.2" cy="141.0" r="1.6" fill="#d8b85c" opacity="0.9"/>
+  <circle cx="387.0" cy="170.8" r="3" fill="#d8b85c" opacity="0.9"/>
+  <circle cx="409.4" cy="206.4" r="1.6" fill="#d8b85c" opacity="0.9"/>
+  <circle cx="423.3" cy="246.2" r="3" fill="#d8b85c" opacity="0.9"/>
+  <circle cx="428.0" cy="288.0" r="1.6" fill="#d8b85c" opacity="0.9"/>
+  <circle cx="423.3" cy="329.8" r="3" fill="#d8b85c" opacity="0.9"/>
+  <circle cx="409.4" cy="369.6" r="1.6" fill="#d8b85c" opacity="0.9"/>
+  <circle cx="387.0" cy="405.2" r="3" fill="#d8b85c" opacity="0.9"/>
+  <circle cx="357.2" cy="435.0" r="1.6" fill="#d8b85c" opacity="0.9"/>
+  <circle cx="321.6" cy="457.4" r="3" fill="#d8b85c" opacity="0.9"/>
+  <circle cx="281.8" cy="471.3" r="1.6" fill="#d8b85c" opacity="0.9"/>
+  <circle cx="240.0" cy="476.0" r="3" fill="#d8b85c" opacity="0.9"/>
+  <circle cx="198.2" cy="471.3" r="1.6" fill="#d8b85c" opacity="0.9"/>
+  <circle cx="158.4" cy="457.4" r="3" fill="#d8b85c" opacity="0.9"/>
+  <circle cx="122.8" cy="435.0" r="1.6" fill="#d8b85c" opacity="0.9"/>
+  <circle cx="93.0" cy="405.2" r="3" fill="#d8b85c" opacity="0.9"/>
+  <circle cx="70.6" cy="369.6" r="1.6" fill="#d8b85c" opacity="0.9"/>
+  <circle cx="56.7" cy="329.8" r="3" fill="#d8b85c" opacity="0.9"/>
+  <circle cx="52.0" cy="288.0" r="1.6" fill="#d8b85c" opacity="0.9"/>
+  <circle cx="56.7" cy="246.2" r="3" fill="#d8b85c" opacity="0.9"/>
+  <circle cx="70.6" cy="206.4" r="1.6" fill="#d8b85c" opacity="0.9"/>
+  <circle cx="93.0" cy="170.8" r="3" fill="#d8b85c" opacity="0.9"/>
+  <circle cx="122.8" cy="141.0" r="1.6" fill="#d8b85c" opacity="0.9"/>
+  <circle cx="158.4" cy="118.6" r="3" fill="#d8b85c" opacity="0.9"/>
+  <circle cx="198.2" cy="104.7" r="1.6" fill="#d8b85c" opacity="0.9"/>
+  <circle cx="240" cy="288" r="168" fill="url(#disc)"/>
+  <circle cx="240" cy="288" r="160" fill="none" stroke="#e6cf8a" stroke-width="2"/>
+
+  <!-- top gold accent sprig (crest) -->
+  <g transform="translate(240 196) rotate(0) scale(0.6)" opacity="1">
+    <path d="M0 0 C 18 -30 18 -70 0 -96 C -18 -70 -18 -30 0 0 Z" fill="#d8b85c"/>
+    <path d="M0 -6 L0 -90" stroke="#c9a227" stroke-width="2.4" fill="none"/>
+    <path d="M0 -28 C 7 -34 12 -40 14 -48 M0 -44 C 7 -50 12 -56 14 -64 M0 -60 C 7 -66 12 -72 14 -80" stroke="#c9a227" stroke-width="1.5" fill="none"/>
+    <path d="M0 -28 C -7 -34 -12 -40 -14 -48 M0 -44 C -7 -50 -12 -56 -14 -64 M0 -60 C -7 -66 -12 -72 -14 -80" stroke="#c9a227" stroke-width="1.5" fill="none"/>
+  </g>
+  <g transform="translate(240 196) rotate(-34) scale(0.44)" opacity="1">
+    <path d="M0 0 C 18 -30 18 -70 0 -96 C -18 -70 -18 -30 0 0 Z" fill="#e6cf8a"/>
+    <path d="M0 -6 L0 -90" stroke="#c9a227" stroke-width="2.4" fill="none"/>
+    <path d="M0 -28 C 7 -34 12 -40 14 -48 M0 -44 C 7 -50 12 -56 14 -64 M0 -60 C 7 -66 12 -72 14 -80" stroke="#c9a227" stroke-width="1.5" fill="none"/>
+    <path d="M0 -28 C -7 -34 -12 -40 -14 -48 M0 -44 C -7 -50 -12 -56 -14 -64 M0 -60 C -7 -66 -12 -72 -14 -80" stroke="#c9a227" stroke-width="1.5" fill="none"/>
+  </g>
+  <g transform="translate(240 196) rotate(34) scale(0.44)" opacity="1">
+    <path d="M0 0 C 18 -30 18 -70 0 -96 C -18 -70 -18 -30 0 0 Z" fill="#e6cf8a"/>
+    <path d="M0 -6 L0 -90" stroke="#c9a227" stroke-width="2.4" fill="none"/>
+    <path d="M0 -28 C 7 -34 12 -40 14 -48 M0 -44 C 7 -50 12 -56 14 -64 M0 -60 C 7 -66 12 -72 14 -80" stroke="#c9a227" stroke-width="1.5" fill="none"/>
+    <path d="M0 -28 C -7 -34 -12 -40 -14 -48 M0 -44 C -7 -50 -12 -56 -14 -64 M0 -60 C -7 -66 -12 -72 -14 -80" stroke="#c9a227" stroke-width="1.5" fill="none"/>
+  </g>
+  <circle cx="240" cy="150" r="4" fill="#d8b85c" opacity="0.95"/>
+
+  <!-- herbal bouquet -->
+  <g transform="translate(240 404) rotate(0) scale(1.62)" opacity="1">
+    <path d="M0 0 C 18 -30 18 -70 0 -96 C -18 -70 -18 -30 0 0 Z" fill="#2e5c42"/>
+    <path d="M0 -6 L0 -90" stroke="#f4ecda" stroke-width="2.4" fill="none"/>
+    <path d="M0 -28 C 7 -34 12 -40 14 -48 M0 -44 C 7 -50 12 -56 14 -64 M0 -60 C 7 -66 12 -72 14 -80" stroke="#f4ecda" stroke-width="1.5" fill="none"/>
+    <path d="M0 -28 C -7 -34 -12 -40 -14 -48 M0 -44 C -7 -50 -12 -56 -14 -64 M0 -60 C -7 -66 -12 -72 -14 -80" stroke="#f4ecda" stroke-width="1.5" fill="none"/>
+  </g>
+  <g transform="translate(240 404) rotate(-19) scale(1.5)" opacity="1">
+    <path d="M0 0 C 18 -30 18 -70 0 -96 C -18 -70 -18 -30 0 0 Z" fill="#3d7454"/>
+    <path d="M0 -6 L0 -90" stroke="#f4ecda" stroke-width="2.4" fill="none"/>
+    <path d="M0 -28 C 7 -34 12 -40 14 -48 M0 -44 C 7 -50 12 -56 14 -64 M0 -60 C 7 -66 12 -72 14 -80" stroke="#f4ecda" stroke-width="1.5" fill="none"/>
+    <path d="M0 -28 C -7 -34 -12 -40 -14 -48 M0 -44 C -7 -50 -12 -56 -14 -64 M0 -60 C -7 -66 -12 -72 -14 -80" stroke="#f4ecda" stroke-width="1.5" fill="none"/>
+  </g>
+  <g transform="translate(240 404) rotate(19) scale(1.5)" opacity="1">
+    <path d="M0 0 C 18 -30 18 -70 0 -96 C -18 -70 -18 -30 0 0 Z" fill="#3d7454"/>
+    <path d="M0 -6 L0 -90" stroke="#f4ecda" stroke-width="2.4" fill="none"/>
+    <path d="M0 -28 C 7 -34 12 -40 14 -48 M0 -44 C 7 -50 12 -56 14 -64 M0 -60 C 7 -66 12 -72 14 -80" stroke="#f4ecda" stroke-width="1.5" fill="none"/>
+    <path d="M0 -28 C -7 -34 -12 -40 -14 -48 M0 -44 C -7 -50 -12 -56 -14 -64 M0 -60 C -7 -66 -12 -72 -14 -80" stroke="#f4ecda" stroke-width="1.5" fill="none"/>
+  </g>
+  <g transform="translate(240 404) rotate(-37) scale(1.32)" opacity="1">
+    <path d="M0 0 C 18 -30 18 -70 0 -96 C -18 -70 -18 -30 0 0 Z" fill="#274a37"/>
+    <path d="M0 -6 L0 -90" stroke="#eaddc2" stroke-width="2.4" fill="none"/>
+    <path d="M0 -28 C 7 -34 12 -40 14 -48 M0 -44 C 7 -50 12 -56 14 -64 M0 -60 C 7 -66 12 -72 14 -80" stroke="#eaddc2" stroke-width="1.5" fill="none"/>
+    <path d="M0 -28 C -7 -34 -12 -40 -14 -48 M0 -44 C -7 -50 -12 -56 -14 -64 M0 -60 C -7 -66 -12 -72 -14 -80" stroke="#eaddc2" stroke-width="1.5" fill="none"/>
+  </g>
+  <g transform="translate(240 404) rotate(37) scale(1.32)" opacity="1">
+    <path d="M0 0 C 18 -30 18 -70 0 -96 C -18 -70 -18 -30 0 0 Z" fill="#274a37"/>
+    <path d="M0 -6 L0 -90" stroke="#eaddc2" stroke-width="2.4" fill="none"/>
+    <path d="M0 -28 C 7 -34 12 -40 14 -48 M0 -44 C 7 -50 12 -56 14 -64 M0 -60 C 7 -66 12 -72 14 -80" stroke="#eaddc2" stroke-width="1.5" fill="none"/>
+    <path d="M0 -28 C -7 -34 -12 -40 -14 -48 M0 -44 C -7 -50 -12 -56 -14 -64 M0 -60 C -7 -66 -12 -72 -14 -80" stroke="#eaddc2" stroke-width="1.5" fill="none"/>
+  </g>
+  <g transform="translate(240 404) rotate(-54) scale(1.08)" opacity="1">
+    <path d="M0 0 C 18 -30 18 -70 0 -96 C -18 -70 -18 -30 0 0 Z" fill="#5c9271"/>
+    <path d="M0 -6 L0 -90" stroke="#f4ecda" stroke-width="2.4" fill="none"/>
+    <path d="M0 -28 C 7 -34 12 -40 14 -48 M0 -44 C 7 -50 12 -56 14 -64 M0 -60 C 7 -66 12 -72 14 -80" stroke="#f4ecda" stroke-width="1.5" fill="none"/>
+    <path d="M0 -28 C -7 -34 -12 -40 -14 -48 M0 -44 C -7 -50 -12 -56 -14 -64 M0 -60 C -7 -66 -12 -72 -14 -80" stroke="#f4ecda" stroke-width="1.5" fill="none"/>
+  </g>
+  <g transform="translate(240 404) rotate(54) scale(1.08)" opacity="1">
+    <path d="M0 0 C 18 -30 18 -70 0 -96 C -18 -70 -18 -30 0 0 Z" fill="#5c9271"/>
+    <path d="M0 -6 L0 -90" stroke="#f4ecda" stroke-width="2.4" fill="none"/>
+    <path d="M0 -28 C 7 -34 12 -40 14 -48 M0 -44 C 7 -50 12 -56 14 -64 M0 -60 C 7 -66 12 -72 14 -80" stroke="#f4ecda" stroke-width="1.5" fill="none"/>
+    <path d="M0 -28 C -7 -34 -12 -40 -14 -48 M0 -44 C -7 -50 -12 -56 -14 -64 M0 -60 C -7 -66 -12 -72 -14 -80" stroke="#f4ecda" stroke-width="1.5" fill="none"/>
+  </g>
+  <g transform="translate(240 404) rotate(-70) scale(0.82)" opacity="1">
+    <path d="M0 0 C 18 -30 18 -70 0 -96 C -18 -70 -18 -30 0 0 Z" fill="#2e5c42"/>
+    <path d="M0 -6 L0 -90" stroke="#eaddc2" stroke-width="2.4" fill="none"/>
+    <path d="M0 -28 C 7 -34 12 -40 14 -48 M0 -44 C 7 -50 12 -56 14 -64 M0 -60 C 7 -66 12 -72 14 -80" stroke="#eaddc2" stroke-width="1.5" fill="none"/>
+    <path d="M0 -28 C -7 -34 -12 -40 -14 -48 M0 -44 C -7 -50 -12 -56 -14 -64 M0 -60 C -7 -66 -12 -72 -14 -80" stroke="#eaddc2" stroke-width="1.5" fill="none"/>
+  </g>
+  <g transform="translate(240 404) rotate(70) scale(0.82)" opacity="1">
+    <path d="M0 0 C 18 -30 18 -70 0 -96 C -18 -70 -18 -30 0 0 Z" fill="#2e5c42"/>
+    <path d="M0 -6 L0 -90" stroke="#eaddc2" stroke-width="2.4" fill="none"/>
+    <path d="M0 -28 C 7 -34 12 -40 14 -48 M0 -44 C 7 -50 12 -56 14 -64 M0 -60 C 7 -66 12 -72 14 -80" stroke="#eaddc2" stroke-width="1.5" fill="none"/>
+    <path d="M0 -28 C -7 -34 -12 -40 -14 -48 M0 -44 C -7 -50 -12 -56 -14 -64 M0 -60 C -7 -66 -12 -72 -14 -80" stroke="#eaddc2" stroke-width="1.5" fill="none"/>
+  </g>
+
+  <!-- gold tie / ribbon -->
+  <rect x="206" y="400" width="68" height="26" rx="13" fill="#d8b85c"/>
+  <rect x="206" y="400" width="68" height="26" rx="13" fill="none" stroke="#c9a227" stroke-width="1.5"/>
+  <path d="M240 413 l-22 34 M240 413 l22 34" stroke="#d8b85c" stroke-width="7" stroke-linecap="round"/>
+  <circle cx="240" cy="413" r="6" fill="#c9a227"/>
+
+  <!-- small grains / seeds accent -->
+  <circle cx="90" cy="168" r="4" fill="#d8b85c" opacity="0.8"/>
+  <circle cx="390" cy="406" r="4" fill="#d8b85c" opacity="0.8"/>
+  <circle cx="398" cy="192" r="2.4" fill="#d8b85c" opacity="0.7"/>
+</svg>

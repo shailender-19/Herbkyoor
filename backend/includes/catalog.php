@@ -9,6 +9,27 @@ declare(strict_types=1);
 
 const FALLBACK_IMAGE = 'assets/images/categories/herbal-medicines.svg';
 
+/**
+ * Fixed, consistent cover illustration per known concern slug. Used when a
+ * category has no admin-authored `image`, so cards never show a "random" first
+ * product photo. Resolves (frontend resolveAssetPath) to /categories/concerns/*.svg.
+ */
+const CONCERN_IMAGES = [
+    'heart'         => 'assets/images/categories/concerns/heart.svg',
+    'kneePain'      => 'assets/images/categories/concerns/kneePain.svg',
+    'blood'         => 'assets/images/categories/concerns/blood.svg',
+    'conspitation'  => 'assets/images/categories/concerns/conspitation.svg',
+    'health'        => 'assets/images/categories/concerns/health.svg',
+    'kidney'        => 'assets/images/categories/concerns/kidney.svg',
+    'liverDisorder' => 'assets/images/categories/concerns/liverDisorder.svg',
+    'memory'        => 'assets/images/categories/concerns/memory.svg',
+    'pcodPcos'      => 'assets/images/categories/concerns/pcodPcos.svg',
+    'piles'         => 'assets/images/categories/concerns/piles.svg',
+    'sexual'        => 'assets/images/categories/concerns/sexual.svg',
+    'thyroid'       => 'assets/images/categories/concerns/thyroid.svg',
+    'urine'         => 'assets/images/categories/concerns/urine.svg',
+];
+
 const USAGE_TEXT = 'Use as directed by your Ayurvedic physician. Contact us on WhatsApp for detailed usage and dosage guidance.';
 
 // ---------------------------------------------------------------------------
@@ -198,6 +219,10 @@ function get_categories_public(PDO $pdo): array
     $out = [];
     foreach ($cats as $c) {
         $image = $c['image'];
+        if (!$image) {
+            // Prefer the fixed concern illustration over a "random" product photo.
+            $image = CONCERN_IMAGES[$c['slug']] ?? null;
+        }
         if (!$image) {
             $stmt = $pdo->prepare(
                 'SELECT i.path FROM product_images i JOIN products p ON p.product_id = i.product_id

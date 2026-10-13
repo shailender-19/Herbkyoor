@@ -80,6 +80,46 @@ function safe_folder(?string $value): string
     return $cleaned !== '' ? $cleaned : 'misc';
 }
 
+/**
+ * Detect an image's real MIME from its bytes, resilient to hosts where the
+ * `fileinfo` extension is not loaded (common on shared hosting — a missing
+ * `finfo` class would otherwise fatal the request).
+ *
+ * Order: finfo (most accurate) -> getimagesize (core/GD, raster types) ->
+ * SVG head sniff. Returns '' when the type can't be determined so the caller
+ * can respond with a clean 415 instead of crashing.
+ */
+function detect_image_mime(string $tmpPath, string $originalName = ''): string
+{
+    $ext = strtolower(pathinfo($originalName, PATHINFO_EXTENSION));
+
+    // 1) fileinfo, when available.
+    if (class_exists('finfo')) {
+        $finfo = new finfo(FILEINFO_MIME_TYPE);
+        $mime = (string) $finfo->file($tmpPath);
+        if ($mime === 'text/plain' && $ext === 'svg') {
+            $mime = 'image/svg+xml'; // some libmagic builds report SVG as text/plain
+        }
+        if ($mime !== '' && $mime !== 'application/octet-stream') {
+            return $mime;
+        }
+    }
+
+    // 2) getimagesize — covers jpeg/png/gif/webp/avif (and bmp) from core/GD.
+    $info = @getimagesize($tmpPath);
+    if (is_array($info) && !empty($info['mime'])) {
+        return (string) $info['mime'];
+    }
+
+    // 3) SVG is text, not a raster — sniff the head for an <svg> root element.
+    $head = (string) @file_get_contents($tmpPath, false, null, 0, 512);
+    if ($head !== '' && preg_match('/<svg[\s>]/i', $head) && ($ext === 'svg' || stripos($head, '<svg') !== false)) {
+        return 'image/svg+xml';
+    }
+
+    return '';
+}
+
 /** Short, path-safe base name from an original filename. */
 function safe_base_name(string $name): string
 {

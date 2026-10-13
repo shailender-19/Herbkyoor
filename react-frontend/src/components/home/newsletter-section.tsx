@@ -10,8 +10,8 @@ export function NewsletterSection() {
           {/* Visual */}
           <div className="relative min-h-56 md:min-h-full">
             <Image
-              src="/product_images/diabeticCare/1000481516-903f74a6.jpeg"
-              alt="Authentic Ayurvedic wellness products from our range"
+              src="/newsletter-botanical.svg"
+              alt="Ayurvedic botanical pattern"
               fill
               sizes="(max-width: 768px) 100vw, 45vw"
               className="object-cover"

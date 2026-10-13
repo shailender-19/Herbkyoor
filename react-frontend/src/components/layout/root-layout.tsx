@@ -1,6 +1,7 @@
 import { Outlet } from "react-router-dom";
 import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
+import { SiteBackground } from "@/components/layout/site-background";
 import { WhatsAppFloat } from "@/components/common/whatsapp-float";
 import { SiteStructuredData } from "@/components/common/structured-data";
 
@@ -19,6 +20,7 @@ export function RootLayout() {
         Skip to content
       </a>
       <SiteStructuredData />
+      <SiteBackground />
       <Navbar />
       <main id="main">
         <Outlet />

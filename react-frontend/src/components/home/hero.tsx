@@ -81,8 +81,8 @@ export function Hero() {
         <div className="relative animate-scale-in">
           <div className="relative mx-auto aspect-[4/5] w-full max-w-md overflow-hidden rounded-[2rem] border border-cream-300 shadow-xl">
             <Image
-              src="/product_images/Health/Health_moringa.jpeg"
-              alt="Authentic Ayurvedic Moringa tablets from our wellness range"
+              src="/hero-ayurveda.svg"
+              alt="Authentic Ayurvedic herbs and wellness"
               fill
               priority
               sizes="(max-width: 1024px) 90vw, 40vw"
