@@ -3,12 +3,12 @@ import { useEffect, useState } from "react";
 import { Image } from "@/components/ui/image";
 import { Link } from "@/components/ui/link";
 import { useLocation, useNavigate } from "react-router-dom";
-import { Menu, Phone, Search, X } from "lucide-react";
+import { Menu, Search, X } from "lucide-react";
 import { Container } from "@/components/ui/container";
 import { SearchBar } from "@/components/common/search-bar";
 import { WhatsAppButton } from "@/components/common/whatsapp-button";
 import { whatsAppEnquiryUrl } from "@/lib/whatsapp";
-import { mainNav, siteConfig, telHref } from "@/config/site";
+import { mainNav, siteConfig } from "@/config/site";
 import { cn } from "@/lib/utils";
 
 export function Navbar() {
@@ -48,28 +48,6 @@ export function Navbar() {
 
   return (
     <header className="sticky top-0 z-50">
-      {/* Announcement bar */}
-      <div className="hidden bg-forest-800 text-cream-100 md:block">
-        <Container className="flex h-9 items-center justify-between text-xs">
-          <p>
-            🌿 Free shipping on orders above{" "}
-            {siteConfig.payment.currencySymbol}
-            {siteConfig.payment.freeShippingThreshold} · 100% Authentic Ayurveda
-          </p>
-          <div className="inline-flex items-center gap-3">
-            {siteConfig.contact.phones.map((phone, i) => (
-              <a
-                key={phone}
-                href={telHref(phone)}
-                className="inline-flex items-center gap-1.5 hover:text-gold-300"
-              >
-                {i === 0 && <Phone size={13} />} {phone}
-              </a>
-            ))}
-          </div>
-        </Container>
-      </div>
-
       <div
         className={cn(
           "border-b border-cream-300/70 bg-cream-50/90 backdrop-blur-md transition-shadow",
@@ -85,20 +63,13 @@ export function Navbar() {
               aria-label={`${siteConfig.name} home`}
             >
               <Image
-                src="/brand/logo-mark.svg"
-                alt=""
-                width={40}
-                height={40}
-                className="h-10 w-10 rounded-xl"
+                src="/brand/logo.jpeg"
+                alt={`${siteConfig.name} logo`}
+                width={160}
+                height={106}
+                priority
+                className="h-11 w-auto"
               />
-              <span className="flex flex-col leading-none">
-                <span className="font-display text-lg font-bold text-forest-800">
-                  {siteConfig.shortName}
-                </span>
-                <span className="text-[10px] font-medium uppercase tracking-[0.2em] text-forest-500">
-                  Ayurveda
-                </span>
-              </span>
             </Link>
 
             {/* Desktop nav */}

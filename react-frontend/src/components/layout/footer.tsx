@@ -23,22 +23,14 @@ export function Footer() {
         <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-3">
           {/* Brand */}
           <div>
-            <Link href="/" className="flex items-center gap-2.5">
+            <Link href="/" className="inline-flex items-center rounded-xl bg-cream-50 px-3 py-2">
               <Image
-                src="/brand/logo-mark.svg"
-                alt=""
-                width={44}
-                height={44}
-                className="h-11 w-11 rounded-xl"
+                src="/brand/logo.jpeg"
+                alt={`${siteConfig.name} logo`}
+                width={180}
+                height={120}
+                className="h-12 w-auto"
               />
-              <span className="flex flex-col leading-none">
-                <span className="font-display text-lg font-bold text-cream-50">
-                  {siteConfig.shortName}
-                </span>
-                <span className="text-[10px] font-medium uppercase tracking-[0.2em] text-gold-400">
-                  Ayurveda
-                </span>
-              </span>
             </Link>
             <p className="mt-4 text-sm leading-relaxed text-cream-100/70">
               Authentic Ayurvedic products, carefully selected to support your

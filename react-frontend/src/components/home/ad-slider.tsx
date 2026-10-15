@@ -39,7 +39,7 @@ export function AdvertisementSlider({ ads }: { ads: Advertisement[] }) {
 
   return (
     <div
-      className="group relative overflow-hidden rounded-3xl border border-cream-300 shadow-sm"
+      className="group relative aspect-[16/9] overflow-hidden rounded-3xl border border-cream-300 bg-cream-50 shadow-sm sm:aspect-[2/1]"
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
       onFocusCapture={() => setPaused(true)}
@@ -50,63 +50,89 @@ export function AdvertisementSlider({ ads }: { ads: Advertisement[] }) {
     >
       {/* Track */}
       <div
-        className="flex transition-transform duration-700 ease-out"
+        className="flex h-full transition-transform duration-700 ease-out"
         style={{ transform: `translateX(-${index * 100}%)` }}
       >
-        {ads.map((ad, i) => (
-          <div
-            key={ad.id}
-            className="relative w-full shrink-0"
-            aria-hidden={i !== index}
-          >
-            <div className="relative aspect-[3/2] w-full sm:aspect-[21/9] md:aspect-[24/8]">
-              <Image
-                src={ad.image}
-                alt=""
-                fill
-                priority={i === 0}
-                sizes="100vw"
-                className="object-cover"
-              />
-              <div
-                className="absolute inset-0"
-                style={{
-                  background: `linear-gradient(90deg, ${
-                    ad.accent ?? "#274a37"
-                  }f2 0%, ${ad.accent ?? "#274a37"}b3 45%, transparent 100%)`,
-                }}
-                aria-hidden
-              />
-              {/* Content */}
-              <div className="absolute inset-0 flex items-center">
-                <div className="max-w-lg px-6 sm:px-10 lg:px-14">
-                  {ad.eyebrow && (
-                    <span className="inline-block rounded-full bg-cream-50/20 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-cream-50 backdrop-blur">
-                      {ad.eyebrow}
-                    </span>
-                  )}
-                  <h3 className="mt-3 text-2xl font-bold text-cream-50 text-balance sm:text-3xl lg:text-4xl">
-                    {ad.title}
-                  </h3>
-                  <p className="mt-2 max-w-md text-sm text-cream-100/90 sm:text-base">
-                    {ad.subtitle}
-                  </p>
-                  <Link
-                    href={ad.ctaHref}
-                    className={buttonClasses({
-                      variant: "gold",
-                      size: "md",
-                      className: "mt-5",
-                    })}
-                    tabIndex={i === index ? 0 : -1}
-                  >
-                    {ad.ctaLabel}
-                  </Link>
+        {ads.map((ad, i) =>
+          ad.selfContained ? (
+            // Fully designed banner — logo, headline and CTA are baked into the
+            // artwork, so render it as-is and make the whole slide clickable.
+            <div
+              key={ad.id}
+              className="relative h-full w-full shrink-0"
+              aria-hidden={i !== index}
+            >
+              <Link
+                href={ad.ctaHref}
+                aria-label={ad.title}
+                tabIndex={i === index ? 0 : -1}
+                className="relative block h-full w-full"
+              >
+                <Image
+                  src={ad.image}
+                  alt={ad.title}
+                  fill
+                  priority={i === 0}
+                  sizes="100vw"
+                  className="object-contain"
+                />
+              </Link>
+            </div>
+          ) : (
+            <div
+              key={ad.id}
+              className="relative w-full shrink-0"
+              aria-hidden={i !== index}
+            >
+              <div className="relative aspect-[3/2] w-full sm:aspect-[21/9] md:aspect-[24/8]">
+                <Image
+                  src={ad.image}
+                  alt=""
+                  fill
+                  priority={i === 0}
+                  sizes="100vw"
+                  className="object-cover"
+                />
+                <div
+                  className="absolute inset-0"
+                  style={{
+                    background: `linear-gradient(90deg, ${
+                      ad.accent ?? "#274a37"
+                    }f2 0%, ${ad.accent ?? "#274a37"}b3 45%, transparent 100%)`,
+                  }}
+                  aria-hidden
+                />
+                {/* Content */}
+                <div className="absolute inset-0 flex items-center">
+                  <div className="max-w-lg px-6 sm:px-10 lg:px-14">
+                    {ad.eyebrow && (
+                      <span className="inline-block rounded-full bg-cream-50/20 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-cream-50 backdrop-blur">
+                        {ad.eyebrow}
+                      </span>
+                    )}
+                    <h3 className="mt-3 text-2xl font-bold text-cream-50 text-balance sm:text-3xl lg:text-4xl">
+                      {ad.title}
+                    </h3>
+                    <p className="mt-2 max-w-md text-sm text-cream-100/90 sm:text-base">
+                      {ad.subtitle}
+                    </p>
+                    <Link
+                      href={ad.ctaHref}
+                      className={buttonClasses({
+                        variant: "gold",
+                        size: "md",
+                        className: "mt-5",
+                      })}
+                      tabIndex={i === index ? 0 : -1}
+                    >
+                      {ad.ctaLabel}
+                    </Link>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-        ))}
+          ),
+        )}
       </div>
 
       {/* Arrows */}

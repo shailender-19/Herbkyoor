@@ -17,4 +17,16 @@ export interface Advertisement {
   endDate: string;
   /** Optional accent used for gradients/overlays in the slider. */
   accent?: string;
+  /**
+   * When true, the image is a fully designed banner (logo, headline and CTA
+   * already baked in). The slider renders it as-is, without the gradient or
+   * overlaid text/CTA.
+   */
+  selfContained?: boolean;
+  /**
+   * Natural aspect ratio of the image (width / height). Used by the slider to
+   * size the frame to the active banner so the whole image is shown without
+   * cropping or letterboxing.
+   */
+  aspectRatio?: number;
 }

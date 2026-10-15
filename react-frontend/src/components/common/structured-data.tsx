@@ -20,7 +20,7 @@ export function SiteStructuredData() {
     description: siteConfig.description,
     url: base,
     image: `${base}/misc/og.svg`,
-    logo: `${base}/brand/logo-mark.svg`,
+    logo: `${base}/brand/logo.jpeg`,
     telephone:
       siteConfig.contact.phones.length > 1
         ? siteConfig.contact.phones
