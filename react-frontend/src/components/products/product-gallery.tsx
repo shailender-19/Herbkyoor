@@ -1,6 +1,7 @@
 
 import { useState } from "react";
 import { Image } from "@/components/ui/image";
+import { FALLBACK_IMAGE } from "@/data/normalize";
 import { Badge } from "@/components/ui/badge";
 import { discountPercent } from "@/lib/format";
 import { cn } from "@/lib/utils";
@@ -19,6 +20,7 @@ export function ProductGallery({ product }: { product: Product }) {
         <Image
           src={images[active]}
           alt={`${product.name} — view ${active + 1}`}
+          fallbackSrc={FALLBACK_IMAGE}
           fill
           priority
           sizes="(max-width: 1024px) 100vw, 45vw"
@@ -49,6 +51,7 @@ export function ProductGallery({ product }: { product: Product }) {
               <Image
                 src={img}
                 alt=""
+                fallbackSrc={FALLBACK_IMAGE}
                 fill
                 sizes="15vw"
                 className="object-cover"

@@ -1,4 +1,5 @@
-import type { CSSProperties, ImgHTMLAttributes } from "react";
+import type { CSSProperties, ImgHTMLAttributes, SyntheticEvent } from "react";
+import { useEffect, useState } from "react";
 
 /**
  * Drop-in replacement for `next/image`.
@@ -23,6 +24,11 @@ export interface ImageProps
   sizes?: string;
   /** Accepted for API-compatibility; ignored. */
   quality?: number;
+  /**
+   * Image shown when `src` fails to load (missing/404). Lets product and
+   * category images degrade to a default instead of a broken-image icon.
+   */
+  fallbackSrc?: string;
   className?: string;
   style?: CSSProperties;
 }
@@ -56,11 +62,25 @@ export function Image({
   priority,
   sizes: _sizes,
   quality: _quality,
+  fallbackSrc,
   className,
   style,
   loading,
+  onError,
   ...rest
 }: ImageProps) {
+  // Swap to `fallbackSrc` once if the primary image fails to load. Reset when
+  // `src` changes so a new (valid) image gets a fresh attempt.
+  const [errored, setErrored] = useState(false);
+  useEffect(() => setErrored(false), [src]);
+
+  const displaySrc = errored && fallbackSrc ? fallbackSrc : src;
+
+  const handleError = (e: SyntheticEvent<HTMLImageElement, Event>) => {
+    if (fallbackSrc && !errored) setErrored(true);
+    onError?.(e);
+  };
+
   // Mirror next/image `fill`: absolutely fill the positioned parent. object-fit
   // is left to the caller's className (e.g. `object-cover`), exactly as
   // next/image requires, so inline style never overrides it.
@@ -70,7 +90,7 @@ export function Image({
 
   return (
     <img
-      src={withBase(src)}
+      src={withBase(displaySrc)}
       alt={alt}
       width={fill ? undefined : width}
       height={fill ? undefined : height}
@@ -78,6 +98,7 @@ export function Image({
       style={fill ? fillStyle : style}
       loading={loading ?? (priority ? "eager" : "lazy")}
       decoding="async"
+      onError={handleError}
       {...rest}
     />
   );

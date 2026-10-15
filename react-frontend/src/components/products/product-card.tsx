@@ -1,4 +1,5 @@
 import { Image } from "@/components/ui/image";
+import { FALLBACK_IMAGE } from "@/data/normalize";
 import { Link } from "@/components/ui/link";
 import { ArrowRight } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
@@ -26,6 +27,7 @@ export function ProductCard({ product }: { product: Product }) {
           <Image
             src={product.image}
             alt={product.name}
+            fallbackSrc={FALLBACK_IMAGE}
             width={600}
             height={600}
             sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"

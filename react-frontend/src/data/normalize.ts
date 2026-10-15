@@ -43,7 +43,8 @@ export interface RawCatalog {
   categoryMeta?: Record<string, RawCategoryMeta>;
 }
 
-const FALLBACK_IMAGE = "/categories/herbal-medicines.svg";
+/** Default image shown for any product or category lacking a usable image. */
+export const FALLBACK_IMAGE = "/categories/herbal-medicines.svg";
 
 /**
  * Presentation metadata (label, blurb, icon) for each known category slug.

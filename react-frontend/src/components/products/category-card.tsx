@@ -1,4 +1,5 @@
 import { Image } from "@/components/ui/image";
+import { FALLBACK_IMAGE } from "@/data/normalize";
 import { Link } from "@/components/ui/link";
 import {
   Activity,
@@ -52,6 +53,7 @@ export function CategoryCard({ category }: { category: Category }) {
         <Image
           src={category.image}
           alt={category.name}
+          fallbackSrc={FALLBACK_IMAGE}
           fill
           sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
           className="object-cover transition-transform duration-500 group-hover:scale-105"
