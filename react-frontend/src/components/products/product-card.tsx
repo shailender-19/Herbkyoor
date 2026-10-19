@@ -5,7 +5,6 @@ import { ArrowRight } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { buttonClasses } from "@/components/ui/button";
 import { PriceDisplay } from "@/components/ui/price";
-import { ProductRating } from "@/components/ui/rating";
 import { WhatsAppIcon } from "@/components/common/whatsapp-icon";
 import { productOrderUrl } from "@/lib/whatsapp";
 import { discountPercent } from "@/lib/format";
@@ -68,11 +67,7 @@ export function ProductCard({ product }: { product: Product }) {
           {product.shortDescription}
         </p>
 
-        <div className="mt-auto pt-3">
-          <ProductRating value={product.rating} reviewCount={product.reviewCount} />
-        </div>
-
-        <div className="mt-3 flex items-center justify-between">
+        <div className="mt-auto flex items-center justify-between pt-3">
           <PriceDisplay
             price={product.price}
             originalPrice={product.originalPrice}

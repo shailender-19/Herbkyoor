@@ -31,7 +31,6 @@ const priceRanges = [
 
 const sortOptions = [
   { id: "featured", label: "Featured" },
-  { id: "rating", label: "Top Rated" },
   { id: "price-asc", label: "Price: Low to High" },
   { id: "price-desc", label: "Price: High to Low" },
   { id: "discount", label: "Biggest Discount" },
@@ -118,8 +117,6 @@ export function ProductsExplorer({
 
     const sorted = [...list].sort((a, b) => {
       switch (sort) {
-        case "rating":
-          return b.rating - a.rating;
         case "price-asc":
           return a.price - b.price;
         case "price-desc":
@@ -127,10 +124,7 @@ export function ProductsExplorer({
         case "discount":
           return discountOf(b) - discountOf(a);
         default:
-          return (
-            Number(b.featured ?? false) - Number(a.featured ?? false) ||
-            b.rating - a.rating
-          );
+          return Number(b.featured ?? false) - Number(a.featured ?? false);
       }
     });
     return sorted;

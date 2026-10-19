@@ -51,6 +51,23 @@ function parse_number_or_null($value): ?float
     return ($clean === '' || !is_numeric($clean)) ? null : (float) $clean;
 }
 
+/**
+ * Coerce a stock flag from mixed input (bool, 1/0, "true"/"false", "yes"/"no")
+ * to a DB tinyint. `null`/unrecognized input falls back to $default — used so
+ * a create defaults to in-stock and an update keeps the current value.
+ */
+function parse_in_stock($value, bool $default = true): int
+{
+    if ($value === null) {
+        return $default ? 1 : 0;
+    }
+    $b = filter_var($value, FILTER_VALIDATE_BOOLEAN, FILTER_NULL_ON_FAILURE);
+    if ($b === null) {
+        return $default ? 1 : 0;
+    }
+    return $b ? 1 : 0;
+}
+
 /** URL-safe product slug (matches products.ts slugify). */
 function slugify_product(string $value): string
 {

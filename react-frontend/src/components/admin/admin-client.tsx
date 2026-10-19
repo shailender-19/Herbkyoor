@@ -48,6 +48,8 @@ interface RawProduct {
   product_safety?: string;
   discount: string | number;
   sceme: string;
+  /** Admin-controlled stock status (defaults to in-stock). */
+  in_stock?: boolean;
 }
 
 interface CategoryMeta {
@@ -704,8 +706,11 @@ function Panel({ onLogout }: { onLogout: () => void }) {
                             )}
                           </div>
                           <div className="min-w-0 flex-1">
-                            <p className="truncate font-medium text-forest-800">
-                              {p.product_name}
+                            <p className="flex items-center gap-2 font-medium text-forest-800">
+                              <span className="truncate">{p.product_name}</span>
+                              {p.in_stock === false && (
+                                <Badge tone="danger">Out of stock</Badge>
+                              )}
                             </p>
                             <p className="truncate text-xs text-forest-700/50">
                               {p.product_id}
@@ -1235,6 +1240,8 @@ function ProductModal({
   const [images, setImages] = useState<string[]>(
     product?.product_image_path_list ?? [],
   );
+  // Stock status — defaults to in-stock for new products.
+  const [inStock, setInStock] = useState<boolean>(product?.in_stock ?? true);
   const [error, setError] = useState<string | null>(null);
   const [busy, setBusy] = useState(false);
 
@@ -1266,6 +1273,7 @@ function ProductModal({
       product_safety: form.product_safety,
       product_image_path_list: images,
       size_available: toList(form.sizes),
+      in_stock: inStock,
     };
 
     const { ok, data } = isEdit
@@ -1282,8 +1290,23 @@ function ProductModal({
   };
 
   return (
-    <Modal open onClose={onClose} title={isEdit ? "Edit Product" : "Add Product"}>
-      <form onSubmit={submit} className="space-y-4">
+    <Modal
+      open
+      onClose={onClose}
+      title={isEdit ? "Edit Product" : "Add Product"}
+      footer={
+        <>
+          <Button variant="outline" type="button" onClick={onClose}>
+            Cancel
+          </Button>
+          <Button type="submit" form="product-form" disabled={busy}>
+            {busy && <Loader2 className="animate-spin" size={16} />}
+            {isEdit ? "Save Changes" : "Add Product"}
+          </Button>
+        </>
+      }
+    >
+      <form id="product-form" onSubmit={submit} className="space-y-4">
         <Input
           label="Product name"
           required
@@ -1331,6 +1354,41 @@ function ProductModal({
             <span className="text-forest-500">({discountNum}% off)</span>
           </p>
         )}
+        <div>
+          <span className="mb-1.5 block text-sm font-medium text-forest-800">
+            Availability
+          </span>
+          <div className="inline-flex rounded-xl border border-cream-300 bg-cream-50 p-1">
+            <button
+              type="button"
+              onClick={() => setInStock(true)}
+              aria-pressed={inStock}
+              className={`rounded-lg px-4 py-1.5 text-sm font-semibold transition-colors ${
+                inStock
+                  ? "bg-forest-600 text-cream-50 shadow-sm"
+                  : "text-forest-700/70 hover:bg-cream-100"
+              }`}
+            >
+              In stock
+            </button>
+            <button
+              type="button"
+              onClick={() => setInStock(false)}
+              aria-pressed={!inStock}
+              className={`rounded-lg px-4 py-1.5 text-sm font-semibold transition-colors ${
+                !inStock
+                  ? "bg-red-600 text-cream-50 shadow-sm"
+                  : "text-forest-700/70 hover:bg-cream-100"
+              }`}
+            >
+              Out of stock
+            </button>
+          </div>
+          <p className="mt-1 text-xs text-forest-700/50">
+            Out-of-stock products show an “Out of Stock” badge and hide the order
+            button on the storefront.
+          </p>
+        </div>
         <Textarea
           label="Sizes available"
           rows={2}
@@ -1381,15 +1439,6 @@ function ProductModal({
             {error}
           </p>
         )}
-        <div className="flex justify-end gap-3 pt-1">
-          <Button variant="outline" type="button" onClick={onClose}>
-            Cancel
-          </Button>
-          <Button type="submit" disabled={busy}>
-            {busy && <Loader2 className="animate-spin" size={16} />}
-            {isEdit ? "Save Changes" : "Add Product"}
-          </Button>
-        </div>
       </form>
     </Modal>
   );

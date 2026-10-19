@@ -12,7 +12,6 @@ import {
 import { Link } from "@/components/ui/link";
 import { Container } from "@/components/ui/container";
 import { PriceDisplay } from "@/components/ui/price";
-import { ProductRating } from "@/components/ui/rating";
 import { Badge } from "@/components/ui/badge";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { Spinner } from "@/components/ui/states";
@@ -98,11 +97,6 @@ export default function ProductDetailPage() {
     category: product.categoryName,
     url: productUrl,
     brand: { "@type": "Brand", name: siteConfig.name },
-    aggregateRating: {
-      "@type": "AggregateRating",
-      ratingValue: product.rating,
-      reviewCount: product.reviewCount,
-    },
     offers: {
       "@type": "Offer",
       url: productUrl,
@@ -163,11 +157,6 @@ export default function ProductDetailPage() {
             </h1>
 
             <div className="mt-3 flex flex-wrap items-center gap-4">
-              <ProductRating
-                value={product.rating}
-                reviewCount={product.reviewCount}
-                size="md"
-              />
               {product.inStock ? (
                 <span className="inline-flex items-center gap-1 text-sm font-medium text-forest-600">
                   <Check size={16} /> In Stock

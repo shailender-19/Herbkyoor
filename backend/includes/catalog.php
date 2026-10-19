@@ -147,7 +147,7 @@ function normalize_product(array $row, array $images, array $sizes): array
         'safety'           => $safety,
         'usage'            => USAGE_TEXT,
         'info'             => count($info) > 0 ? $info : null,
-        'inStock'          => true,
+        'inStock'          => (bool) ($row['in_stock'] ?? 1),
         'featured'         => (bool) $row['featured'],
         'tag'              => $scheme,
     ];
@@ -158,7 +158,7 @@ function get_all_products(PDO $pdo): array
 {
     $rows = $pdo->query(
         'SELECT p.product_id, p.slug, p.name, p.category, p.price, p.discount, p.scheme,
-                p.description, p.ingredients, p.benefits, p.safety, p.featured, c.name AS category_name
+                p.description, p.ingredients, p.benefits, p.safety, p.featured, p.in_stock, c.name AS category_name
          FROM products p
          LEFT JOIN categories c ON c.slug = p.category
          ORDER BY p.featured DESC, p.id'
@@ -263,6 +263,7 @@ function raw_product(array $row, array $images, array $sizes): array
         'product_safety'          => (string) ($row['safety'] ?? ''),
         'discount'                => decimal_to_raw($row['discount']),
         'sceme'                   => (string) ($row['scheme'] ?? ''),
+        'in_stock'                => (bool) ($row['in_stock'] ?? 1),
     ];
 }
 
@@ -270,7 +271,7 @@ function raw_product(array $row, array $images, array $sizes): array
 function admin_catalog(PDO $pdo): array
 {
     $cats = $pdo->query('SELECT slug, name, description, icon, image FROM categories ORDER BY sort_order, name')->fetchAll();
-    $rows = $pdo->query('SELECT product_id, name, price, category, description, ingredients, benefits, safety, discount, scheme FROM products ORDER BY id')->fetchAll();
+    $rows = $pdo->query('SELECT product_id, name, price, category, description, ingredients, benefits, safety, discount, scheme, in_stock FROM products ORDER BY id')->fetchAll();
     $ids = array_column($rows, 'product_id');
     $imgMap = fetch_images_map($pdo, $ids);
     $sizeMap = fetch_sizes_map($pdo, $ids);
@@ -301,7 +302,7 @@ function admin_catalog(PDO $pdo): array
 /** Fetch one raw product (or null) scoped to a category. */
 function fetch_raw_product(PDO $pdo, string $category, string $id): ?array
 {
-    $stmt = $pdo->prepare('SELECT product_id, name, price, category, description, ingredients, benefits, safety, discount, scheme FROM products WHERE product_id = ? AND category = ? LIMIT 1');
+    $stmt = $pdo->prepare('SELECT product_id, name, price, category, description, ingredients, benefits, safety, discount, scheme, in_stock FROM products WHERE product_id = ? AND category = ? LIMIT 1');
     $stmt->execute([$id, $category]);
     $row = $stmt->fetch();
     if (!$row) {
@@ -471,7 +472,7 @@ function admin_category_view(PDO $pdo, string $slug): array
     $stmt = $pdo->prepare('SELECT name, description, icon, image FROM categories WHERE slug = ? LIMIT 1');
     $stmt->execute([$slug]);
     $c = $stmt->fetch();
-    $rows = $pdo->prepare('SELECT product_id, name, price, category, description, ingredients, benefits, safety, discount, scheme FROM products WHERE category = ? ORDER BY id');
+    $rows = $pdo->prepare('SELECT product_id, name, price, category, description, ingredients, benefits, safety, discount, scheme, in_stock FROM products WHERE category = ? ORDER BY id');
     $rows->execute([$slug]);
     $rows = $rows->fetchAll();
     $ids = array_column($rows, 'product_id');
@@ -528,7 +529,7 @@ function create_product(PDO $pdo, array $input): array
 
     $pdo->beginTransaction();
     try {
-        $pdo->prepare('INSERT INTO products (product_id, slug, name, category, price, discount, scheme, description, ingredients, benefits, safety) VALUES (?,?,?,?,?,?,?,?,?,?,?)')
+        $pdo->prepare('INSERT INTO products (product_id, slug, name, category, price, discount, scheme, description, ingredients, benefits, safety, in_stock) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)')
             ->execute([
                 $id, $slug, $name, $category,
                 parse_number_or_null($input['product_price'] ?? null),
@@ -538,6 +539,7 @@ function create_product(PDO $pdo, array $input): array
                 trim((string) ($input['product_ingredients'] ?? '')) ?: null,
                 trim((string) ($input['product_benefits'] ?? '')) ?: null,
                 trim((string) ($input['product_safety'] ?? '')) ?: null,
+                parse_in_stock($input['in_stock'] ?? null),
             ]);
         replace_children($pdo, $id, $images, $sizes);
         $pdo->commit();
@@ -574,7 +576,7 @@ function update_product(PDO $pdo, string $category, string $id, array $input): a
 
     $pdo->beginTransaction();
     try {
-        $pdo->prepare('UPDATE products SET slug=?, name=?, category=?, price=?, discount=?, scheme=?, description=?, ingredients=?, benefits=?, safety=? WHERE product_id=?')
+        $pdo->prepare('UPDATE products SET slug=?, name=?, category=?, price=?, discount=?, scheme=?, description=?, ingredients=?, benefits=?, safety=?, in_stock=? WHERE product_id=?')
             ->execute([
                 $slug, $name, $target,
                 parse_number_or_null($input['product_price'] ?? null),
@@ -584,6 +586,7 @@ function update_product(PDO $pdo, string $category, string $id, array $input): a
                 trim((string) ($input['product_ingredients'] ?? '')) ?: null,
                 trim((string) ($input['product_benefits'] ?? '')) ?: null,
                 trim((string) ($input['product_safety'] ?? '')) ?: null,
+                parse_in_stock($input['in_stock'] ?? null, $existing['in_stock'] ?? true),
                 $id,
             ]);
         replace_children($pdo, $id, $images, $sizes);

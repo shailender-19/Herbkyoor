@@ -29,6 +29,8 @@ export interface RawProduct {
   product_safety?: string;
   discount: string | number;
   sceme: string;
+  /** Admin-controlled stock status. Absent in the bundled snapshot → in stock. */
+  in_stock?: boolean;
 }
 
 export interface RawCategoryMeta {
@@ -251,7 +253,7 @@ export function buildProducts(catalog: RawCatalog): Product[] {
         usage:
           "Use as directed by your Ayurvedic physician. Contact us on WhatsApp for detailed usage and dosage guidance.",
         info: Object.keys(info).length > 0 ? info : undefined,
-        inStock: true,
+        inStock: raw.in_stock ?? true,
         tag: scheme,
       };
     }),
