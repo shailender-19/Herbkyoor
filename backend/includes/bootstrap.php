@@ -28,6 +28,7 @@ require_once __DIR__ . '/response.php';
 require_once __DIR__ . '/validation.php';
 require_once __DIR__ . '/auth.php';
 require_once __DIR__ . '/catalog.php';
+require_once __DIR__ . '/doctors.php';
 
 // Uncaught throwables -> safe JSON. ApiError keeps its message/status; anything
 // else is logged and returned as a generic 500 (no leak of SQL/paths/traces).

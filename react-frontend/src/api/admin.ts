@@ -62,6 +62,27 @@ export const adminApi = {
       method: "POST",
     }),
 
+  // ---- Doctors (header "Consult a Doctor" roster) -----------------------
+  /** Public roster read — no auth; reused by the admin panel to list doctors. */
+  doctors: (): Promise<Result> => call("/doctors/list.php"),
+
+  createDoctor: (payload: Json): Promise<Result> =>
+    call("/admin/doctors/create.php", {
+      method: "POST",
+      body: JSON.stringify(payload),
+    }),
+
+  updateDoctor: (payload: Json): Promise<Result> =>
+    call("/admin/doctors/update.php", {
+      method: "POST",
+      body: JSON.stringify(payload),
+    }),
+
+  deleteDoctor: (id: string | number): Promise<Result> =>
+    call(`/admin/doctors/delete.php?id=${encodeURIComponent(String(id))}`, {
+      method: "POST",
+    }),
+
   // ---- Contact messages (user enquiries) --------------------------------
   messages: (): Promise<Result> => call("/admin/messages/list.php"),
 

@@ -9,11 +9,20 @@ interface ModalProps {
   onClose: () => void;
   title?: string;
   children: React.ReactNode;
+  /** Optional static footer (e.g. action buttons) pinned below the body. */
+  footer?: React.ReactNode;
   className?: string;
 }
 
 /** Accessible modal dialog with backdrop, Escape-to-close and scroll lock. */
-export function Modal({ open, onClose, title, children, className }: ModalProps) {
+export function Modal({
+  open,
+  onClose,
+  title,
+  children,
+  footer,
+  className,
+}: ModalProps) {
   const panelRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -49,11 +58,12 @@ export function Modal({ open, onClose, title, children, className }: ModalProps)
         ref={panelRef}
         tabIndex={-1}
         className={cn(
-          "relative z-10 max-h-[85vh] w-full max-w-lg overflow-y-auto rounded-2xl bg-cream-50 p-6 shadow-xl focus:outline-none animate-[scale-in_0.25s_ease-out]",
+          "relative z-10 flex max-h-[85vh] w-full max-w-lg flex-col overflow-hidden rounded-2xl bg-cream-50 shadow-xl focus:outline-none animate-[scale-in_0.25s_ease-out]",
           className,
         )}
       >
-        <div className="mb-4 flex items-start justify-between gap-4">
+        {/* Static header — stays pinned while the body scrolls. */}
+        <div className="flex shrink-0 items-start justify-between gap-4 border-b border-cream-300 bg-cream-50 px-6 py-4">
           {title && (
             <h2 className="text-xl font-bold text-forest-800">{title}</h2>
           )}
@@ -61,12 +71,19 @@ export function Modal({ open, onClose, title, children, className }: ModalProps)
             type="button"
             onClick={onClose}
             aria-label="Close dialog"
-            className="ml-auto flex h-10 w-10 shrink-0 items-center justify-center rounded-full text-forest-700 transition-colors hover:bg-cream-200"
+            className="-mr-1.5 ml-auto flex h-10 w-10 shrink-0 items-center justify-center rounded-full text-forest-700 transition-colors hover:bg-cream-200"
           >
             <X size={20} />
           </button>
         </div>
-        {children}
+        {/* Scrollable body. */}
+        <div className="overflow-y-auto px-6 py-5">{children}</div>
+        {/* Static footer — stays pinned while the body scrolls. */}
+        {footer && (
+          <div className="flex shrink-0 items-center justify-end gap-3 border-t border-cream-300 bg-cream-50 px-6 py-4">
+            {footer}
+          </div>
+        )}
       </div>
     </div>,
     document.body,

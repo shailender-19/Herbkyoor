@@ -14,6 +14,7 @@ import {
   Phone,
   Plus,
   RefreshCw,
+  Stethoscope,
   Trash2,
   Upload,
   X,
@@ -28,6 +29,7 @@ import { Input, Select, Textarea } from "@/components/ui/input";
 import { adminApi } from "@/api/admin";
 import { resolveAssetPath } from "@/api/client";
 import type { ContactMessage } from "@/types";
+import type { Doctor } from "@/data/doctors";
 
 // ---------------------------------------------------------------------------
 // Types (mirror the admin API payloads)
@@ -328,7 +330,7 @@ function LoginScreen({ onSuccess }: { onSuccess: () => void }) {
 // Panel
 // ---------------------------------------------------------------------------
 
-type Tab = "catalogue" | "messages";
+type Tab = "catalogue" | "doctors" | "messages";
 
 function Panel({ onLogout }: { onLogout: () => void }) {
   const [tab, setTab] = useState<Tab>("catalogue");
@@ -344,6 +346,11 @@ function Panel({ onLogout }: { onLogout: () => void }) {
   const [messagesLoading, setMessagesLoading] = useState(true);
   const [messagesError, setMessagesError] = useState<string | null>(null);
 
+  // Doctors (header "Consult a Doctor" roster)
+  const [doctors, setDoctors] = useState<Doctor[]>([]);
+  const [doctorsLoading, setDoctorsLoading] = useState(true);
+  const [doctorsError, setDoctorsError] = useState<string | null>(null);
+
   // Modal state
   const [editingProduct, setEditingProduct] = useState<{
     category: string;
@@ -352,9 +359,13 @@ function Panel({ onLogout }: { onLogout: () => void }) {
   const [editingCategory, setEditingCategory] = useState<
     AdminCategory | "new" | null
   >(null);
+  const [editingDoctor, setEditingDoctor] = useState<Doctor | "new" | null>(
+    null,
+  );
   const [confirm, setConfirm] = useState<
     | { kind: "product"; category: string; product: RawProduct }
     | { kind: "category"; category: AdminCategory }
+    | { kind: "doctor"; doctor: Doctor }
     | null
   >(null);
   const [busy, setBusy] = useState(false);
@@ -411,6 +422,22 @@ function Panel({ onLogout }: { onLogout: () => void }) {
     void loadMessages();
   }, [loadMessages]);
 
+  const loadDoctors = useCallback(async () => {
+    setDoctorsLoading(true);
+    const { ok, data } = await adminApi.doctors();
+    setDoctorsLoading(false);
+    if (!ok) {
+      setDoctorsError((data.error as string) ?? "Failed to load doctors.");
+      return;
+    }
+    setDoctors((data.doctors as Doctor[]) ?? []);
+    setDoctorsError(null);
+  }, []);
+
+  useEffect(() => {
+    void loadDoctors();
+  }, [loadDoctors]);
+
   const logout = async () => {
     await adminApi.logout();
     onLogout();
@@ -435,14 +462,17 @@ function Panel({ onLogout }: { onLogout: () => void }) {
             confirm.category,
             confirm.product.product_id,
           )
-        : await adminApi.deleteCategory(confirm.category.slug);
+        : confirm.kind === "category"
+          ? await adminApi.deleteCategory(confirm.category.slug)
+          : await adminApi.deleteDoctor(confirm.doctor.id);
     setBusy(false);
     if (!ok) {
       setError((data.error as string) ?? "Delete failed.");
       return;
     }
+    const kind = confirm.kind;
     setConfirm(null);
-    await load();
+    await (kind === "doctor" ? loadDoctors() : load());
   };
 
   return (
@@ -455,7 +485,11 @@ function Panel({ onLogout }: { onLogout: () => void }) {
               Admin
             </span>
             <h1 className="mt-1 text-3xl font-bold sm:text-4xl">
-              {tab === "catalogue" ? "Catalogue Management" : "Contact Messages"}
+              {tab === "catalogue"
+                ? "Catalogue Management"
+                : tab === "doctors"
+                  ? "Doctors"
+                  : "Contact Messages"}
             </h1>
             <p className="mt-2 text-sm text-forest-700/60">
               {tab === "catalogue" ? (
@@ -465,6 +499,11 @@ function Panel({ onLogout }: { onLogout: () => void }) {
                   <code className="rounded bg-cream-200 px-1 py-0.5 text-xs">
                     Product_list.json
                   </code>
+                </>
+              ) : tab === "doctors" ? (
+                <>
+                  {doctors.length} doctor{doctors.length === 1 ? "" : "s"} ·
+                  shown in the storefront “Consult a Doctor” modal
                 </>
               ) : (
                 <>
@@ -479,13 +518,31 @@ function Panel({ onLogout }: { onLogout: () => void }) {
             <Button
               variant="outline"
               size="sm"
-              onClick={tab === "catalogue" ? load : loadMessages}
-              disabled={tab === "catalogue" ? loading : messagesLoading}
+              onClick={
+                tab === "catalogue"
+                  ? load
+                  : tab === "doctors"
+                    ? loadDoctors
+                    : loadMessages
+              }
+              disabled={
+                tab === "catalogue"
+                  ? loading
+                  : tab === "doctors"
+                    ? doctorsLoading
+                    : messagesLoading
+              }
             >
               <RefreshCw
                 size={16}
                 className={
-                  (tab === "catalogue" ? loading : messagesLoading)
+                  (
+                    tab === "catalogue"
+                      ? loading
+                      : tab === "doctors"
+                        ? doctorsLoading
+                        : messagesLoading
+                  )
                     ? "animate-spin"
                     : undefined
                 }
@@ -505,6 +562,12 @@ function Panel({ onLogout }: { onLogout: () => void }) {
             onClick={() => setTab("catalogue")}
           >
             <Package size={16} /> Catalogue
+          </TabButton>
+          <TabButton
+            active={tab === "doctors"}
+            onClick={() => setTab("doctors")}
+          >
+            <Stethoscope size={16} /> Doctors
           </TabButton>
           <TabButton
             active={tab === "messages"}
@@ -693,6 +756,19 @@ function Panel({ onLogout }: { onLogout: () => void }) {
         </div>
         )}
 
+        {tab === "doctors" && (
+          <div className="mt-8">
+            <DoctorsPanel
+              doctors={doctors}
+              loading={doctorsLoading}
+              error={doctorsError}
+              onNew={() => setEditingDoctor("new")}
+              onEdit={(d) => setEditingDoctor(d)}
+              onDelete={(d) => setConfirm({ kind: "doctor", doctor: d })}
+            />
+          </div>
+        )}
+
         {tab === "messages" && (
           <div className="mt-8">
             <MessagesPanel
@@ -731,10 +807,27 @@ function Panel({ onLogout }: { onLogout: () => void }) {
         />
       )}
 
+      {editingDoctor && (
+        <DoctorModal
+          doctor={editingDoctor === "new" ? null : editingDoctor}
+          onClose={() => setEditingDoctor(null)}
+          onSaved={async () => {
+            setEditingDoctor(null);
+            await loadDoctors();
+          }}
+        />
+      )}
+
       <Modal
         open={!!confirm}
         onClose={() => setConfirm(null)}
-        title={confirm?.kind === "category" ? "Delete category?" : "Delete product?"}
+        title={
+          confirm?.kind === "category"
+            ? "Delete category?"
+            : confirm?.kind === "doctor"
+              ? "Delete doctor?"
+              : "Delete product?"
+        }
         className="max-w-sm"
       >
         <p className="text-sm text-forest-700/70">
@@ -750,6 +843,11 @@ function Panel({ onLogout }: { onLogout: () => void }) {
               This permanently removes{" "}
               <strong>{confirm.product.product_name}</strong> from the catalogue
               file.
+            </>
+          ) : confirm?.kind === "doctor" ? (
+            <>
+              This permanently removes{" "}
+              <strong>{confirm.doctor.name}</strong> from the doctors roster.
             </>
           ) : null}
         </p>
@@ -1439,6 +1537,259 @@ function CategoryModal({
             {isEdit ? "Save Changes" : "Create Category"}
           </Button>
         </div>
+      </form>
+    </Modal>
+  );
+}
+
+// ---------------------------------------------------------------------------
+// Doctors
+// ---------------------------------------------------------------------------
+
+function DoctorsPanel({
+  doctors,
+  loading,
+  error,
+  onNew,
+  onEdit,
+  onDelete,
+}: {
+  doctors: Doctor[];
+  loading: boolean;
+  error: string | null;
+  onNew: () => void;
+  onEdit: (d: Doctor) => void;
+  onDelete: (d: Doctor) => void;
+}) {
+  return (
+    <div className="space-y-4">
+      <div className="flex items-center justify-between">
+        <h2 className="text-sm font-semibold uppercase tracking-wide text-forest-700/70">
+          Roster
+        </h2>
+        <Button size="sm" onClick={onNew}>
+          <Plus size={16} /> New Doctor
+        </Button>
+      </div>
+
+      {error && (
+        <p className="rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-sm font-medium text-red-700">
+          {error}
+        </p>
+      )}
+
+      {loading ? (
+        <div className="flex items-center justify-center py-16 text-forest-600">
+          <Loader2 className="animate-spin" size={24} />
+        </div>
+      ) : doctors.length === 0 ? (
+        <EmptyState
+          icon={<Stethoscope size={28} />}
+          title="No doctors yet"
+          description="Add your first practitioner to show them in the storefront consult modal."
+        />
+      ) : (
+        <div className="grid gap-3 sm:grid-cols-2">
+          {doctors.map((d) => (
+            <div
+              key={d.id}
+              className="flex items-center gap-4 rounded-2xl border border-cream-300 bg-cream-50 p-4"
+            >
+              <div className="relative h-16 w-16 shrink-0 overflow-hidden rounded-full bg-forest-100 ring-1 ring-cream-300">
+                <Image
+                  src={resolveAssetPath(d.avatar) || "/avatars/avatar-1.svg"}
+                  alt={d.name}
+                  fill
+                  sizes="64px"
+                  className="h-full w-full object-cover object-center"
+                  fallbackSrc="/avatars/avatar-1.svg"
+                />
+              </div>
+              <div className="min-w-0 flex-1">
+                <div className="flex items-start justify-between gap-2">
+                  <div className="min-w-0">
+                    <p className="truncate text-sm font-semibold text-forest-900">
+                      {d.name}
+                    </p>
+                    <p className="truncate text-xs text-forest-700/60">
+                      {d.qualifications || "—"}
+                    </p>
+                  </div>
+                  {d.experience > 0 && (
+                    <Badge tone="muted">{d.experience}+ yrs</Badge>
+                  )}
+                </div>
+                {d.specialization && (
+                  <p className="mt-1 truncate text-xs font-medium text-forest-600">
+                    {d.specialization}
+                  </p>
+                )}
+                <div className="mt-3 flex gap-1">
+                  <IconButton label="Edit doctor" onClick={() => onEdit(d)}>
+                    <Pencil size={15} />
+                  </IconButton>
+                  <IconButton
+                    label="Delete doctor"
+                    className="hover:bg-red-50 hover:text-red-600"
+                    onClick={() => onDelete(d)}
+                  >
+                    <Trash2 size={15} />
+                  </IconButton>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      )}
+    </div>
+  );
+}
+
+function DoctorModal({
+  doctor,
+  onClose,
+  onSaved,
+}: {
+  doctor: Doctor | null;
+  onClose: () => void;
+  onSaved: () => void;
+}) {
+  const isEdit = !!doctor;
+  const [form, setForm] = useState({
+    name: doctor?.name ?? "",
+    qualifications: doctor?.qualifications ?? "",
+    specialization: doctor?.specialization ?? "",
+    experience: doctor ? String(doctor.experience) : "",
+    languages: doctor?.languages.join(", ") ?? "",
+    availability: doctor?.availability ?? "",
+    bio: doctor?.bio ?? "",
+  });
+  const [avatar, setAvatar] = useState<string>(doctor?.avatar ?? "");
+  const [error, setError] = useState<string | null>(null);
+  const [busy, setBusy] = useState(false);
+
+  const set = <K extends keyof typeof form>(key: K, value: string) =>
+    setForm((prev) => ({ ...prev, [key]: value }));
+
+  const submit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!form.name.trim()) {
+      setError("Name is required.");
+      return;
+    }
+    setBusy(true);
+    setError(null);
+
+    const payload = {
+      name: form.name.trim(),
+      qualifications: form.qualifications.trim(),
+      specialization: form.specialization.trim(),
+      experience: Number.parseInt(form.experience, 10) || 0,
+      languages: form.languages
+        .split(",")
+        .map((s) => s.trim())
+        .filter(Boolean),
+      availability: form.availability.trim(),
+      bio: form.bio.trim(),
+      avatar,
+    };
+
+    const { ok, data } = isEdit
+      ? await adminApi.updateDoctor({ id: doctor!.id, ...payload })
+      : await adminApi.createDoctor(payload);
+
+    setBusy(false);
+    if (ok) {
+      onSaved();
+    } else {
+      setError((data.error as string) ?? "Save failed.");
+    }
+  };
+
+  return (
+    <Modal
+      open
+      onClose={onClose}
+      title={isEdit ? "Edit Doctor" : "New Doctor"}
+      footer={
+        <>
+          <Button variant="outline" type="button" onClick={onClose}>
+            Cancel
+          </Button>
+          <Button type="submit" form="doctor-form" disabled={busy}>
+            {busy && <Loader2 className="animate-spin" size={16} />}
+            {isEdit ? "Save Changes" : "Create Doctor"}
+          </Button>
+        </>
+      }
+    >
+      <form id="doctor-form" onSubmit={submit} className="space-y-4">
+        <div className="grid gap-4 sm:grid-cols-2">
+          <Input
+            label="Full name"
+            required
+            value={form.name}
+            onChange={(e) => set("name", e.target.value)}
+            hint='e.g. "Dr. Aakash Jainer"'
+          />
+          <Input
+            label="Qualifications"
+            value={form.qualifications}
+            onChange={(e) => set("qualifications", e.target.value)}
+            hint='e.g. "BAMS, MD (Ayurveda)"'
+          />
+          <Input
+            label="Specialization"
+            value={form.specialization}
+            onChange={(e) => set("specialization", e.target.value)}
+            hint="e.g. Women's Health & Fertility"
+          />
+          <Input
+            label="Experience (years)"
+            type="number"
+            min={0}
+            value={form.experience}
+            onChange={(e) => set("experience", e.target.value)}
+          />
+          <Input
+            label="Languages"
+            value={form.languages}
+            onChange={(e) => set("languages", e.target.value)}
+            hint="Comma-separated, e.g. English, Hindi"
+          />
+          <Input
+            label="Availability"
+            value={form.availability}
+            onChange={(e) => set("availability", e.target.value)}
+            hint="e.g. Mon–Sat, 10 AM – 6 PM"
+          />
+        </div>
+        <Textarea
+          label="Bio"
+          rows={3}
+          value={form.bio}
+          onChange={(e) => set("bio", e.target.value)}
+          hint="A short professional summary (max 500 characters)."
+        />
+        <div>
+          <span className="mb-1.5 block text-sm font-medium text-forest-800">
+            Profile photo
+          </span>
+          <ImageManager
+            images={avatar ? [avatar] : []}
+            folder="doctors"
+            single
+            onChange={(imgs) => setAvatar(imgs[0] ?? "")}
+          />
+          <p className="mt-1 text-xs text-forest-700/50">
+            Optional — a square headshot looks best.
+          </p>
+        </div>
+        {error && (
+          <p className="text-sm font-medium text-red-600" role="alert">
+            {error}
+          </p>
+        )}
       </form>
     </Modal>
   );

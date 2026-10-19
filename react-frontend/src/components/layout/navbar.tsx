@@ -3,10 +3,11 @@ import { useEffect, useState } from "react";
 import { Image } from "@/components/ui/image";
 import { Link } from "@/components/ui/link";
 import { useLocation, useNavigate } from "react-router-dom";
-import { Menu, Search, X } from "lucide-react";
+import { Menu, Search, Stethoscope, X } from "lucide-react";
 import { Container } from "@/components/ui/container";
 import { SearchBar } from "@/components/common/search-bar";
 import { WhatsAppButton } from "@/components/common/whatsapp-button";
+import { SupportModal } from "@/components/layout/support-modal";
 import { whatsAppEnquiryUrl } from "@/lib/whatsapp";
 import { getCategories } from "@/data/categories";
 import { mainNav, siteConfig } from "@/config/site";
@@ -27,6 +28,7 @@ export function Navbar() {
 
   const [menuOpen, setMenuOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
+  const [supportOpen, setSupportOpen] = useState(false);
   const [query, setQuery] = useState("");
   const [scrolled, setScrolled] = useState(false);
   const [searchHints, setSearchHints] = useState<string[]>(
@@ -55,6 +57,7 @@ export function Navbar() {
     setPrevPath(pathname);
     setMenuOpen(false);
     setSearchOpen(false);
+    setSupportOpen(false);
   }
 
   // Elevate navbar after scrolling a little.
@@ -140,6 +143,19 @@ export function Navbar() {
                 <Search size={20} />
               </button>
 
+              {/* Support: consult a doctor */}
+              <button
+                type="button"
+                onClick={() => setSupportOpen(true)}
+                aria-label="Consult a doctor"
+                aria-haspopup="dialog"
+                title="Consult a doctor"
+                className="relative flex h-10 w-10 items-center justify-center rounded-full text-forest-700 transition-colors hover:bg-cream-200"
+              >
+                <Stethoscope size={20} />
+                <span className="absolute right-1.5 top-1.5 h-2 w-2 rounded-full bg-gold-400 ring-2 ring-cream-50" />
+              </button>
+
               {/* WhatsApp CTA (desktop) */}
               <div className="ml-1 hidden lg:block">
                 <WhatsAppButton
@@ -211,6 +227,9 @@ export function Navbar() {
           </nav>
         </Container>
       </div>
+
+      {/* Doctors / support modal */}
+      <SupportModal open={supportOpen} onClose={() => setSupportOpen(false)} />
     </header>
   );
 }
