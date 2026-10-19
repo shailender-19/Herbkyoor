@@ -8,8 +8,18 @@ import { Container } from "@/components/ui/container";
 import { SearchBar } from "@/components/common/search-bar";
 import { WhatsAppButton } from "@/components/common/whatsapp-button";
 import { whatsAppEnquiryUrl } from "@/lib/whatsapp";
+import { getCategories } from "@/data/categories";
 import { mainNav, siteConfig } from "@/config/site";
 import { cn } from "@/lib/utils";
+
+const FALLBACK_SEARCH_HINTS = [
+  "Search for thyroid care",
+  "Search for liver care",
+  "Search for heart care",
+  "Search for kidney care",
+  "Search for knee & joint pain",
+  "Search for sexual wellness",
+];
 
 export function Navbar() {
   const pathname = useLocation().pathname;
@@ -19,6 +29,25 @@ export function Navbar() {
   const [searchOpen, setSearchOpen] = useState(false);
   const [query, setQuery] = useState("");
   const [scrolled, setScrolled] = useState(false);
+  const [searchHints, setSearchHints] = useState<string[]>(
+    FALLBACK_SEARCH_HINTS,
+  );
+
+  // Build rotating search placeholders from the live category list.
+  useEffect(() => {
+    let active = true;
+    getCategories()
+      .then((cats) => {
+        if (!active || !cats.length) return;
+        setSearchHints(cats.map((c) => `Search for ${c.name.toLowerCase()}`));
+      })
+      .catch(() => {
+        /* keep the fallback hints */
+      });
+    return () => {
+      active = false;
+    };
+  }, []);
 
   // Close any open menus when the route changes (render-time adjustment).
   const [prevPath, setPrevPath] = useState(pathname);
@@ -79,10 +108,8 @@ export function Navbar() {
                   key={item.href}
                   href={item.href}
                   className={cn(
-                    "rounded-full px-4 py-2 text-sm font-medium transition-colors",
-                    isActive(item.href)
-                      ? "bg-forest-50 text-forest-800"
-                      : "text-forest-700 hover:bg-cream-200",
+                    "nav-link",
+                    isActive(item.href) && "nav-link-active",
                   )}
                 >
                   {item.label}
@@ -96,6 +123,7 @@ export function Navbar() {
                 value={query}
                 onChange={setQuery}
                 onSubmit={submitSearch}
+                rotatingPlaceholders={searchHints}
               />
             </div>
 
@@ -141,6 +169,7 @@ export function Navbar() {
                 value={query}
                 onChange={setQuery}
                 onSubmit={submitSearch}
+                rotatingPlaceholders={searchHints}
                 autoFocus
               />
             </div>
@@ -163,10 +192,10 @@ export function Navbar() {
                 key={item.href}
                 href={item.href}
                 className={cn(
-                  "rounded-xl px-4 py-3 text-base font-medium transition-colors",
+                  "rounded-xl px-4 py-3 text-base font-medium transition-colors border-l-4",
                   isActive(item.href)
-                    ? "bg-forest-50 text-forest-800"
-                    : "text-forest-700 hover:bg-cream-200",
+                    ? "bg-gradient-to-r from-forest-500 to-forest-700 text-cream-50 border-gold-400 shadow-sm"
+                    : "text-forest-700 border-transparent hover:bg-cream-200 hover:border-gold-300",
                 )}
               >
                 {item.label}

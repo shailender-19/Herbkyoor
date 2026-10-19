@@ -71,6 +71,8 @@
   --animate-slide-up: slide-up 0.6s cubic-bezier(0.22, 1, 0.36, 1) both;
   --animate-scale-in: scale-in 0.4s ease-out both;
   --animate-marquee: marquee 28s linear infinite;
+  /* One cycle of a rotating search placeholder: fade/slide in, hold, out */
+  --animate-placeholder-cycle: placeholder-cycle 2s ease-in-out both;
   /* Ambient drifting background blobs (home page) */
   --animate-blob-1: blob-1 22s ease-in-out infinite;
   --animate-blob-2: blob-2 28s ease-in-out infinite;
@@ -109,6 +111,22 @@
   to {
     opacity: 1;
     transform: scale(1);
+  }
+}
+
+@keyframes placeholder-cycle {
+  0% {
+    opacity: 0;
+    transform: translateY(70%);
+  }
+  12%,
+  88% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-70%);
   }
 }
 
@@ -267,6 +285,67 @@
 
   .text-balance {
     text-wrap: balance;
+  }
+}
+
+@layer components {
+  /* ---- Header navigation tabs ---- */
+  .nav-link {
+    position: relative;
+    border-radius: 9999px;
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--color-forest-700);
+    transition:
+      color 0.2s ease,
+      background-color 0.2s ease,
+      transform 0.2s ease;
+  }
+  .nav-link:hover {
+    color: var(--color-forest-900);
+    background-color: var(--color-cream-200);
+    transform: translateY(-1px);
+  }
+  /* Animated gold underline that grows from the center */
+  .nav-link::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: 0.3rem;
+    height: 2px;
+    width: 0;
+    border-radius: 2px;
+    background: linear-gradient(
+      90deg,
+      var(--color-gold-400),
+      var(--color-gold-600)
+    );
+    transform: translateX(-50%);
+    transition: width 0.25s ease;
+  }
+  .nav-link:hover::after {
+    width: 55%;
+  }
+  /* Active tab: solid forest pill with a soft glow + full underline */
+  .nav-link-active,
+  .nav-link-active:hover {
+    color: var(--color-cream-50);
+    background: linear-gradient(
+      135deg,
+      var(--color-forest-500),
+      var(--color-forest-700)
+    );
+    box-shadow: 0 4px 14px -4px rgb(39 74 55 / 0.5);
+  }
+  .nav-link-active::after,
+  .nav-link-active:hover::after {
+    width: 55%;
+    background: linear-gradient(
+      90deg,
+      var(--color-gold-300),
+      var(--color-gold-500)
+    );
   }
 }
 

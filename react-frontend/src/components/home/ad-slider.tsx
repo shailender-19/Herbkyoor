@@ -39,7 +39,7 @@ export function AdvertisementSlider({ ads }: { ads: Advertisement[] }) {
 
   return (
     <div
-      className="group relative aspect-[16/9] overflow-hidden rounded-3xl border border-cream-300 bg-cream-50 shadow-sm sm:aspect-[2/1]"
+      className="group relative aspect-[3/1] w-full overflow-hidden bg-cream-50"
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
       onFocusCapture={() => setPaused(true)}

@@ -11,11 +11,6 @@ import {
 import { mainNav, siteConfig, telHref } from "@/config/site";
 import { whatsAppEnquiryUrl } from "@/lib/whatsapp";
 
-const legalLinks = [
-  { label: "Privacy Policy", href: "/privacy-policy" },
-  { label: "Terms & Conditions", href: "/terms" },
-];
-
 export function Footer() {
   return (
     <footer className="mt-20 bg-forest-900 text-cream-100">
@@ -111,6 +106,15 @@ export function Footer() {
               </li>
               <li>
                 <a
+                  href={`mailto:${siteConfig.contact.jainerEmail}`}
+                  className="flex items-center gap-2.5 transition-colors hover:text-gold-300"
+                >
+                  <Mail size={17} className="shrink-0 text-gold-400" />
+                  {siteConfig.contact.jainerEmail}
+                </a>
+              </li>
+              <li>
+                <a
                   href={whatsAppEnquiryUrl()}
                   target="_blank"
                   rel="noopener noreferrer"
@@ -125,18 +129,24 @@ export function Footer() {
         </div>
 
         <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-forest-800 pt-6 text-sm text-cream-100/60 sm:flex-row">
-          <p>
-            © {new Date().getFullYear()} {siteConfig.name}. All rights reserved.
-          </p>
-          <ul className="flex flex-wrap items-center gap-x-5 gap-y-2">
-            {legalLinks.map((l) => (
-              <li key={l.href}>
-                <Link href={l.href} className="hover:text-gold-300">
-                  {l.label}
-                </Link>
-              </li>
-            ))}
-          </ul>
+          <div className="flex flex-col items-center gap-3 sm:flex-row sm:items-start">
+            <span className="inline-flex items-center rounded-lg bg-cream-50 px-2.5 py-1.5">
+              <Image
+                src="/brand/jainer-healthcare-logo.jpeg"
+                alt="Jainer Healthcare logo"
+                width={1030}
+                height={480}
+                className="h-12 w-auto object-contain"
+              />
+            </span>
+            <div className="space-y-1 text-center sm:text-left">
+              <p className="font-medium text-cream-100/80">
+                Herbskyoor — A Unit of Jainer Healthcare
+              </p>
+              <p>©️ {new Date().getFullYear()} Jainer Healthcare. All Rights Reserved.</p>
+              <p>Mohan Nagar, Ghaziabad, UP. Bharat</p>
+            </div>
+          </div>
         </div>
       </Container>
     </footer>

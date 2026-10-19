@@ -79,9 +79,9 @@ export function Hero() {
 
         {/* Visual */}
         <div className="relative animate-scale-in">
-          <div className="relative mx-auto aspect-[4/5] w-full max-w-md overflow-hidden rounded-[2rem] border border-cream-300 shadow-xl">
+          <div className="relative mx-auto aspect-[3/2] w-full max-w-lg overflow-hidden rounded-[2rem] border border-cream-300 shadow-xl">
             <Image
-              src="/hero-ayurveda.svg"
+              src="/hero-ayurveda.png"
               alt="Authentic Ayurvedic herbs and wellness"
               fill
               priority

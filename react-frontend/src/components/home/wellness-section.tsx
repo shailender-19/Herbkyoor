@@ -18,10 +18,10 @@ export function WellnessSection() {
       <Container>
         <div className="grid items-center gap-10 lg:grid-cols-2">
           <Reveal>
-            <div className="relative mx-auto aspect-[5/4] w-full max-w-lg overflow-hidden rounded-[2rem] border border-cream-300 shadow-lg">
+            <div className="relative mx-auto aspect-[16/11] w-full max-w-lg overflow-hidden rounded-[2rem] border border-cream-300 shadow-lg">
               <Image
-                src="/wellness-apothecary.svg"
-                alt={`${siteConfig.name} — traditional Ayurvedic apothecary with mortar, pestle and herbs`}
+                src="/about-family-garden.jpeg"
+                alt={`${siteConfig.name} — a happy family together in a lush herbal garden`}
                 fill
                 sizes="(max-width: 1024px) 90vw, 45vw"
                 className="object-cover"

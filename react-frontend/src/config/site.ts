@@ -37,6 +37,7 @@ export const siteConfig = {
   /** Contact details */
   contact: {
     email: env.VITE_CONTACT_EMAIL ?? "care@herbskyoor.in",
+    jainerEmail: env.VITE_JAINER_EMAIL ?? "jainerhealthcare@herbskyoor.com",
     /** Primary number — kept for single-number consumers. */
     phone: phones[0],
     /** All contact numbers, in display order. */
